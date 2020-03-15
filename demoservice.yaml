@@ -18,6 +18,6 @@
           containers:
             - name: hello-cip-container
               image: ngriebenow/hello-cip
-              imagePullPolicy: never
+              imagePullPolicy: Never
               ports:
                 - containerPort: 80
