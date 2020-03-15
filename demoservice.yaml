@@ -1,0 +1,23 @@
+---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: hello-cip-deployment
+      labels:
+        app: web
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: web
+      template:
+        metadata:
+          labels:
+            app: web
+        spec:
+          containers:
+            - name: hello-cip-container
+              image: ngriebenow/hello-cip
+              imagePullPolicy: never
+              ports:
+                - containerPort: 80
