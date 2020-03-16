@@ -10,7 +10,7 @@ variables:
     APP_FOLDER: container/actor-registry
 
 services:
-    - docker:dind
+    #- docker:dind
 
 stages:
     - deploy
@@ -18,6 +18,15 @@ stages:
 deploy-image:
     stage: deploy
     script:
+        # Install CA certs, openssl to https downloads, python for gcloud sdk
+        - apk add --update make ca-certificates openssl python
+        - update-ca-certificates
+
+        # Download and install Google Cloud SDK
+        - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+        - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
+        - PATH="google-cloud-sdk/bin:${PATH}"
+        
         - echo $GC_SERVICE_KEY | base64 -d > $HOME/key.json
         - gcloud services enable container.googleapis.com
         # gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=$MIN_NODES --enable-autoscaling --max-nodes=$MAX_NODES --min-nodes=$MIN_NODES
