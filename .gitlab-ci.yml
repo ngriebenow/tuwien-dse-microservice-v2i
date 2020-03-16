@@ -42,5 +42,5 @@ deploy-image:
         - gcloud builds submit $APP_FOLDER --tag gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME
         # - docker build . --tag $IMAGE_USERNAME/$APP_NAME
         # - docker push gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME
-        - kubectl apply -f deployment.yaml
-        - kubectl apply -f service.yaml
+        - kubectl apply -f $APP_FOLDER/deployment.yaml
+        - kubectl apply -f $APP_FOLDER/service.yaml
