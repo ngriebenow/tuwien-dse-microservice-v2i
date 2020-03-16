@@ -24,10 +24,9 @@ stages:
 deploy-image:
     stage: deploy
     script:
-
-        
         - echo $GC_SERVICE_KEY | base64 -d > $HOME/key.json
         - gcloud config set project $PROJECT
+        - gcloud auth activate-service-account --key-file key.json
         - gcloud services enable container.googleapis.com
         # gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=$MIN_NODES --enable-autoscaling --max-nodes=$MAX_NODES --min-nodes=$MIN_NODES
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
