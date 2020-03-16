@@ -35,7 +35,8 @@ deploy-image:
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
         - cd $APP_FOLDER
-        - docker build . --tag $IMAGE_USERNAME/$APP_NAME
-        - docker push gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME
+        - gcloud builds submit --tag gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME
+        # - docker build . --tag $IMAGE_USERNAME/$APP_NAME
+        # - docker push gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME
         - kubectl apply -f deployment.yaml
         - kubectl apply -f service.yaml
