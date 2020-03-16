@@ -1,6 +1,3 @@
-variables:
-    APP_NAME=actorregistry
-
 services:
     - docker:dind
 
