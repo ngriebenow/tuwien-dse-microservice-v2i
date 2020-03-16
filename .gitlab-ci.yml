@@ -9,6 +9,10 @@ variables:
     APP_NAME: actor-registry
     APP_FOLDER: container/actor-registry
 
+before_script:
+  - apt-get -qq update && apt-get -qq install -y google-cloud-sdk
+  - apt-get -qq update
+
 services:
     #- docker:dind
 
@@ -18,10 +22,6 @@ stages:
 deploy-image:
     stage: deploy
     script:
-        # Install CA certs, openssl to https downloads, python for gcloud sdk
-        - apk add --update make ca-certificates openssl python
-        - update-ca-certificates
-
         # Download and install Google Cloud SDK
         - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
         - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
