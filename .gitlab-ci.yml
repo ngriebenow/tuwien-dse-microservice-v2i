@@ -17,7 +17,7 @@ before_script:
     - PATH="google-cloud-sdk/bin:${PATH}"
 
 services:
-    #- docker:dind
+    - docker:dind
 
 stages:
     - deploy
