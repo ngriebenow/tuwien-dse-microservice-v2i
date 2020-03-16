@@ -27,9 +27,9 @@ deploy-image:
 
         
         - echo $GC_SERVICE_KEY | base64 -d > $HOME/key.json
+        - gcloud config set project $PROJECT
         - gcloud services enable container.googleapis.com
         # gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=$MIN_NODES --enable-autoscaling --max-nodes=$MAX_NODES --min-nodes=$MIN_NODES
-        - gcloud config set project $PROJECT
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
         - cd $APP_FOLDER
