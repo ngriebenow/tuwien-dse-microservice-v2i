@@ -15,6 +15,7 @@ before_script:
     - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
     - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
     - PATH="google-cloud-sdk/bin:${PATH}"
+    - snap install kubectl
 
 services:
     # - docker:dind
