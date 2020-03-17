@@ -62,6 +62,7 @@ deploy-job:
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
         - gcloud builds submit $APP_FOLDER_SVC1 --tag gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME_SVC1
+        - gcloud endpoints services deploy $APP_FOLDER_SVC1/openapi.yaml
         # - cd $APP_FOLDER
         # - docker build . --tag $IMAGE_USERNAME/$APP_NAME
         # - docker push gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME

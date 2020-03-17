@@ -1,0 +1,49 @@
+swagger: "2.0"
+info:
+  description: "A simple Google Cloud Endpoints API example."
+  title: "Endpoints Example"
+  version: "1.0.0"
+host: "echo-api.endpoints.maestermiddleware.cloud.goog"
+x-google-endpoints:
+  - name: "echo-api.endpoints.maestermiddleware.cloud.goog"
+    target: "35.246.210.242"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+schemes:
+  - "http"  
+paths:
+  "/echo":
+    post:
+      description: "Echo back a given message."
+      operationId: "echo"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Echo"
+          schema:
+            $ref: "#/definitions/echoMessage"
+      parameters:
+        -
+          description: "Message to echo"
+          in: body
+          name: message
+          required: true
+          schema:
+            $ref: "#/definitions/echoMessage"
+      security:
+        - api_key: []
+definitions:
+  echoMessage:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+securityDefinitions:
+  # This section configures basic authentication with an API key.
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"

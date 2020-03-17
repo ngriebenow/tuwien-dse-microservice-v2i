@@ -20,4 +20,4 @@
           - name: actor-registry-container
             image: gcr.io/dse-ss20-grp20/actor-registry
             ports:
-              - containerPort: 80
+              - containerPort: 8080
