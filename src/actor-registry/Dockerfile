@@ -5,9 +5,8 @@ FROM maven:3.6.0-jdk-11-slim
 COPY src src
 COPY pom.xml pom.xml
 
-
 EXPOSE 8080
-RUN mvn clean compile spring-boot:run
+CMD mvn clean compile spring-boot:run
 
 #
 # Package stage
