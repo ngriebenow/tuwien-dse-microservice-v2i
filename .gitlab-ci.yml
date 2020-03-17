@@ -6,15 +6,8 @@ variables:
     MIN_NODES: 1
     MAX_NODES: 3    
     IMAGE_USERNAME: dse-ss20-grp20
-    APP_NAME: actor-registry
-    APP_FOLDER: src/actor-registry
-
-
-before_script:
-    #
-
-services:
-    # - docker:dind
+    APP_NAME_SVC1: actor-registry
+    APP_FOLDER_SVC1: src/actor-registry
 
 stages:
     - build
@@ -25,20 +18,29 @@ build-job:
     stage: build
     image: maven:3.6.0-jdk-11-slim
     script:
-        - cd $APP_FOLDER
+        - cd $APP_FOLDER_SVC1
         - mvn clean compile
-    
+    only:
+        refs:
+        - dev
+        - master 
 
 test-job:
     stage: test
     image: maven:3.6.0-jdk-11-slim
     script:
-        - cd $APP_FOLDER
+        - cd $APP_FOLDER_SVC1
         - mvn clean test
+    only:
+        refs:
+        - dev
+        - master
 
 
 deploy-job:
     stage: deploy
+    only:
+    - master
     script:
         # Download Google Cloud SDK
         - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
@@ -59,9 +61,11 @@ deploy-job:
         # gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=$MIN_NODES --enable-autoscaling --max-nodes=$MAX_NODES --min-nodes=$MIN_NODES
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
+        - gcloud builds submit $APP_FOLDER_SVC1 --tag gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME_SVC1
         # - cd $APP_FOLDER
-        - gcloud builds submit $APP_FOLDER --tag gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME
         # - docker build . --tag $IMAGE_USERNAME/$APP_NAME
         # - docker push gcr.io/$PROJECT/$IMAGE_USERNAME/$APP_NAME
-        - kubectl apply -f $APP_FOLDER/deployment.yaml
-        - kubectl apply -f $APP_FOLDER/service.yaml
+        - kubectl apply -f $APP_FOLDER_SVC1/deployment.yaml
+        - kubectl apply -f $APP_FOLDER_SVC1/service.yaml
+        # SVC2: - kubectl apply -f $APP_FOLDER_SVC2/deployment.yaml
+        # SVC3: - kubectl apply -f $APP_FOLDER_SVC2/service.yaml       
