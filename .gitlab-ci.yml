@@ -58,6 +58,9 @@ deploy-job:
         - gcloud auth activate-service-account --key-file $HOME/key.json
         - gcloud services enable container.googleapis.com
         - gcloud services enable cloudbuild.googleapis.com
+        - gcloud services enable servicemanagement.googleapis.com
+        - gcloud services enable servicecontrol.googleapis.com
+        - gcloud services enable endpoints.googleapis.com
         # gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=$MIN_NODES --enable-autoscaling --max-nodes=$MAX_NODES --min-nodes=$MIN_NODES
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
