@@ -11,10 +11,11 @@ variables:
 
 
 before_script:
-    # Download and install Google Cloud SDK
+    # Download Google Cloud SDK
     - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
     - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
     - PATH="google-cloud-sdk/bin:${PATH}"
+    # Download kubectl
     - sudo apt-get update && sudo apt-get install -y apt-transport-https
     - curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
     - echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
@@ -25,9 +26,27 @@ services:
     # - docker:dind
 
 stages:
+    - build
+    - test
     - deploy
 
-deploy-image:
+build-job:
+    stage: build
+    image: maven:3.6.0-jdk-11-slim
+    script:
+        - cd $APP_FOLDER
+        - mvn clean compile
+    
+
+test-job:
+    stage: test
+    image: maven:3.6.0-jdk-11-slim
+    script:
+        - cd $APP_FOLDER
+        - mvn clean test
+
+
+deploy-job:
     stage: deploy
     script:
         - echo $GC_SERVICE_KEY | base64 -d > $HOME/key.json
