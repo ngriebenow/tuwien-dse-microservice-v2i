@@ -2,22 +2,22 @@
   apiVersion: apps/v1
   kind: Deployment
   metadata:
-    name: actor-registry-deployment
+    name: actor-simulator-deployment
     labels:
-      app: actor-registry-deployment
+      app: actor-simulator-deployment
   spec:
     replicas: 1
     selector:
       matchLabels:
-        app: actor-registry-deployment
+        app: actor-simulator-deployment
     template:
       metadata:
         labels:
-          app: actor-registry-deployment
+          app: actor-simulator-deployment
           tier: web
       spec:
         containers:
-          - name: actor-registry-container
-            image: gcr.io/dse20-group-20/actor-registry
+          - name: actor-simulator-container
+            image: gcr.io/dse20-group-20/actor-simulator
             ports:
               - containerPort: 8080

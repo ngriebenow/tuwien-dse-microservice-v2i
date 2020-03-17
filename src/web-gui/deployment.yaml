@@ -2,22 +2,22 @@
   apiVersion: apps/v1
   kind: Deployment
   metadata:
-    name: actor-registry-deployment
+    name: web-gui-deployment
     labels:
-      app: actor-registry-deployment
+      app: web-gui-deployment
   spec:
     replicas: 1
     selector:
       matchLabels:
-        app: actor-registry-deployment
+        app: web-gui-deployment
     template:
       metadata:
         labels:
-          app: actor-registry-deployment
+          app: web-gui-deployment
           tier: web
       spec:
         containers:
-          - name: actor-registry-container
-            image: gcr.io/dse20-group-20/actor-registry
+          - name: web-gui-container
+            image: gcr.io/dse20-group-20/web-gui
             ports:
               - containerPort: 8080

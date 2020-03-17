@@ -2,22 +2,22 @@
   apiVersion: apps/v1
   kind: Deployment
   metadata:
-    name: actor-registry-deployment
+    name: status-tracking-deployment
     labels:
-      app: actor-registry-deployment
+      app: status-tracking-deployment
   spec:
     replicas: 1
     selector:
       matchLabels:
-        app: actor-registry-deployment
+        app: status-tracking-deployment
     template:
       metadata:
         labels:
-          app: actor-registry-deployment
+          app: status-tracking-deployment
           tier: web
       spec:
         containers:
-          - name: actor-registry-container
-            image: gcr.io/dse20-group-20/actor-registry
+          - name: status-tracking-container
+            image: gcr.io/dse20-group-20/status-tracking
             ports:
               - containerPort: 8080
