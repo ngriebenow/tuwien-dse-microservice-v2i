@@ -46,8 +46,8 @@ test-job:
     rules:
         - if: '$SHUTDOWN == "1"'
           when: never
-        #- if: '$CI_COMMIT_BRANCH == "master"'
-        #- if: '$CI_COMMIT_BRANCH == "dev"'
+        - if: '$CI_COMMIT_BRANCH == "master"'
+        - if: '$CI_COMMIT_BRANCH == "dev"'
 
 deploy-job:
     stage: deploy
