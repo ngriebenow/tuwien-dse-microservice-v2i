@@ -3,9 +3,9 @@ info:
   description: "A simple Google Cloud Endpoints API example."
   title: "Endpoints Example"
   version: "1.0.0"
-host: "echo-api.endpoints.dse20-group-20.cloud.goog"
+host: "echo-api.endpoints.dse20-group-20-271413.cloud.goog"
 x-google-endpoints:
-  - name: "echo-api.endpoints.dse20-group-20.cloud.goog"
+  - name: "echo-api.endpoints.dse20-group-20-271413.cloud.goog"
     target: "35.246.210.242"
 consumes:
   - "application/json"
