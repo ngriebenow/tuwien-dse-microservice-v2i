@@ -50,12 +50,12 @@ test-job:
         - cd $APP_FOLDER_SVC1
         - mvn clean test
     rules:
-        - if: '$SHUTDOWN == "1"'
-          when: never
-        - if: 'CI_COMMIT_BRANCH == "master"'
-          when: always
-        - if: 'CI_COMMIT_BRANCH == "dev"'
-          when: always
+        - if: '$SHUTDOWN != "1"'
+        #  when: never
+        #- if: 'CI_COMMIT_BRANCH == "master"'
+        #  when: always
+        #- if: 'CI_COMMIT_BRANCH == "dev"'
+        #  when: always
 
 
 deploy-job:
