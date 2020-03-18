@@ -44,14 +44,16 @@ test-job:
         - cd $APP_FOLDER_SVC1
         - mvn clean test
     rules:
-        - if: '$SHUTDOWN != "1"'
-        - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "dev"'
-
+        - if: '$SHUTDOWN == "1"'
+          when: never
+        - if: '$CI_COMMIT_BRANCH == "master"'
+        - if: '$CI_COMMIT_BRANCH == "dev"'
 
 deploy-job:
     stage: deploy
     rules:
-        - if: '$SHUTDOWN != "1"'
+        - if: '$SHUTDOWN == "1"'
+          when: never
         - if: '$CI_COMMIT_BRANCH == "master"'
     script:
         # Download Google Cloud SDK
