@@ -11,6 +11,22 @@ stages:
     - build
     - test
     - deploy
+    - shutdown
+
+shutdown-job:
+    stage: shutdown
+    script:
+        # Download Google Cloud SDK
+        - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+        - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
+        - PATH="google-cloud-sdk/bin:${PATH}"
+        - gcloud config set project $PROJECT
+        - gcloud auth activate-service-account --key-file key_test_gcp.json
+        - gcloud container clusters delete "$CLUSTER"
+    rules:
+        - if: '$SHUTDOWN == "1"'
+          when: always
+    
 
 build-job:
     stage: build
@@ -20,8 +36,8 @@ build-job:
         - mvn clean compile
     only:
         refs:
-        - dev
-        - master 
+        #- dev
+        #- master 
 
 test-job:
     stage: test
