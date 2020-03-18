@@ -1,30 +1,22 @@
-cd src/actor-registry
-docker build -t actor-registry .
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-cd ../..
+export PATH_ACTOR_REGISTRY=src/actor-registry
+export NAME_ACTOR_REGISTRY=actor-registry
 
-#cd src/actor-control
-#docker build -t actor-control .
-#kubectl apply -f deployment.yaml
-#kubectl apply -f service.yaml
-#cd ../..
+export PATH_ACTOR_SIMULATOR=src/actor-simulator
+export NAME_ACTOR_SIMULATOR=actor-simulator
 
-#cd src/actor-simulator
-#docker build -t actor-simulator .
-#kubectl apply -f deployment.yaml
-#kubectl apply -f service.yaml
-#cd ../..
+export PATH_ACTOR_CONTROL=src/actor-control
+export NAME_ACTOR_CONTROL=actor-control
 
-#cd src/status-tracking
-#docker build -t status-tracking .
-#kubectl apply -f deployment.yaml
-#kubectl apply -f service.yaml
-#cd ../..
+export PATH_STATUS_TRACKING=src/status-tracking
+export NAME_STATUS_TRACKING=status-tracking
 
-#cd src/web-gui
-#docker build -t web-gui .
-#kubectl apply -f deployment.yaml
-#kubectl apply -f service.yaml
-#cd ../..
+export PATH_WEB_GUI=src/web-gui
+export NAME_WEB_GUI=web-gui
+
+gcloud builds submit $PATH_ACTOR_REGISTRY --tag gcr.io/$PROJECT/$NAME_ACTOR_REGISTRY
+#gcloud builds submit $PATH_ACTOR_SIMULATOR --tag gcr.io/$PROJECT/$NAME_ACTOR_SIMULATOR
+#gcloud builds submit $PATH_ACTOR_CONTROL --tag gcr.io/$PROJECT/$NAME_ACTOR_CONTROL
+#gcloud builds submit $PATH_STATUS_TRACKING --tag gcr.io/$PROJECT/$NAME_STATUS_TRACKING
+#gcloud builds submit $PATH_WEB_GUI --tag gcr.io/$PROJECT/$NAME_WEB_GUI
+
 

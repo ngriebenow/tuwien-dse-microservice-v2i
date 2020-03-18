@@ -1,0 +1,212 @@
+---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: actor-registry-deployment
+      labels:
+        app: actor-registry-deployment
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: actor-registry-deployment
+      template:
+        metadata:
+          labels:
+            app: actor-registry-deployment
+            tier: web
+        spec:
+          containers:
+            - name: actor-registry-container
+              image: gcr.io/dse20-group-20/actor-registry
+              ports:
+                - containerPort: 8080
+---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: actor-registry-service
+      labels:
+        app: actor-registry-service
+    spec:
+      selector:
+        app: actor-registry-deployment
+        tier: web
+      ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 8080
+      type: LoadBalancer
+      externalIPs:
+        - 35.246.210.242
+
+
+
+
+
+# ---
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     metadata:
+#       name: actor-control-deployment
+#       labels:
+#         app: actor-control-deployment
+#     spec:
+#       replicas: 1
+#       selector:
+#         matchLabels:
+#           app: actor-control-deployment
+#       template:
+#         metadata:
+#           labels:
+#             app: actor-control-deployment
+#             tier: web
+#         spec:
+#           containers:
+#             - name: actor-control-container
+#               image: gcr.io/dse20-group-20/actor-control
+#               ports:
+#                 - containerPort: 5000
+# ---
+#     apiVersion: v1
+#     kind: Service
+#     metadata:
+#     name: actor-control-service
+#     labels:
+#         app: actor-control-service
+#     spec:
+#     selector:
+#         app: actor-control-deployment
+#         tier: web
+#     ports:
+#         - protocol: TCP
+#         port: 5000
+#         targetPort: 5000
+#     type: LoadBalancer
+#     externalIPs:
+#         - 35.246.210.243
+# ---
+#   apiVersion: apps/v1
+#   kind: Deployment
+#   metadata:
+#     name: actor-simulator-deployment
+#     labels:
+#       app: actor-simulator-deployment
+#   spec:
+#     replicas: 1
+#     selector:
+#       matchLabels:
+#         app: actor-simulator-deployment
+#     template:
+#       metadata:
+#         labels:
+#           app: actor-simulator-deployment
+#           tier: web
+#       spec:
+#         containers:
+#           - name: actor-simulator-container
+#             image: gcr.io/dse20-group-20/actor-simulator
+#             ports:
+#               - containerPort: 8080
+# ---
+#     apiVersion: v1
+#     kind: Service
+#     metadata:
+#     name: actor-simulator-service
+#     labels:
+#         app: actor-simulator-service
+#     spec:
+#     selector:
+#         app: actor-simulator-deployment
+#         tier: web
+#     ports:
+#         - protocol: TCP
+#         port: 80
+#         targetPort: 8080
+#     type: LoadBalancer
+#     externalIPs:
+#         #- 35.246.210.242
+# ---
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     metadata:
+#         name: status-tracking-deployment
+#         labels:
+#         app: status-tracking-deployment
+#     spec:
+#         replicas: 1
+#         selector:
+#         matchLabels:
+#             app: status-tracking-deployment
+#         template:
+#         metadata:
+#             labels:
+#             app: status-tracking-deployment
+#             tier: web
+#         spec:
+#             containers:
+#             - name: status-tracking-container
+#                 image: gcr.io/dse20-group-20/status-tracking
+#                 ports:
+#                 - containerPort: 8080
+# ---
+#     apiVersion: v1
+#     kind: Service
+#     metadata:
+#         name: status-tracking-service
+#         labels:
+#         app: status-tracking-service
+#     spec:
+#         selector:
+#         app: status-tracking-deployment
+#         tier: web
+#         ports:
+#         - protocol: TCP
+#             port: 80
+#             targetPort: 8080
+#         type: LoadBalancer
+#         externalIPs:
+#         #- 35.246.210.242
+
+
+# ---
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     metadata:
+#         name: web-gui-deployment
+#         labels:
+#         app: web-gui-deployment
+#     spec:
+#         replicas: 1
+#         selector:
+#         matchLabels:
+#             app: web-gui-deployment
+#         template:
+#         metadata:
+#             labels:
+#             app: web-gui-deployment
+#             tier: web
+#         spec:
+#             containers:
+#             - name: web-gui-container
+#                 image: gcr.io/dse20-group-20/web-gui
+#                 ports:
+#                 - containerPort: 8080
+# ---
+#     apiVersion: v1
+#     kind: Service
+#     metadata:
+#         name: web-gui-service
+#         labels:
+#         app: web-gui-service
+#     spec:
+#         selector:
+#         app: web-gui-deployment
+#         tier: web
+#         ports:
+#         - protocol: TCP
+#             port: 80
+#             targetPort: 8080
+#         type: LoadBalancer
+#         externalIPs:
+#         #- 35.246.210.242
