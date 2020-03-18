@@ -34,10 +34,14 @@ build-job:
     script:
         - cd $APP_FOLDER_SVC1
         - mvn clean compile
-    only:
-        refs:
-        #- dev
-        #- master 
+    rules:
+        - if: '$SHUTDOWN == "1"'
+          when: never
+        #- if: 'CI_COMMIT_BRANCH == "master"'
+        #  when: always
+        #- if: 'CI_COMMIT_BRANCH == "dev"'
+        #  when: always
+        
 
 test-job:
     stage: test
@@ -45,10 +49,13 @@ test-job:
     script:
         - cd $APP_FOLDER_SVC1
         - mvn clean test
-    only:
-        refs:
-        - dev
-        - master
+    rules:
+        - if: '$SHUTDOWN == "1"'
+          when: never
+        - if: 'CI_COMMIT_BRANCH == "master"'
+          when: always
+        - if: 'CI_COMMIT_BRANCH == "dev"'
+          when: always
 
 
 deploy-job:
