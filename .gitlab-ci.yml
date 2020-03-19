@@ -22,7 +22,7 @@ shutdown-job:
         - PATH="google-cloud-sdk/bin:${PATH}"
         - gcloud config set project $PROJECT
         - gcloud auth activate-service-account --key-file key_test_gcp.json
-        - gcloud container clusters delete "$CLUSTER"
+        - gcloud container clusters delete "$CLUSTER" --zone "$ZONE"
     rules:
         - if: '$SHUTDOWN == "1"'
     
