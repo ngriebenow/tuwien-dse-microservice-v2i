@@ -19,6 +19,9 @@ NAME_ACTOR_CONTROL = "actor-control"
 PATH_STATUS_TRACKING = "src/status-tracking"
 NAME_STATUS_TRACKING = "status-tracking"
 
+PATH_API_GATEWAY = "src/api-gateway"
+NAME_API_GATEWAY = "api-gateway"
+
 PATH_WEB_GUI = "src/web-gui"
 NAME_WEB_GUI = "web-gui"
 
@@ -44,6 +47,8 @@ def deploy(project, yaml_deploy):
 
 def publish(project):
      subprocess.call(["gcloud", "builds", "submit", PATH_ACTOR_REGISTRY,  "--tag", "gcr.io/" + project + "/" + NAME_ACTOR_REGISTRY], shell=True)
+     subprocess.call(["gcloud", "builds", "submit", PATH_API_GATEWAY,  "--tag", "gcr.io/" + project + "/" + NAME_API_GATEWAY], shell=True)
+
 
 def deploy_open_api():
     subprocess.call(["gcloud", "endpoints", "services", "deploy", PATH_ACTOR_REGISTRY + "/openapi.yaml"], shell=True)
