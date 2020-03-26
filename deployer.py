@@ -31,6 +31,8 @@ YAML_DEPLOY_GCP_TEST = "deploy-gcp-test.yaml"
 GCP_KEY_FILE = "key_gcp.json"
 GCP_TEST_KEY_FILE = "key_test_gcp.json"
 
+NAMESPACE = "dse"
+
 def use(project, keyfile):
     subprocess.call(["gcloud", "config", "set", "project", project], shell=True)
     subprocess.call(["gcloud", "auth", "activate-service-account", "--key-file", keyfile ], shell=True)
@@ -38,7 +40,7 @@ def use(project, keyfile):
 def deploy(project, yaml_deploy):
     publish(project)
     get_kubectl_access()
-    subprocess.call(["kubectl", "apply", "-f", yaml_deploy], shell=True)
+    subprocess.call(["kubectl", "apply", "--namespace", NAMESPACE, "-f", yaml_deploy], shell=True)
 
 def publish(project):
      subprocess.call(["gcloud", "builds", "submit", PATH_ACTOR_REGISTRY,  "--tag", "gcr.io/" + project + "/" + NAME_ACTOR_REGISTRY], shell=True)
@@ -76,11 +78,13 @@ def deploy_to_local_minikube():
 
     #subprocess.call(["kubectl", "patch", "serviceaccount", "default", "-p", '{"imagePullSecrets": [{"name": "gcr-json-key"}]}'], shell=True)
 
-    subprocess.call(["kubectl", "apply", "-f", YAML_DEPLOY_GCP_TEST], shell=True)
+    subprocess.call(["kubectl", "apply", "--namespace", NAMESPACE, "-f", YAML_DEPLOY_GCP_TEST], shell=True)
 
 
 def create_gcp_cluster():
-    subprocess.call(["gcloud", "container", "clusters", "create", CLUSTER, "--zone", ZONE, "--num-nodes=" + MIN_NODES, "--enable-autoscaling", "--max-nodes=" + MAX_NODES,"--min-nodes=" + MIN_NODES], shell=True)
+    subprocess.call(["gcloud", "container", "clusters", "create", CLUSTER, "--zone", ZONE, "--num-nodes=" + str(MIN_NODES), "--enable-autoscaling", "--max-nodes=" + str(MAX_NODES),"--min-nodes=" + str(MIN_NODES)], shell=True)
+    get_kubectl_access()
+    subprocess.call(["kubectl", "create", "namespace", NAMESPACE])
 
 def shutdown_gcp_cluster():
     subprocess.call(["gcloud", "container", "clusters", "delete", CLUSTER])
@@ -99,10 +103,12 @@ while (True):
     3) Deploy to GCP (includes 0)
     4) Shut down GCP cluster
     ---
-    5) Publish containers to test GCP
-    6) Deploy to test GCP
+    5) Create test GCP cluster
+    6) Publish containers to test GCP
+    7) Deploy to test GCP
+    8) Deploy API
     ---
-    7) Shutdown
+    9) Shutdown
     """)
 
     if (choice == "0"):
@@ -122,14 +128,19 @@ while (True):
     elif (choice == "4"):
         use(PROJECT, GCP_KEY_FILE)
         shutdown_gcp_cluster()
-        pass
     elif (choice == "5"):
         use(PROJECT_TEST, GCP_TEST_KEY_FILE)
-        publish(PROJECT_TEST)
+        create_gcp_cluster()    
     elif (choice == "6"):
         use(PROJECT_TEST, GCP_TEST_KEY_FILE)
-        deploy(PROJECT_TEST, YAML_DEPLOY_GCP_TEST)
+        publish(PROJECT_TEST)
     elif (choice == "7"):
+        use(PROJECT_TEST, GCP_TEST_KEY_FILE)
+        deploy(PROJECT_TEST, YAML_DEPLOY_GCP_TEST)
+    elif (choice == "8"):
+        use(PROJECT_TEST, GCP_TEST_KEY_FILE)
+        deploy_open_api()
+    elif (choice == "9"):
         exit()
     else:
         print("try again!")

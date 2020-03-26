@@ -6,7 +6,7 @@ info:
 host: "echo-api.endpoints.dse20-group-20-271413.cloud.goog"
 x-google-endpoints:
   - name: "echo-api.endpoints.dse20-group-20-271413.cloud.goog"
-    target: "35.246.210.242"
+    target: "actor-registry-service.dse.svc.local"
 consumes:
   - "application/json"
 produces:

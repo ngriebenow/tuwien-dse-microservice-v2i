@@ -37,8 +37,8 @@
           port: 80
           targetPort: 8080
       type: LoadBalancer
-      externalIPs:
-        - 35.246.210.242
+      #externalIPs:
+      #  - 35.246.210.242
 
 
 
