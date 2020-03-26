@@ -1,10 +1,10 @@
 spring:
   profiles:
-    include: productive
+    include: prod
 
 zuul:
   routes:
-    actor-registry.url: http://10.47.248.182:80
+    actor-registry.url: http://10.47.248.182:5100
 
   #Ribbon is auto integrated with Zuul and for this exercise we are not using that.
 ribbon:
@@ -13,4 +13,4 @@ ribbon:
 
   #Will start the gateway server @8080
 server:
-  port: 8080
+  port: 80

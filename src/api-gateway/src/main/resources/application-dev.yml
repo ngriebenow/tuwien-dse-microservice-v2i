@@ -1,16 +1,15 @@
 spring:
   profiles:
-    include: development
+    include: dev
 
 zuul:
   routes:
-    actor-registry.url: http://localhost:8080
+    actor-registry.url: http://localhost:5100
 
   #Ribbon is auto integrated with Zuul and for this exercise we are not using that.
 ribbon:
   eureka:
     enabled: false
 
-  #Will start the gateway server @8080
 server:
   port: 80
