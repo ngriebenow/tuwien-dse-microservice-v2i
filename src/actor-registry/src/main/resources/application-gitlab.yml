@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    include: prod
+  rabbitmq:
+    host: 10.47.248.183
+    port: 5672
+
+server:
+  port: 5100
