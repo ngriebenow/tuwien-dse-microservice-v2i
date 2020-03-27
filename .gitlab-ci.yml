@@ -18,12 +18,13 @@ stages:
 
 shutdown-job:
     stage: shutdown
+    image: ngriebenow/dse-gitlab-env
     script:
         # Download Google Cloud SDK
         #test
-        - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
-        - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
-        - PATH="google-cloud-sdk/bin:${PATH}"
+        #- wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+        #- tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
+        #- PATH="google-cloud-sdk/bin:${PATH}"
         - gcloud config set project $PROJECT
         - gcloud auth activate-service-account --key-file key_test_gcp.json
         - gcloud container clusters delete "$CLUSTER" --zone "$ZONE" --quiet
@@ -46,11 +47,11 @@ test-job:
     script:
         - mvn clean test -Dspring.profiles.active=gitlab
     rules:
-        - if: '"1" == "0"'
-        #- if: '$SHUTDOWN == "1"'
-        #  when: never
-        #- if: '$CI_COMMIT_BRANCH == "master"'
-        #- if: '$CI_COMMIT_BRANCH == "dev"'
+        #- if: '"1" == "0"'
+        - if: '$SHUTDOWN == "1"'
+          when: never
+        - if: '$CI_COMMIT_BRANCH == "master"'
+        - if: '$CI_COMMIT_BRANCH == "dev"'
 
 deploy-job:
     stage: deploy
@@ -62,15 +63,15 @@ deploy-job:
     script:
         # Download Google Cloud SDK
         # - gcloud --version
-        - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
-        - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
-        - PATH="google-cloud-sdk/bin:${PATH}"
+        # - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+        #- tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
+        # -  PATH="google-cloud-sdk/bin:${PATH}"
         # Download kubectl
-        - sudo apt-get update && sudo apt-get install -y apt-transport-https
-        - curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-        - echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
-        - apt-get update
-        - apt-get install -y kubectl
+        # - sudo apt-get update && sudo apt-get install -y apt-transport-https
+        # - curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+        # - echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
+        # - apt-get update
+        # - apt-get install -y kubectl
         # Deploy to GCP
         - gcloud config set project $PROJECT
         - gcloud auth activate-service-account --key-file key_test_gcp.json
