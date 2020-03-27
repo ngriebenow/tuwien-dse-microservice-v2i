@@ -19,10 +19,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication
-public class VitApplication {
+public class ActorRegistryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VitApplication.class, args);
+		SpringApplication.run(ActorRegistryApplication.class, args);
 	}
 
 	@Bean
