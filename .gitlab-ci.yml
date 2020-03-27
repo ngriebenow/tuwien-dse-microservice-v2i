@@ -82,6 +82,6 @@ deploy-job:
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
         - bash build-and-push-images.sh
-        - #gcloud builds submit $APP_FOLDER_SVC1 --tag gcr.io/$PROJECT/$APP_NAME_SVC1
+        # gcloud builds submit $APP_FOLDER_SVC1 --tag gcr.io/$PROJECT/$APP_NAME_SVC1
         # TODO: change to target
         - kubectl apply -f deploy-gcp-test.yaml     
