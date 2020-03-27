@@ -7,6 +7,9 @@ variables:
     APP_NAME_SVC1: actor-registry
     APP_FOLDER_SVC1: src/actor-registry
 
+services:
+    - rabbitmq:latest
+
 stages:
     - build
     - test
@@ -32,7 +35,6 @@ build-job:
     stage: build
     image: maven:3.6.0-jdk-11-slim
     script:
-        - cd $APP_FOLDER_SVC1
         - mvn clean compile
     rules:
         - if: '"1" == "0"'
@@ -42,7 +44,6 @@ test-job:
     stage: test
     image: maven:3.6.0-jdk-11-slim
     script:
-        - cd $APP_FOLDER_SVC1
         - mvn clean test
     rules:
         - if: '$SHUTDOWN == "1"'
@@ -79,6 +80,5 @@ deploy-job:
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
         - gcloud builds submit $APP_FOLDER_SVC1 --tag gcr.io/$PROJECT/$APP_NAME_SVC1
-        - gcloud endpoints services deploy $APP_FOLDER_SVC1/openapi.yaml
         # TODO: change to target
         - kubectl apply -f deploy-gcp-test.yaml     
