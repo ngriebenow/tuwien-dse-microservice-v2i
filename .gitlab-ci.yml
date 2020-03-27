@@ -46,11 +46,11 @@ test-job:
     script:
         - mvn clean test -Dspring.profiles.active=gitlab
     rules:
-        #- if: '"1" == "0"'
-        - if: '$SHUTDOWN == "1"'
-          when: never
-        - if: '$CI_COMMIT_BRANCH == "master"'
-        - if: '$CI_COMMIT_BRANCH == "dev"'
+        - if: '"1" == "0"'
+        #- if: '$SHUTDOWN == "1"'
+        #  when: never
+        #- if: '$CI_COMMIT_BRANCH == "master"'
+        #- if: '$CI_COMMIT_BRANCH == "dev"'
 
 deploy-job:
     stage: deploy

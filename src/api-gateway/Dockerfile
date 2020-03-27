@@ -3,6 +3,6 @@ COPY src src
 COPY pom.xml pom.xml
 
 EXPOSE 80
-CMD mvn clean compile spring-boot:run -Dspring.profiles.active=gitlab
+CMD mvn clean compile spring-boot:run -Dspring.profiles.active=prod
 
 
