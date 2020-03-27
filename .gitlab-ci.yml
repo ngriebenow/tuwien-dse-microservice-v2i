@@ -4,6 +4,7 @@ variables:
     PROJECT: dse20-group-20-271413
     MIN_NODES: 1
     MAX_NODES: 3
+    NAMESPACE: dse
 
 services:
     - rabbitmq:latest
@@ -85,4 +86,4 @@ deploy-job:
         - gcloud auth configure-docker
         - bash build-and-push-images.sh
         # TODO: change to target
-        - kubectl apply -f deploy-gcp-test.yaml     
+        - kubectl apply --namespace "$NAMESPACE" -f deploy-gcp-test.yaml
