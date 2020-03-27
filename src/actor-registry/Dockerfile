@@ -3,6 +3,6 @@ COPY src src
 COPY pom.xml pom.xml
 
 EXPOSE 5100
-CMD mvn clean compile spring-boot:run -Dspring-boot.run.profiles=prod
+CMD mvn clean compile spring-boot:run -Dspring.profiles.active=prod
 
 

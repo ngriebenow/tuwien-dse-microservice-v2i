@@ -14,7 +14,6 @@
         port: 5672
         targetPort: 5672
     type: LoadBalancer
-    clusterIP: 10.47.248.183
 ---
   apiVersion: apps/v1
   kind: Deployment
