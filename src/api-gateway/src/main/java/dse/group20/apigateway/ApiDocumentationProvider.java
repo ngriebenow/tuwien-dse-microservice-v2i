@@ -1,4 +1,4 @@
-package dse.group14.apigateway;
+package dse.group20.apigateway;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;

@@ -1,4 +1,4 @@
-package dse.group14.apigateway.filters;
+package dse.group20.apigateway.filters;
 
 import javax.servlet.http.HttpServletRequest;
 import com.netflix.zuul.ZuulFilter;

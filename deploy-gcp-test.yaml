@@ -116,7 +116,6 @@
           port: 5100
           targetPort: 5100
       type: LoadBalancer
-      clusterIP: 10.47.248.182
 
       #externalIPs:
       #  - 35.246.210.242
