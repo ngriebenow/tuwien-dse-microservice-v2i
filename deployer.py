@@ -111,9 +111,8 @@ while (True):
     5) Create test GCP cluster
     6) Publish containers to test GCP
     7) Deploy to test GCP
-    8) Deploy API
     ---
-    9) Shutdown
+    ) Shutdown
     """)
 
     if (choice == "0"):
@@ -142,10 +141,10 @@ while (True):
     elif (choice == "7"):
         use(PROJECT_TEST, GCP_TEST_KEY_FILE)
         deploy(PROJECT_TEST, YAML_DEPLOY_GCP_TEST)
+    #elif (choice == "8"):
+    #    use(PROJECT_TEST, GCP_TEST_KEY_FILE)
+    #    deploy_open_api()
     elif (choice == "8"):
-        use(PROJECT_TEST, GCP_TEST_KEY_FILE)
-        deploy_open_api()
-    elif (choice == "9"):
         exit()
     else:
         print("try again!")

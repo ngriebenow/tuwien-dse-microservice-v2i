@@ -1,4 +1,44 @@
 ---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: message-broker-service
+    labels:
+      app: message-broker-service
+  spec:
+    selector:
+      app: message-broker-deployment
+      tier: web
+    ports:
+      - protocol: TCP
+        port: 5672
+        targetPort: 5672
+    type: LoadBalancer
+    clusterIP: 10.47.248.183
+---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: message-broker-deployment
+    labels:
+      app: message-broker-deployment
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: message-broker-deployment
+    template:
+      metadata:
+        labels:
+          app: message-broker-deployment
+          tier: web
+      spec:
+        containers:
+          - name: message-broker-container
+            image: rabbitmq:3
+            ports:
+              - containerPort: 5672
+---
   apiVersion: apps/v1
   kind: Deployment
   metadata:
@@ -20,7 +60,7 @@
           - name: api-gateway-container
             image: gcr.io/dse20-group-20-271413/api-gateway:latest
             ports:
-              - containerPort: 8080
+              - containerPort: 80
 ---
   apiVersion: v1
   kind: Service
@@ -35,7 +75,7 @@
     ports:
       - protocol: TCP
         port: 80
-        targetPort: 8080
+        targetPort: 80
     type: LoadBalancer
 
 ---
@@ -46,7 +86,7 @@
       labels:
         app: actor-registry-deployment
     spec:
-      replicas: 2
+      replicas: 
       selector:
         matchLabels:
           app: actor-registry-deployment
@@ -60,7 +100,7 @@
             - name: actor-registry-container
               image: gcr.io/dse20-group-20-271413/actor-registry:latest
               ports:
-                - containerPort: 8080
+                - containerPort: 5100
 ---
     apiVersion: v1
     kind: Service
@@ -74,8 +114,8 @@
         tier: web
       ports:
         - protocol: TCP
-          port: 80
-          targetPort: 8080
+          port: 5100
+          targetPort: 5100
       type: LoadBalancer
       clusterIP: 10.47.248.182
 
