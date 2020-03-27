@@ -44,14 +44,17 @@ test-job:
     stage: test
     image: maven:3.6.0-jdk-11-slim
     script:
-        - mvn clean test
+        - mvn clean test -Dspring-boot.run.profiles=gitlab
     rules:
-        - if: '$SHUTDOWN == "1"'
-          when: never
-        - if: '$CI_COMMIT_BRANCH == "master"'
-        - if: '$CI_COMMIT_BRANCH == "dev"'
+        - if: '"1" == "0"'
+        #TODO
+        #- if: '$SHUTDOWN == "1"'
+        #  when: never
+        #- if: '$CI_COMMIT_BRANCH == "master"'
+        #- if: '$CI_COMMIT_BRANCH == "dev"'
 
 deploy-job:
+    image: ngriebenow/dse-gitlab-env
     stage: deploy
     rules:
         - if: '$SHUTDOWN == "1"'
@@ -59,6 +62,7 @@ deploy-job:
         - if: '$CI_COMMIT_BRANCH == "master"'
     script:
         # Download Google Cloud SDK
+        - gcloud --version
         - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
         - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --quiet --usage-reporting=false --path-update=true
         - PATH="google-cloud-sdk/bin:${PATH}"
@@ -79,6 +83,7 @@ deploy-job:
         - gcloud container clusters create "$CLUSTER" --zone "$ZONE" --num-nodes=$MIN_NODES --enable-autoscaling --max-nodes=$MAX_NODES --min-nodes=$MIN_NODES || echo "cluster should already be running"
         - gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
         - gcloud auth configure-docker
-        - gcloud builds submit $APP_FOLDER_SVC1 --tag gcr.io/$PROJECT/$APP_NAME_SVC1
+        - bash build-and-push-images.sh
+        - #gcloud builds submit $APP_FOLDER_SVC1 --tag gcr.io/$PROJECT/$APP_NAME_SVC1
         # TODO: change to target
         - kubectl apply -f deploy-gcp-test.yaml     

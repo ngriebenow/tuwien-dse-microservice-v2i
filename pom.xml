@@ -14,4 +14,47 @@
     <module>src/api-gateway</module>
   </modules>
 
+  <profiles>
+    <profile>
+      <id>prod</id>
+      <properties>
+        <build.profile.id>parent</build.profile.id>
+        <profileActive>parent</profileActive>
+      </properties>
+    </profile>
+    <profile>
+      <id>gitlab</id>
+      <properties>
+        <build.profile.id>gitlab</build.profile.id>
+        <profileActive>gitlab</profileActive>
+      </properties>
+    </profile>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <build.profile.id>dev</build.profile.id>
+        <profileActive>dev</profileActive>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-help-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>show-profiles</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>active-profiles</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
