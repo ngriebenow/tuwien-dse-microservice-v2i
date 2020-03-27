@@ -57,7 +57,8 @@
       spec:
         containers:
           - name: api-gateway-container
-            image: gcr.io/dse20-group-20-271413/api-gateway:latest
+            image: gcr.io/dse20-group-20-271413/api-gateway
+            imagePullPolicy: Always
             ports:
               - containerPort: 80
 ---
@@ -97,7 +98,8 @@
         spec:
           containers:
             - name: actor-registry-container
-              image: gcr.io/dse20-group-20-271413/actor-registry:latest
+              image: gcr.io/dse20-group-20-271413/actor-registry
+              imagePullPolicy: Always
               ports:
                 - containerPort: 5100
 ---
