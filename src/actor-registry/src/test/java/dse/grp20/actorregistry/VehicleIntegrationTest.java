@@ -3,9 +3,7 @@ package dse.grp20.actorregistry;
 import dse.grp20.actorregistry.dao.Vehicle;
 import dse.grp20.actorregistry.exception.InvalidVehicleException;
 import dse.grp20.actorregistry.exception.NotFoundException;
-import dse.grp20.actorregistry.repository.VehicleRepository;
 import dse.grp20.actorregistry.service.IVehicleRegistryService;
-import org.bson.assertions.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 

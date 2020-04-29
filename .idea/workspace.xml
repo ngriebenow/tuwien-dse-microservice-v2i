@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147ee5be-5255-4783-9f14-c44ae10f6205" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/exception/InvalidTrafficLightException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/ITrafficLightRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/ITrafficLightRegistryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Geo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Geo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/TrafficLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/IVehicleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +70,10 @@
       <recent name="dse.grp20.actorregistry.exception" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dse.grp20.actorregistry.exception" />
+      <recent name="dse.grp20.actorregistry.service" />
+      <recent name="dse.grp20.actorregistry.repository" />
+      <recent name="dse.grp20.actorregistry" />
       <recent name="dse.grp20.actorregistry.endpoint.amqp" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -65,7 +82,30 @@
       <recent name="C:\Users\i514670\UnSyncOneDrive - Personal\dse\src\api-gateway\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VehicleIntegrationTest">
+  <component name="RunManager" selected="JUnit.All in actor-registry">
+    <configuration name="All in actor-registry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="actor-registry" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrafficLightIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="actor-registry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dse.grp20.actorregistry.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dse.grp20.actorregistry" />
+      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorregistry.TrafficLightIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VehicleIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="actor-registry" />
       <extension name="coverage">
@@ -115,6 +155,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in actor-registry" />
+        <item itemvalue="JUnit.TrafficLightIntegrationTest" />
         <item itemvalue="JUnit.VehicleIntegrationTest" />
         <item itemvalue="JUnit.VehicleIntegrationTest.testDelete_ExistingVehicle_shouldDelete" />
         <item itemvalue="JUnit.VehicleIntegrationTest.contextLoads" />
@@ -202,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588175618834</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Remove GCP keys">
+      <created>1588175859393</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1588175859393</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -225,57 +274,62 @@
     <MESSAGE value="Use RabbitMQ annotations" />
     <MESSAGE value="Add entities and services" />
     <MESSAGE value="Add integration tests for vehicle.delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add integration tests for vehicle.delete" />
+    <MESSAGE value="Remove GCP keys" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove GCP keys" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" timestamp="1588165998705">
+    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" timestamp="1588180624234">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1588165998705" />
-    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2" timestamp="1588175618650">
+    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1588180624234" />
+    <state x="952" y="34" width="958" height="1046" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588181336182">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1588175618650" />
-    <state width="1862" height="418" key="GridCell.Tab.0.bottom" timestamp="1588175627166">
+    <state x="952" y="34" width="958" height="1046" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1588181336182" />
+    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2" timestamp="1588175859260">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627166" />
-    <state width="1862" height="418" key="GridCell.Tab.0.center" timestamp="1588175627165">
+    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1588175859260" />
+    <state width="1862" height="470" key="GridCell.Tab.0.bottom" timestamp="1588181165756">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627165" />
-    <state width="1862" height="418" key="GridCell.Tab.0.left" timestamp="1588175627165">
+    <state width="1862" height="470" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588181165756" />
+    <state width="1862" height="470" key="GridCell.Tab.0.center" timestamp="1588181165755">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627165" />
-    <state width="1862" height="418" key="GridCell.Tab.0.right" timestamp="1588175627166">
+    <state width="1862" height="470" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588181165755" />
+    <state width="1862" height="470" key="GridCell.Tab.0.left" timestamp="1588181165744">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627166" />
-    <state width="1862" height="418" key="GridCell.Tab.1.bottom" timestamp="1588175627169">
+    <state width="1862" height="470" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588181165744" />
+    <state width="1862" height="470" key="GridCell.Tab.0.right" timestamp="1588181165756">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.1.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627169" />
-    <state width="1862" height="418" key="GridCell.Tab.1.center" timestamp="1588175627167">
+    <state width="1862" height="470" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588181165756" />
+    <state width="1862" height="498" key="GridCell.Tab.1.bottom" timestamp="1588181146876">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.1.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627167" />
-    <state width="1862" height="418" key="GridCell.Tab.1.left" timestamp="1588175627167">
+    <state width="1862" height="498" key="GridCell.Tab.1.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588181146876" />
+    <state width="1862" height="498" key="GridCell.Tab.1.center" timestamp="1588181146875">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.1.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627167" />
-    <state width="1862" height="418" key="GridCell.Tab.1.right" timestamp="1588175627168">
+    <state width="1862" height="498" key="GridCell.Tab.1.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588181146875" />
+    <state width="1862" height="498" key="GridCell.Tab.1.left" timestamp="1588181146874">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="418" key="GridCell.Tab.1.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588175627168" />
+    <state width="1862" height="498" key="GridCell.Tab.1.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588181146874" />
+    <state width="1862" height="498" key="GridCell.Tab.1.right" timestamp="1588181146875">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1862" height="498" key="GridCell.Tab.1.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588181146875" />
     <state x="377" y="133" width="1155" height="855" key="Maven.ArtifactSearchDialog" timestamp="1588166990519">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="377" y="133" width="1155" height="855" key="Maven.ArtifactSearchDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1588166990519" />
-    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2" timestamp="1588175756255">
+    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2" timestamp="1588175867677">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2/0.34.1920.1046@0.34.1920.1046" timestamp="1588175756255" />
+    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2/0.34.1920.1046@0.34.1920.1046" timestamp="1588175867677" />
     <state x="547" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1588159620980">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -290,9 +344,24 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

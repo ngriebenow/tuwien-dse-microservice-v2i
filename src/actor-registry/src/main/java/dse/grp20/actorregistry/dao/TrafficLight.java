@@ -1,7 +1,14 @@
 package dse.grp20.actorregistry.dao;
 
-public class TrafficLight {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.io.Serializable;
+
+public class TrafficLight implements Serializable {
+
+    @Id
+    @MongoId
     private Long id;
 
     private Double scanRadius;

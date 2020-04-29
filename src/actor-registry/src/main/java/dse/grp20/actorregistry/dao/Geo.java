@@ -1,6 +1,13 @@
 package dse.grp20.actorregistry.dao;
 
-public class Geo {
+import java.io.Serializable;
+
+public class Geo implements Serializable {
+
+    public Geo(Double latitude, Double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     private Double latitude;
 
