@@ -1,4 +1,4 @@
-package dse.grp20.actorregistry.entity;
+package dse.grp20.actorregistry.dao;
 
 import java.io.Serializable;
 

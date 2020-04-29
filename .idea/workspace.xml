@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147ee5be-5255-4783-9f14-c44ae10f6205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/entity/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/ActorRegistryApplicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/config/MongoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Geo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/TrafficLight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/exception/InvalidVehicleException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/VehicleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/IVehicleRegistryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/ActorRegistryApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/TestEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/rest/TestEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/entity/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/ActorRegistryApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/test/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/test/resources/application-dev.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,12 +69,34 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="dse.grp20.actorregistry.exception" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dse.grp20.actorregistry.endpoint.amqp" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\i514670\UnSyncOneDrive - Personal\dse\src\api-gateway\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="ActorRegistryApplicationTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.VehicleIntegrationTest.testDelete_ExistingVehicle_shouldDelete">
+    <configuration name="VehicleIntegrationTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="actor-registry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dse.grp20.actorregistry.endpoint.amqp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dse.grp20.actorregistry" />
+      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorregistry.VehicleIntegrationTest" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleIntegrationTest.testDelete_ExistingVehicle_shouldDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="actor-registry" />
       <extension name="coverage">
         <pattern>
@@ -74,8 +105,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dse.grp20.actorregistry" />
-      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorregistry.ActorRegistryApplicationTest" />
-      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorregistry.VehicleIntegrationTest" />
+      <option name="METHOD_NAME" value="testDelete_ExistingVehicle_shouldDelete" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -83,7 +114,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ActorRegistryApplicationTest.contextLoads" />
+        <item itemvalue="JUnit.VehicleIntegrationTest.testDelete_ExistingVehicle_shouldDelete" />
+        <item itemvalue="JUnit.VehicleIntegrationTest.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585346916261</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Use RabbitMQ annotations">
+      <created>1588164557032</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1588164557032</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -167,45 +206,54 @@
     <MESSAGE value="Add image pull policy" />
     <MESSAGE value="Remove namespace" />
     <MESSAGE value="Change Dockerfile of api-gateway to prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change Dockerfile of api-gateway to prod" />
+    <MESSAGE value="Use RabbitMQ annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use RabbitMQ annotations" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" timestamp="1588163396201">
+    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" timestamp="1588165998705">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1588163396201" />
-    <state width="1862" height="309" key="GridCell.Tab.0.bottom" timestamp="1588164517366">
+    <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1588165998705" />
+    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2" timestamp="1588164556723">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588164517366" />
-    <state width="1862" height="309" key="GridCell.Tab.0.center" timestamp="1588164517365">
+    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1588164556723" />
+    <state width="1862" height="511" key="GridCell.Tab.0.bottom" timestamp="1588171646103">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588164517365" />
-    <state width="1862" height="309" key="GridCell.Tab.0.left" timestamp="1588164517364">
+    <state width="1862" height="511" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588171646103" />
+    <state width="1862" height="511" key="GridCell.Tab.0.center" timestamp="1588171646102">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588164517364" />
-    <state width="1862" height="309" key="GridCell.Tab.0.right" timestamp="1588164517365">
+    <state width="1862" height="511" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588171646102" />
+    <state width="1862" height="511" key="GridCell.Tab.0.left" timestamp="1588171646100">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588164517365" />
-    <state width="1862" height="309" key="GridCell.Tab.1.bottom" timestamp="1588164523305">
+    <state width="1862" height="511" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588171646100" />
+    <state width="1862" height="511" key="GridCell.Tab.0.right" timestamp="1588171646103">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.1.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588164523305" />
-    <state width="1862" height="309" key="GridCell.Tab.1.center" timestamp="1588164523303">
+    <state width="1862" height="511" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588171646103" />
+    <state width="1862" height="420" key="GridCell.Tab.1.bottom" timestamp="1588169136483">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.1.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588164523303" />
-    <state width="1862" height="309" key="GridCell.Tab.1.left" timestamp="1588164523302">
+    <state width="1862" height="420" key="GridCell.Tab.1.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588169136483" />
+    <state width="1862" height="420" key="GridCell.Tab.1.center" timestamp="1588169136482">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.1.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588164523302" />
-    <state width="1862" height="309" key="GridCell.Tab.1.right" timestamp="1588164523304">
+    <state width="1862" height="420" key="GridCell.Tab.1.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588169136482" />
+    <state width="1862" height="420" key="GridCell.Tab.1.left" timestamp="1588169136481">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state width="1862" height="309" key="GridCell.Tab.1.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588164523304" />
+    <state width="1862" height="420" key="GridCell.Tab.1.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588169136481" />
+    <state width="1862" height="420" key="GridCell.Tab.1.right" timestamp="1588169136483">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state width="1862" height="420" key="GridCell.Tab.1.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588169136483" />
+    <state x="377" y="133" width="1155" height="855" key="Maven.ArtifactSearchDialog" timestamp="1588166990519">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="377" y="133" width="1155" height="855" key="Maven.ArtifactSearchDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1588166990519" />
     <state x="547" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1588159620980">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -215,8 +263,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/Receiver.java</url>
-          <line>24</line>
+          <url>file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java</url>
+          <line>15</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

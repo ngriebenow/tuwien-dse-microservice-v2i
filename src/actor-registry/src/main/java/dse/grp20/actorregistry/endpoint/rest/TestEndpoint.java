@@ -1,4 +1,4 @@
-package dse.grp20.actorregistry;
+package dse.grp20.actorregistry.endpoint.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
