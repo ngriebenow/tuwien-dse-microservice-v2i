@@ -1,11 +1,5 @@
 spring:
   profiles:
     include: dev
-  rabbitmq:
-    host: localhost
-    port: 5672
-  data:
-    mongodb:
-      uri: "mongodb+srv://ngriebenow:dse-mongo-db@dse-actor-registry-service-9ztit.mongodb.net/test?retryWrites=true&w=majority"
 server:
   port: 5100

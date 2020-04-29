@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @EnableRabbit
 public class TrafficLightReceiver {
 
-    @RabbitListener(queues = "trafficlight.delete")
+    //@RabbitListener(queues = "trafficlight.delete")
     public void delete(TrafficLight trafficLight) {
         System.out.println("received " + trafficLight.getId());
     }

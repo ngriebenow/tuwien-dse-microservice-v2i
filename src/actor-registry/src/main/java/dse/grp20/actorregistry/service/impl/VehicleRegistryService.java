@@ -5,6 +5,7 @@ import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.actorregistry.repository.VehicleRepository;
 import dse.grp20.actorregistry.service.IVehicleRegistryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
 
 @Component

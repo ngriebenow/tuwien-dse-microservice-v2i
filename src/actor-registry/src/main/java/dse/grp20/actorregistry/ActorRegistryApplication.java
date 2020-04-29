@@ -34,5 +34,9 @@ public class ActorRegistryApplication {
 				.build();
 	}
 
+	@Bean
+	Queue queue() {
+		return new Queue("vehicle.delete", false);
+	}
 
 }
