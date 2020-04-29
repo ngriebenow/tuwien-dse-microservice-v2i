@@ -1,21 +1,19 @@
 package dse.grp20.actorregistry;
 
+import dse.grp20.actorregistry.entity.Vehicle;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.CountDownLatch;
 
 @Component
+@EnableRabbit
 public class Receiver {
 
-    private CountDownLatch latch = new CountDownLatch(1);
-
-    public void receiveMessage(String message) {
-        System.out.println("Received <" + message + ">");
-        latch.countDown();
-    }
-
-    public CountDownLatch getLatch() {
-        return latch;
+    @RabbitListener(queues = "vehicle.delete")
+    public void delete(Vehicle vehicle) {
+        System.out.println("received " + vehicle.getId());
     }
 
 }
