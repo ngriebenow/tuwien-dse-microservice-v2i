@@ -27,6 +27,6 @@ public class TafficLightRegistryService implements ITrafficLightRegistryService 
 
     @Override
     public TrafficLight find(Long id) throws NotFoundException {
-        return trafficLightRepository.findById(id.toString()).orElseThrow(NotFoundException::new);
+        return trafficLightRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 }

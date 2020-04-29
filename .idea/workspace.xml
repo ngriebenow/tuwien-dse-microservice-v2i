@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147ee5be-5255-4783-9f14-c44ae10f6205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/exception/InvalidTrafficLightException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/ITrafficLightRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/ITrafficLightRegistryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Geo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Geo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/TrafficLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/IVehicleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/ITrafficLightRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/ITrafficLightRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/IVehicleRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/IVehicleRegistryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588175859393</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add TrafficLight registry service">
+      <created>1588181514038</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1588181514038</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -275,7 +274,8 @@
     <MESSAGE value="Add entities and services" />
     <MESSAGE value="Add integration tests for vehicle.delete" />
     <MESSAGE value="Remove GCP keys" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove GCP keys" />
+    <MESSAGE value="Add TrafficLight registry service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add TrafficLight registry service" />
   </component>
   <component name="WindowStateProjectService">
     <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" timestamp="1588180624234">
@@ -286,10 +286,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="952" y="34" width="958" height="1046" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1588181336182" />
-    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2" timestamp="1588175859260">
+    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2" timestamp="1588181513907">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1588175859260" />
+    <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1588181513907" />
     <state width="1862" height="470" key="GridCell.Tab.0.bottom" timestamp="1588181165756">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
@@ -326,10 +326,10 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="377" y="133" width="1155" height="855" key="Maven.ArtifactSearchDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1588166990519" />
-    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2" timestamp="1588175867677">
+    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2" timestamp="1588181524783">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
-    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2/0.34.1920.1046@0.34.1920.1046" timestamp="1588175867677" />
+    <state x="455" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2/0.34.1920.1046@0.34.1920.1046" timestamp="1588181524783" />
     <state x="547" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1588159620980">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

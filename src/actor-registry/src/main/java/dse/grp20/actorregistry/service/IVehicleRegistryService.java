@@ -10,6 +10,6 @@ public interface IVehicleRegistryService {
 
     void add(Vehicle vehicle) throws InvalidVehicleException;
 
-    Vehicle find(Long id) throws NotFoundException;
+    Vehicle find(String id) throws NotFoundException;
 
 }

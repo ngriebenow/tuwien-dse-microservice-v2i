@@ -26,7 +26,7 @@ public class VehicleRegistryService implements IVehicleRegistryService {
     }
 
     @Override
-    public Vehicle find(Long id) throws NotFoundException {
-        return vehicleRepository.findById(id.toString()).orElseThrow(NotFoundException::new);
+    public Vehicle find(String id) throws NotFoundException {
+        return vehicleRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 }
