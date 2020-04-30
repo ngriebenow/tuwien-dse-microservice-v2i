@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dse.grp20</groupId>
-	<artifactId>actor-registry</artifactId>
+	<artifactId>actor-simulator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>actor-registry</name>
+	<name>actor-simulator</name>
 	<description>Demo project for Spring Boot</description>
 
 
@@ -66,12 +66,6 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
-		<!-- mock mongodb-->
-		<dependency>
-			<groupId>de.flapdoodle.embed</groupId>
-			<artifactId>de.flapdoodle.embed.mongo</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<!-- mock rabbitmy-->
 		<dependency>
 			<groupId>com.github.fridujo</groupId>
@@ -79,24 +73,15 @@
 			<version>1.0.14</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>dse.grp20</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
 
-
-		<dependency>
-			<groupId>dse.grp20</groupId>
-			<artifactId>common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.modelmapper</groupId>
-			<artifactId>modelmapper</artifactId>
-			<version>2.3.0</version>
-		</dependency>
-
-
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<resources>

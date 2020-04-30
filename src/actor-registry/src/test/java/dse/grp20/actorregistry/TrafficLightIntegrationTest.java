@@ -1,10 +1,12 @@
 package dse.grp20.actorregistry;
 
-import dse.grp20.actorregistry.dao.Geo;
-import dse.grp20.actorregistry.dao.TrafficLight;
+import dse.grp20.actorregistry.entity.Geo;
+import dse.grp20.actorregistry.entity.TrafficLight;
 import dse.grp20.actorregistry.exception.InvalidTrafficLightException;
 import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.actorregistry.service.ITrafficLightRegistryService;
+import dse.grp20.common.dto.GeoDTO;
+import dse.grp20.common.dto.TrafficLightDTO;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,19 +33,19 @@ class TrafficLightIntegrationTest {
 
 	private static String QUEUE_TRAFFICLIGHT_DELETE = "trafficlight.delete";
 
-	private static TrafficLight TRAFFICLIGHT1;
-	private static TrafficLight NON_EXISTING_TRAFFICLIGHT;
+	private static TrafficLightDTO TRAFFICLIGHT1;
+	private static TrafficLightDTO NON_EXISTING_TRAFFICLIGHT;
 
 	@BeforeAll
 	static void initAll(){
-		TRAFFICLIGHT1 = new TrafficLight();
+		TRAFFICLIGHT1 = new TrafficLightDTO();
 		TRAFFICLIGHT1.setId(1L);
-		TRAFFICLIGHT1.setLocation(new Geo(3.,4.));
+		TRAFFICLIGHT1.setLocation(new GeoDTO(3.,4.));
 		TRAFFICLIGHT1.setScanRadius(30.);
 
-		NON_EXISTING_TRAFFICLIGHT = new TrafficLight();
+		NON_EXISTING_TRAFFICLIGHT = new TrafficLightDTO();
 		NON_EXISTING_TRAFFICLIGHT.setId(2L);
-		NON_EXISTING_TRAFFICLIGHT.setLocation(new Geo(3.,4.));
+		NON_EXISTING_TRAFFICLIGHT.setLocation(new GeoDTO(3.,4.));
 		NON_EXISTING_TRAFFICLIGHT.setScanRadius(30.);
 
 	}

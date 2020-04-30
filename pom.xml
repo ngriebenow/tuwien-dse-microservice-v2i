@@ -10,7 +10,9 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>src/common</module>
     <module>src/actor-registry</module>
+    <module>src/actor-simulator</module>
     <module>src/api-gateway</module>
   </modules>
 

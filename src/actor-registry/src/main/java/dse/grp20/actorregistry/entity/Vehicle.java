@@ -1,4 +1,4 @@
-package dse.grp20.actorregistry.dao;
+package dse.grp20.actorregistry.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.MongoId;

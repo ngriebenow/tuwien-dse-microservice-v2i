@@ -1,15 +1,16 @@
 package dse.grp20.actorregistry.service;
 
-import dse.grp20.actorregistry.dao.Vehicle;
+import dse.grp20.actorregistry.entity.Vehicle;
 import dse.grp20.actorregistry.exception.InvalidVehicleException;
 import dse.grp20.actorregistry.exception.NotFoundException;
+import dse.grp20.common.dto.VehicleDTO;
 
 public interface IVehicleRegistryService {
 
-    void delete(Vehicle vehicle) throws NotFoundException;
+    void delete(VehicleDTO vehicle) throws NotFoundException;
 
-    void add(Vehicle vehicle) throws InvalidVehicleException;
+    void add(VehicleDTO vehicle) throws InvalidVehicleException;
 
-    Vehicle find(String id) throws NotFoundException;
+    VehicleDTO find(String id) throws NotFoundException;
 
 }

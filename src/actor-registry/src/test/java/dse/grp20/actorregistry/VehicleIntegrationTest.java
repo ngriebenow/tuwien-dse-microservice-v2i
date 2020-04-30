@@ -1,9 +1,10 @@
 package dse.grp20.actorregistry;
 
-import dse.grp20.actorregistry.dao.Vehicle;
+import dse.grp20.actorregistry.entity.Vehicle;
 import dse.grp20.actorregistry.exception.InvalidVehicleException;
 import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.actorregistry.service.IVehicleRegistryService;
+import dse.grp20.common.dto.VehicleDTO;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,17 +31,17 @@ class VehicleIntegrationTest {
 
 	private static String QUEUE_VEHICLE_DELETE = "vehicle.delete";
 
-	private static Vehicle VEHICLE1;
-	private static Vehicle NON_EXISTING_VEHICLE;
+	private static VehicleDTO VEHICLE1;
+	private static VehicleDTO NON_EXISTING_VEHICLE;
 
 	@BeforeAll
 	static void initAll(){
-		VEHICLE1 = new Vehicle();
-		VEHICLE1.setId(1L);
+		VEHICLE1 = new VehicleDTO();
+		VEHICLE1.setId("v1");
 		VEHICLE1.setName("vehicle1");
 
-		NON_EXISTING_VEHICLE = new Vehicle();
-		NON_EXISTING_VEHICLE.setId(2L);
+		NON_EXISTING_VEHICLE = new VehicleDTO();
+		NON_EXISTING_VEHICLE.setId("v2");
 		NON_EXISTING_VEHICLE.setName("non_existing");
 
 	}
@@ -70,7 +71,7 @@ class VehicleIntegrationTest {
 
 		Thread.sleep(WAITING_TIME);
 
-		assertThrows(NotFoundException.class,() -> registryService.find(789L));
+		assertThrows(NotFoundException.class,() -> registryService.find("32452353245"));
 
 	}
 

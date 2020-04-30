@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    include: gitlab
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+
+server:
+  port: 5100
