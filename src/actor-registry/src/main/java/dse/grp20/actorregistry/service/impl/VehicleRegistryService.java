@@ -25,7 +25,7 @@ public class VehicleRegistryService implements IVehicleRegistryService {
     }
 
     @Override
-    public void add(VehicleDTO vehicleDTO) {
+    public void register(VehicleDTO vehicleDTO) {
         Vehicle vehicle = modelMapper.map(vehicleDTO, Vehicle.class);
         vehicleRepository.save(vehicle);
     }

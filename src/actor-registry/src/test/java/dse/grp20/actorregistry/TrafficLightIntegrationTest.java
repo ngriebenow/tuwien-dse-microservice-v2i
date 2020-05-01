@@ -1,6 +1,5 @@
 package dse.grp20.actorregistry;
 
-import dse.grp20.actorregistry.entity.Geo;
 import dse.grp20.actorregistry.entity.TrafficLight;
 import dse.grp20.actorregistry.exception.InvalidTrafficLightException;
 import dse.grp20.actorregistry.exception.NotFoundException;
@@ -15,8 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -32,6 +30,7 @@ class TrafficLightIntegrationTest {
 	private static long WAITING_TIME = 300;
 
 	private static String QUEUE_TRAFFICLIGHT_DELETE = "trafficlight.delete";
+	private static String QUEUE_TRAFFICLIGHT_REGISTER = "trafficlight.register";
 
 	private static TrafficLightDTO TRAFFICLIGHT1;
 	private static TrafficLightDTO NON_EXISTING_TRAFFICLIGHT;
@@ -50,13 +49,18 @@ class TrafficLightIntegrationTest {
 
 	}
 
-	@BeforeEach
-	public void init() throws InvalidTrafficLightException {
-		registryService.add(TRAFFICLIGHT1);
+	@Test
+	public void testRegister_NewTrafficlight_shouldBeSaved() throws NotFoundException, InterruptedException {
+		assertThrows(NotFoundException.class, () -> registryService.find(TRAFFICLIGHT1.getId()));
+		rabbitTemplate.convertAndSend(QUEUE_TRAFFICLIGHT_REGISTER,TRAFFICLIGHT1);
+		Thread.sleep(WAITING_TIME);
+		TrafficLightDTO trafficLightDTO = registryService.find(TRAFFICLIGHT1.getId());
+		assertNotNull(trafficLightDTO);
 	}
 
 	@Test
-	public void testDelete_ExistingVehicle_shouldDelete() throws InterruptedException, NotFoundException {
+	public void testDelete_ExistingTrafficlight_shouldDelete() throws InterruptedException, NotFoundException, InvalidTrafficLightException {
+		registryService.register(TRAFFICLIGHT1);
 		assertNotNull(registryService.find(TRAFFICLIGHT1.getId()));
 
 		rabbitTemplate.convertAndSend(QUEUE_TRAFFICLIGHT_DELETE,TRAFFICLIGHT1);
@@ -68,7 +72,8 @@ class TrafficLightIntegrationTest {
 	}
 
 	@Test
-	public void testDelete_NonExistingVehicle_shouldIgnore() throws InterruptedException, NotFoundException {
+	public void testDelete_NonExistingTrafficlight_shouldIgnore() throws InterruptedException, NotFoundException, InvalidTrafficLightException {
+		registryService.register(TRAFFICLIGHT1);
 		assertNotNull(registryService.find(TRAFFICLIGHT1.getId()));
 
 		rabbitTemplate.convertAndSend(QUEUE_TRAFFICLIGHT_DELETE,NON_EXISTING_TRAFFICLIGHT);

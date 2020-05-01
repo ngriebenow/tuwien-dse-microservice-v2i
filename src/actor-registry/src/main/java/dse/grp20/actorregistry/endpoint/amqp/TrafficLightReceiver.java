@@ -1,5 +1,6 @@
 package dse.grp20.actorregistry.endpoint.amqp;
 
+import dse.grp20.actorregistry.exception.InvalidTrafficLightException;
 import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.actorregistry.service.ITrafficLightRegistryService;
 import dse.grp20.common.dto.TrafficLightDTO;
@@ -18,6 +19,11 @@ public class TrafficLightReceiver {
     @RabbitListener(queues = "trafficlight.delete")
     public void delete(TrafficLightDTO trafficLightDTO) throws NotFoundException {
         trafficLightRegistryService.delete(trafficLightDTO);
+    }
+
+    @RabbitListener(queues = "trafficlight.register")
+    public void register(TrafficLightDTO trafficLightDTO) throws InvalidTrafficLightException {
+        trafficLightRegistryService.register(trafficLightDTO);
     }
 
 }

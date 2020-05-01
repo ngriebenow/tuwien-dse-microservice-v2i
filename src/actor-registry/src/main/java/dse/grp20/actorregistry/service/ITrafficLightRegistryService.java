@@ -8,7 +8,7 @@ public interface ITrafficLightRegistryService {
 
     void delete(TrafficLightDTO vehicle) throws NotFoundException;
 
-    void add(TrafficLightDTO vehicle) throws InvalidTrafficLightException;
+    void register(TrafficLightDTO vehicle) throws InvalidTrafficLightException;
 
     TrafficLightDTO find(Long id) throws NotFoundException;
 
