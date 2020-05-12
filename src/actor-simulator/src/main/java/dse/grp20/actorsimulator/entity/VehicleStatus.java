@@ -17,6 +17,16 @@ public class VehicleStatus implements Serializable {
 
     private String vehicleId;
 
+    private double speed;
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
     @Override
     public String toString() {
         return "VehicleStatus{" +

@@ -54,14 +54,14 @@ public class Geo implements Serializable {
         return Math.abs(this.latitude - geo.latitude) < proximity && Math.abs(this.longitude - geo.longitude) < proximity;
     }
 
-    public Double getLength() {
+    /*public Double getLength() {
         return Math.sqrt(this.latitude * this.latitude + this.longitude * this.longitude);
-    }
+    }*/
 
-    public Geo normalize() {
+    /*public Geo normalize() {
         double l = getLength();
         return new Geo(this.latitude / l, this.longitude / l);
-    }
+    }*/
 
     public Geo scale(double l) {
         return new Geo(this.latitude * l, this.longitude * l);

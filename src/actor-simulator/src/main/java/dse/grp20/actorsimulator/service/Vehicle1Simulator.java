@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class Vehicle1Simulator {
 
-    private static final long REFRESH_RATE_MS = 1000;
+    private static final long REFRESH_RATE_MS = 2000;
 
     private List<VehicleStatus> latestControlStati = new ArrayList<>();
 
@@ -33,7 +33,8 @@ public class Vehicle1Simulator {
 
         currentStatus = new VehicleStatus();
         currentStatus.setLocation(Constants.VEHICLE1_INITIAL_POSITION);
-        currentStatus.setVelocity(Constants.VEHICLE1_ENTRY_A_POSITION.minus(Constants.VEHICLE1_INITIAL_POSITION));
+        //currentStatus.setVelocity(Constants.VEHICLE1_ENTRY_A_POSITION.minus(Constants.VEHICLE1_INITIAL_POSITION));
+        currentStatus.setSpeed(20);
         currentStatus.setVehicleId(vehicle1.getId());
         currentStatus.setTime(Calendar.getInstance().getTimeInMillis());
 
@@ -49,10 +50,11 @@ public class Vehicle1Simulator {
             long deltaTime = now - lastStatus.getTime();
             Geo deltaLocation = lastStatus.getVelocity().scale(deltaTime / 1000);
             Geo nowLocation = lastStatus.getLocation().plus(deltaLocation);
-            System.out.println("SPEED: " + Geo.speed(currentStatus.getLocation(), nowLocation, 1000) + " m/s");
+            double currentSpeed = Geo.distance(currentStatus.getLocation(), nowLocation) * 1000 / deltaTime;
+
+            System.out.println("SPEED: " + currentSpeed + " m/s");
             currentStatus.setLocation(nowLocation);
             currentStatus.setTime(now);
-
 
 
             // get next target, or break if no more navigation targets available
@@ -79,11 +81,12 @@ public class Vehicle1Simulator {
                 }
             }
 
-            Geo deltaTarget = nextTarget.minus(currentStatus.getLocation());
-            Geo targetVelocity = deltaTarget.normalize().scale(currentStatus.getVelocity().getLength());
+            //Geo deltaTarget = nextTarget.minus(currentStatus.getLocation());
+            //double distance = Geo.distance(currentStatus.getLocation(), nextTarget);
+            //Geo targetVelocity = deltaTarget.scale(currentSpeed / distance);
 
             // change direction, but use current speed to fit to next control status
-            currentStatus.setVelocity(targetVelocity);
+            //currentStatus.setVelocity(targetVelocity);
 
         }
     }
