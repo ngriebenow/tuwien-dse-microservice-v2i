@@ -25,7 +25,7 @@ public class Vehicle1Simulator {
         return currentStatus;
     }
 
-    private void simulate() throws InterruptedException {
+    public void simulate() throws InterruptedException {
 
         Vehicle vehicle1 = new Vehicle();
         vehicle1.setId("WVWZZZ1JZ3W386752");
@@ -35,6 +35,7 @@ public class Vehicle1Simulator {
         currentStatus.setLocation(Constants.VEHICLE1_INITIAL_POSITION);
         currentStatus.setVelocity(Constants.VEHICLE1_ENTRY_A_POSITION.minus(Constants.VEHICLE1_INITIAL_POSITION));
         currentStatus.setVehicleId(vehicle1.getId());
+        currentStatus.setTime(Calendar.getInstance().getTimeInMillis());
 
         while (route.size() > 0) {
 
@@ -45,17 +46,21 @@ public class Vehicle1Simulator {
             // TODO: use time as long?
             // refresh current position in currentStatus after some time has passed
             long now = Calendar.getInstance().getTimeInMillis();
-            long deltaTime = lastStatus.getTime() - now;
+            long deltaTime = now - lastStatus.getTime();
             Geo deltaLocation = lastStatus.getVelocity().scale(deltaTime / 1000);
             Geo nowLocation = lastStatus.getLocation().plus(deltaLocation);
+            System.out.println("SPEED: " + Geo.speed(currentStatus.getLocation(), nowLocation, 1000) + " m/s");
             currentStatus.setLocation(nowLocation);
+            currentStatus.setTime(now);
+
 
 
             // get next target, or break if no more navigation targets available
             Geo nextTarget = null;
-            while (route.size() > 0) {
+            while (route.size() > 0 && nextTarget == null) {
                 nextTarget = route.get(0);
                 if (currentStatus.getLocation().inProximity(nextTarget)) {
+                    System.out.println(">> TARGET REACHED " + nextTarget);
                     nextTarget = null;
                     route.remove(0);
                 }

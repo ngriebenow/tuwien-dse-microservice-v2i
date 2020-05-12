@@ -14,6 +14,14 @@ public class Geo implements Serializable {
         this.longitude = longitude;
     }
 
+    @Override
+    public String toString() {
+        return "Geo{" +
+                "latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
+    }
+
     private Double latitude;
 
     private Double longitude;
@@ -35,15 +43,15 @@ public class Geo implements Serializable {
     }
 
     public Geo minus(Geo geo) {
-        return new Geo(this.latitude - geo.latitude, this.longitude - geo.latitude);
+        return new Geo(this.latitude - geo.latitude, this.longitude - geo.longitude);
     }
 
     public Geo plus(Geo geo) {
-        return new Geo(this.latitude + geo.latitude, this.longitude + geo.latitude);
+        return new Geo(this.latitude + geo.latitude, this.longitude + geo.longitude);
     }
 
     public boolean inProximity(Geo geo) {
-        return (this.latitude - geo.latitude) < proximity && (this.longitude - geo.longitude) < proximity;
+        return Math.abs(this.latitude - geo.latitude) < proximity && Math.abs(this.longitude - geo.longitude) < proximity;
     }
 
     public Double getLength() {
@@ -58,4 +66,24 @@ public class Geo implements Serializable {
     public Geo scale(double l) {
         return new Geo(this.latitude * l, this.longitude * l);
     }
+
+
+
+
+    public static double speed(Geo start, Geo end, long timeMs) {
+
+        final int R = 6371; // Radius of the earth
+
+        double latDistance = Math.toRadians(end.getLatitude() - start.getLatitude());
+        double lonDistance = Math.toRadians(end.getLongitude() - start.getLongitude());
+        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+                + Math.cos(Math.toRadians(start.getLatitude())) * Math.cos(Math.toRadians(end.getLatitude()))
+                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double distance = R * c * 1000; // convert to meters
+
+        return distance * 1000 / timeMs;
+    }
+
+
 }

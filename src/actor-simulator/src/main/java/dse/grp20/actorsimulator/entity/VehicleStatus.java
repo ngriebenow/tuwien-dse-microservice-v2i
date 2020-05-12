@@ -17,6 +17,16 @@ public class VehicleStatus implements Serializable {
 
     private String vehicleId;
 
+    @Override
+    public String toString() {
+        return "VehicleStatus{" +
+                "location=" + location +
+                ", velocity=" + velocity +
+                ", time=" + time +
+                ", vehicleId='" + vehicleId + '\'' +
+                '}';
+    }
+
     public Geo getLocation() {
         return location;
     }

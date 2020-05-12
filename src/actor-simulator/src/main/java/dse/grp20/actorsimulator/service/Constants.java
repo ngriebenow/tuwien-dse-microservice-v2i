@@ -2,6 +2,7 @@ package dse.grp20.actorsimulator.service;
 
 import dse.grp20.actorsimulator.entity.Geo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,11 +19,11 @@ public class Constants {
 
     public static final Geo VEHICLE1_NCE_POSITION = new Geo(48.152659, 15.614569);
 
-    public static final List<Geo> VEHICLE1_ROUTE = Arrays.asList(TRAFFICLIGHT_A_POSITION,
+    public static List<Geo> VEHICLE1_ROUTE = new ArrayList<>(Arrays.asList(TRAFFICLIGHT_A_POSITION,
             TRAFFICLIGHT_B_POSITION,
             VEHICLE1_NCE_POSITION,
             TRAFFICLIGHT_C_POSITION,
-            VEHICLE1_TARGET_POSITION);
+            VEHICLE1_TARGET_POSITION));
 
 
 }
