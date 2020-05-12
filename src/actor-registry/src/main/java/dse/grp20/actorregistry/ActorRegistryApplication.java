@@ -35,8 +35,18 @@ public class ActorRegistryApplication {
 	}
 
 	@Bean
+	Queue queueVehicleRegister() {
+		return new Queue("vehicle.register", false);
+	}
+
+	@Bean
 	Queue queueVehicleDelete() {
 		return new Queue("vehicle.delete", false);
+	}
+
+	@Bean
+	Queue queueTrafficlightRegister() {
+		return new Queue("trafficlight.register", false);
 	}
 
 	@Bean

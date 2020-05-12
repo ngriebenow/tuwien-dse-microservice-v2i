@@ -1,20 +1,20 @@
 package dse.grp20.actorregistry;
 
-import dse.grp20.actorregistry.entity.Vehicle;
 import dse.grp20.actorregistry.exception.InvalidVehicleException;
 import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.actorregistry.service.IVehicleRegistryService;
+import dse.grp20.common.dto.TrafficLightDTO;
 import dse.grp20.common.dto.VehicleDTO;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -30,6 +30,7 @@ class VehicleIntegrationTest {
 	private static long WAITING_TIME = 300;
 
 	private static String QUEUE_VEHICLE_DELETE = "vehicle.delete";
+	private static String QUEUE_VEHICLE_REGISTER = "vehicle.register";
 
 	private static VehicleDTO VEHICLE1;
 	private static VehicleDTO NON_EXISTING_VEHICLE;
@@ -46,13 +47,18 @@ class VehicleIntegrationTest {
 
 	}
 
-	@BeforeEach
-	public void init() throws InvalidVehicleException {
-		registryService.add(VEHICLE1);
+	@Test
+	public void testRegister_NewVehicle_shouldBeSaved() throws InterruptedException, NotFoundException {
+		assertThrows(NotFoundException.class, () -> registryService.find(VEHICLE1.getId()));
+		rabbitTemplate.convertAndSend(QUEUE_VEHICLE_REGISTER,VEHICLE1);
+		Thread.sleep(WAITING_TIME);
+		VehicleDTO vehicleDTO = registryService.find(VEHICLE1.getId());
+		assertNotNull(vehicleDTO);
 	}
 
 	@Test
-	public void testDelete_ExistingVehicle_shouldDelete() throws InterruptedException, NotFoundException {
+	public void testDelete_ExistingVehicle_shouldDelete() throws InterruptedException, NotFoundException, InvalidVehicleException {
+		registryService.register(VEHICLE1);
 		assertNotNull(registryService.find(VEHICLE1.getId()));
 
 		rabbitTemplate.convertAndSend(QUEUE_VEHICLE_DELETE,VEHICLE1);
@@ -64,7 +70,8 @@ class VehicleIntegrationTest {
 	}
 
 	@Test
-	public void testDelete_NonExistingVehicle_shouldIgnore() throws InterruptedException, NotFoundException {
+	public void testDelete_NonExistingVehicle_shouldIgnore() throws InterruptedException, NotFoundException, InvalidVehicleException {
+		registryService.register(VEHICLE1);
 		assertNotNull(registryService.find(VEHICLE1.getId()));
 
 		rabbitTemplate.convertAndSend(QUEUE_VEHICLE_DELETE,NON_EXISTING_VEHICLE);

@@ -9,7 +9,7 @@ public interface IVehicleRegistryService {
 
     void delete(VehicleDTO vehicle) throws NotFoundException;
 
-    void add(VehicleDTO vehicle) throws InvalidVehicleException;
+    void register(VehicleDTO vehicle) throws InvalidVehicleException;
 
     VehicleDTO find(String id) throws NotFoundException;
 

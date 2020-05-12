@@ -26,7 +26,7 @@ public class TrafficLightRegistryService implements ITrafficLightRegistryService
     }
 
     @Override
-    public void add(TrafficLightDTO trafficLightDTO) throws InvalidTrafficLightException {
+    public void register(TrafficLightDTO trafficLightDTO) throws InvalidTrafficLightException {
         TrafficLight trafficLight = modelMapper.map(trafficLightDTO,TrafficLight.class);
         trafficLightRepository.save(trafficLight);
     }

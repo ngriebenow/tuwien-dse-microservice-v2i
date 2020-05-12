@@ -2,35 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147ee5be-5255-4783-9f14-c44ae10f6205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/VehicleDeletor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/resources/application-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-gitlab.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/GeoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/TrafficLightDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/VehicleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/exception/InvalidTrafficLightException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/exception/InvalidVehicleException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/exception/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Geo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/entity/Geo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/entity/TrafficLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/dao/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/entity/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/ActorRegistryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/ITrafficLightRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/ITrafficLightRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/IVehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/IVehicleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/ITrafficLightRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/ITrafficLightRegistryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/IVehicleRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/IVehicleRegistryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TafficLightRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TrafficLightRegistryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TrafficLightRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TrafficLightRegistryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java" afterDir="false" />
@@ -102,7 +81,7 @@
       <recent name="C:\Users\i514670\UnSyncOneDrive - Personal\dse\src\api-gateway\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in actor-registry">
+  <component name="RunManager" selected="JUnit.VehicleIntegrationTest">
     <configuration name="All in actor-registry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="actor-registry" />
       <option name="PACKAGE_NAME" value="" />
@@ -175,10 +154,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VehicleIntegrationTest" />
+        <item itemvalue="JUnit.TrafficLightIntegrationTest" />
         <item itemvalue="JUnit.All in actor-registry" />
         <item itemvalue="JUnit.TrafficLightIntegrationTest.testDelete_ExistingVehicle_shouldDelete" />
-        <item itemvalue="JUnit.TrafficLightIntegrationTest" />
-        <item itemvalue="JUnit.VehicleIntegrationTest" />
         <item itemvalue="JUnit.VehicleIntegrationTest.testDelete_ExistingVehicle_shouldDelete" />
       </list>
     </recent_temporary>
@@ -326,21 +305,25 @@
       <screen x="0" y="34" width="1920" height="1046" />
     </state>
     <state x="431" y="42" width="1048" height="1036" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1588182587344" />
-    <state width="1862" height="374" key="GridCell.Tab.0.bottom" timestamp="1588227962910">
-      <screen x="0" y="34" width="1920" height="1046" />
+    <state width="1876" height="448" key="GridCell.Tab.0.bottom" timestamp="1588296248345">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1876" height="448" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1588296248345" />
     <state width="1862" height="374" key="GridCell.Tab.0.bottom/0.34.1920.1046@0.34.1920.1046" timestamp="1588227962910" />
-    <state width="1862" height="374" key="GridCell.Tab.0.center" timestamp="1588227962908">
-      <screen x="0" y="34" width="1920" height="1046" />
+    <state width="1876" height="448" key="GridCell.Tab.0.center" timestamp="1588296248345">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1876" height="448" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1588296248345" />
     <state width="1862" height="374" key="GridCell.Tab.0.center/0.34.1920.1046@0.34.1920.1046" timestamp="1588227962908" />
-    <state width="1862" height="374" key="GridCell.Tab.0.left" timestamp="1588227962907">
-      <screen x="0" y="34" width="1920" height="1046" />
+    <state width="1876" height="448" key="GridCell.Tab.0.left" timestamp="1588296248345">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1876" height="448" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1588296248345" />
     <state width="1862" height="374" key="GridCell.Tab.0.left/0.34.1920.1046@0.34.1920.1046" timestamp="1588227962907" />
-    <state width="1862" height="374" key="GridCell.Tab.0.right" timestamp="1588227962909">
-      <screen x="0" y="34" width="1920" height="1046" />
+    <state width="1876" height="448" key="GridCell.Tab.0.right" timestamp="1588296248345">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1876" height="448" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1588296248345" />
     <state width="1862" height="374" key="GridCell.Tab.0.right/0.34.1920.1046@0.34.1920.1046" timestamp="1588227962909" />
     <state width="1862" height="338" key="GridCell.Tab.1.bottom" timestamp="1588227842408">
       <screen x="0" y="34" width="1920" height="1046" />
@@ -372,30 +355,6 @@
     <state x="547" y="346" key="com.intellij.ide.util.TipDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1588159620980" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="id.toString()" language="JAVA" />
