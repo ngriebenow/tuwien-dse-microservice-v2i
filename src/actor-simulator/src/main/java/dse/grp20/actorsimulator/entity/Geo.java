@@ -69,8 +69,7 @@ public class Geo implements Serializable {
 
 
 
-
-    public static double speed(Geo start, Geo end, long timeMs) {
+    public static double distance(Geo start, Geo end) {
 
         final int R = 6371; // Radius of the earth
 
@@ -80,10 +79,15 @@ public class Geo implements Serializable {
                 + Math.cos(Math.toRadians(start.getLatitude())) * Math.cos(Math.toRadians(end.getLatitude()))
                 * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double distance = R * c * 1000; // convert to meters
+        return R * c * 1000; // convert to meters
 
-        return distance * 1000 / timeMs;
     }
+
+
+    /*
+    public static double speed(Geo start, Geo end, long timeMs) {
+        return distance * 1000 / timeMs;
+    }*/
 
 
 }

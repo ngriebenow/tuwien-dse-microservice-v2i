@@ -80,6 +80,12 @@
             <scope>compile</scope>
         </dependency>
 
+		<dependency>
+			<groupId>com.googlecode.princeton-java-introduction</groupId>
+			<artifactId>stdlib</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
 
     </dependencies>
 
