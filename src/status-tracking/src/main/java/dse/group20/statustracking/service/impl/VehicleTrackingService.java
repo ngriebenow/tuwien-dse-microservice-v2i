@@ -1,0 +1,32 @@
+package dse.group20.statustracking.service.impl;
+
+import dse.group20.statustracking.entities.VehicleStatus;
+import dse.group20.statustracking.repositories.IVehicleStatusRepository;
+import dse.group20.statustracking.service.IVehicleTrackingService;
+import dse.grp20.common.dto.VehicleStatusDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.Optional;
+
+@Component
+public class VehicleTrackingService implements IVehicleTrackingService {
+
+    @Autowired
+    private IVehicleStatusRepository vehicleStatusRepository;
+
+    @Override
+    public void updateVehicle(VehicleStatusDTO vehicleStatus) {
+        this.vehicleStatusRepository.insert(this.convertDTOtoEntity(vehicleStatus));
+    }
+
+    @Override
+    public VehicleStatus getVehicleStatus(String id) {
+        Optional<VehicleStatus> vehicleStatus = this.vehicleStatusRepository.findById(id);
+        return vehicleStatus.isPresent() ? vehicleStatus.get() : null;
+    }
+
+    private VehicleStatus convertDTOtoEntity (VehicleStatusDTO dto) {
+        return new VehicleStatus(dto);
+    }
+}
