@@ -1,8 +1,8 @@
-package dse.grp20.actorsimulator.endpoint.amqp;
+package dse.grp20.actorregistry.endpoint.amqp;
 
-import dse.grp20.actorsimulator.exception.InvalidTrafficLightException;
-import dse.grp20.actorsimulator.exception.NotFoundException;
-import dse.grp20.actorsimulator.service.ITrafficLightRegistryService;
+import dse.grp20.actorregistry.exception.InvalidTrafficLightException;
+import dse.grp20.actorregistry.exception.NotFoundException;
+import dse.grp20.actorregistry.service.ITrafficLightRegistryService;
 import dse.grp20.common.dto.TrafficLightDTO;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

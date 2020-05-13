@@ -1,4 +1,4 @@
-package dse.grp20.actorsimulator;
+package dse.grp20.actorregistry;
 
 import com.github.fridujo.rabbitmq.mock.MockConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;

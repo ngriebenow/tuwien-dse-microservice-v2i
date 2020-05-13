@@ -1,4 +1,4 @@
-package dse.grp20.actorsimulator;
+package dse.grp20.actorregistry;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.boot.SpringApplication;

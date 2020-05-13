@@ -1,9 +1,9 @@
-package dse.grp20.actorsimulator.service.impl;
+package dse.grp20.actorregistry.service.impl;
 
-import dse.grp20.actorsimulator.entity.Vehicle;
-import dse.grp20.actorsimulator.exception.NotFoundException;
-import dse.grp20.actorsimulator.repository.IVehicleRepository;
-import dse.grp20.actorsimulator.service.IVehicleRegistryService;
+import dse.grp20.actorregistry.entity.Vehicle;
+import dse.grp20.actorregistry.exception.NotFoundException;
+import dse.grp20.actorregistry.repository.IVehicleRepository;
+import dse.grp20.actorregistry.service.IVehicleRegistryService;
 import dse.grp20.common.dto.VehicleDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

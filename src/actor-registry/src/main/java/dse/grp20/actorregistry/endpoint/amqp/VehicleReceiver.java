@@ -1,8 +1,8 @@
-package dse.grp20.actorsimulator.endpoint.amqp;
+package dse.grp20.actorregistry.endpoint.amqp;
 
-import dse.grp20.actorsimulator.exception.InvalidVehicleException;
-import dse.grp20.actorsimulator.exception.NotFoundException;
-import dse.grp20.actorsimulator.service.IVehicleRegistryService;
+import dse.grp20.actorregistry.exception.InvalidVehicleException;
+import dse.grp20.actorregistry.exception.NotFoundException;
+import dse.grp20.actorregistry.service.IVehicleRegistryService;
 import dse.grp20.common.dto.VehicleDTO;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

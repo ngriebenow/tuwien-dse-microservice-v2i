@@ -1,4 +1,4 @@
-package dse.grp20.actorsimulator.entity;
+package dse.grp20.actorregistry.entity;
 
 import java.io.Serializable;
 
