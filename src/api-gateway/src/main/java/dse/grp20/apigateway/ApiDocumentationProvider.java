@@ -1,6 +1,5 @@
-package dse.group20.apigateway;
+package dse.grp20.apigateway;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;

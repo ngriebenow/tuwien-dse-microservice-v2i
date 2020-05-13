@@ -1,12 +1,12 @@
-package dse.group20.apigateway.filters;
+package dse.grp20.apigateway.filters;
 
 import com.netflix.zuul.ZuulFilter;
 
-public class RouteFilter extends ZuulFilter {
+public class PostFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
-        return "route";
+        return "post";
     }
 
     @Override
@@ -21,7 +21,8 @@ public class RouteFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        System.out.println("Inside Route Filter");
+        System.out.println("Inside Response Filter");
+
         return null;
     }
 }

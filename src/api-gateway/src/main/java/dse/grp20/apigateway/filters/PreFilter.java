@@ -1,8 +1,9 @@
-package dse.group20.apigateway.filters;
+package dse.grp20.apigateway.filters;
 
-import javax.servlet.http.HttpServletRequest;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class PreFilter extends ZuulFilter {
 

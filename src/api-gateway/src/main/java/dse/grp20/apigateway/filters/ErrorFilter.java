@@ -1,4 +1,4 @@
-package dse.group20.apigateway.filters;
+package dse.grp20.apigateway.filters;
 
 import com.netflix.zuul.ZuulFilter;
 

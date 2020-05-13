@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    include: dev
+  rabbitmq:
+    host: 34.89.176.21
+    port: 5672
+  data:
+    mongodb:
+      uri: "mongodb+srv://dse20:dse20pwd@dse20statustracking-cxf7t.mongodb.net/test?retryWrites=true&w=majority"
+
+server:
+  port: 5101

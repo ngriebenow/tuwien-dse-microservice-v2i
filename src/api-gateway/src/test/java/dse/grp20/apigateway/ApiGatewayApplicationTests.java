@@ -1,4 +1,4 @@
-package dse.group20.apigateway;
+package dse.grp20.apigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
