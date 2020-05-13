@@ -14,7 +14,7 @@ public class TrafficLightTrackingReceiver {
     @Autowired
     private ITrafficLightTrackingService trafficLightTrackingService;
 
-    @RabbitListener(queues = "trafficLight.update")
+    @RabbitListener(queues = "trafficlight.update")
     public void updateTrafficLight (TrafficLightStatusDTO trafficLightStatusDTO) {
         this.trafficLightTrackingService.updateTrafficLight(trafficLightStatusDTO);
     }
