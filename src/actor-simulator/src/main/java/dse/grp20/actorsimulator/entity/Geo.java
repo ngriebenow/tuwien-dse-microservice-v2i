@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Geo implements Serializable {
 
-    private static final double proximity = 0.0001;
+    private static final double proximity = 0.0002;
 
     public Geo() {
     }

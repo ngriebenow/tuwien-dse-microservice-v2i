@@ -1,17 +1,15 @@
 package dse.grp20.actorsimulator.entity;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 public class VehicleStatus implements Serializable {
 
     @Id
     private Geo location;
 
-    private Geo velocity;
+    private Geo direction;
 
     private long time;
 
@@ -31,9 +29,10 @@ public class VehicleStatus implements Serializable {
     public String toString() {
         return "VehicleStatus{" +
                 "location=" + location +
-                ", velocity=" + velocity +
+                ", direction=" + direction +
                 ", time=" + time +
                 ", vehicleId='" + vehicleId + '\'' +
+                ", speed=" + speed +
                 '}';
     }
 
@@ -45,12 +44,12 @@ public class VehicleStatus implements Serializable {
         this.location = location;
     }
 
-    public Geo getVelocity() {
-        return velocity;
+    public Geo getDirection() {
+        return direction;
     }
 
-    public void setVelocity(Geo velocity) {
-        this.velocity = velocity;
+    public void setDirection(Geo direction) {
+        this.direction = direction;
     }
 
     public Long getTime() {
