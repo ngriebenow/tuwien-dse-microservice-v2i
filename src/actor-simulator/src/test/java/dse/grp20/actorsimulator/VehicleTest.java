@@ -1,7 +1,6 @@
 package dse.grp20.actorsimulator;
 
 
-import dse.grp20.actorsimulator.exception.NotFoundException;
 import dse.grp20.actorsimulator.service.Simulator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ class VehicleTest {
 
 
 	@Test
-	public void testRegister_NewVehicle_shouldBeSaved() throws InterruptedException, NotFoundException {
+	public void testRegister_NewVehicle_shouldBeSaved() throws InterruptedException {
 
 
 	}
