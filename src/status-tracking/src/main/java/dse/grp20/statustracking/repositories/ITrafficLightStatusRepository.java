@@ -8,6 +8,12 @@ import java.util.List;
 
 public interface ITrafficLightStatusRepository extends MongoRepository<TrafficLightStatus, String> {
 
-    @Query("{trafficLightStatus.from: {$gt : ?0}")
-    List<TrafficLightStatus> findAllInvalidTrafficStatusEntries(Long timeStamp);
+    @Query("{ $and : [{'from' : {$gte : ?0}} , {'trafficLight.id': ?1}]}")
+    List<TrafficLightStatus> findFutureStatusEntries(long timeStamp, long trafficLightId);
+
+    @Query("{'from': {$gt : ?0}}")
+    List<TrafficLightStatus> findStatusEntriesInFuture(long timeStamp);
+
+    @Query("{'trafficLight.id': ?0}")
+    List<TrafficLightStatus> findEntriesOfSameTrafficLight(long trafficLightId);
 }

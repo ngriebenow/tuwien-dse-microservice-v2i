@@ -42,4 +42,13 @@ public class TrafficLightStatusDTO implements Serializable {
     public void setValid(boolean valid) {
         this.valid = valid;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Light: ").append(this.lightDTO).append(System.lineSeparator())
+                .append("from: ").append(this.from).append(System.lineSeparator()).append("trafficlight: ")
+                .append(this.trafficLight.getId());
+        return super.toString();
+    }
 }

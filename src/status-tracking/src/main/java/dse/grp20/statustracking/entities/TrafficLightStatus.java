@@ -74,4 +74,13 @@ public class TrafficLightStatus implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Light: ").append(this.light).append(System.lineSeparator())
+                .append("from: ").append(this.from).append(System.lineSeparator()).append("trafficlight: ")
+                .append(this.trafficLight.getId());
+        return super.toString();
+    }
 }

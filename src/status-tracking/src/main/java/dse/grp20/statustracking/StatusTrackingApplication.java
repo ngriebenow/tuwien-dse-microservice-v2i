@@ -25,6 +25,10 @@ public class StatusTrackingApplication {
     }
 
     @Bean
-    Queue queueTrafficlightShedule() { return new Queue("trafficlight.update", false); }
+    Queue queueTrafficlightShedule() { return new Queue("trafficlight.shedule", false); }
+
+    @Bean
+    Queue queueTrafficlightScan() { return new Queue("trafficlight.scan", false); }
+
 
 }
