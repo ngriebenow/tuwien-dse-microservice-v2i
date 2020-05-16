@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>dse.grp20</groupId>
-    <artifactId>actorcontrol</artifactId>
+    <artifactId>actor-control</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>actorcontrol</name>
+    <name>actor-control</name>
     <description>Actor Control Service</description>
 
     <properties>
