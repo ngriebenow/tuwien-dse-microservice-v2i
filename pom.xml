@@ -15,6 +15,7 @@
     <module>src/actor-simulator</module>
     <module>src/api-gateway</module>
     <module>src/status-tracking</module>
+    <module>src/actor-control</module>
   </modules>
 
   <profiles>
