@@ -20,8 +20,10 @@ public class VehicleControlReceiver {
     IControlService controlService;
 
     @RabbitListener(queues = "vehicle.plan")
-    public void controlVehicle(List<VehicleStatusDTO> vehicleStatusDTOList) {
-        controlService.controlVehicles(vehicleStatusDTOList);
+    public void controlVehicle(List<TrafficLightStatusDTO> trafficLightStatusDTOList,
+                               List<VehicleStatusDTO> vehicleStatusDTOList) {
+        // ToDo implement
+        throw new NotImplementedException();
     }
 
     @RabbitListener(queues = "trafficlight.plan")

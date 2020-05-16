@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @Package: dse.grp20.actorcontrol.entities
@@ -16,9 +17,12 @@ public class VehicleControl implements Serializable {
     @Id
     @MongoId
     private String vehicleId;
-    private String name;
     private double speed;
-    private String timestamp;
+    private long timestamp;
+
+    public VehicleControl() {
+        timestamp = System.currentTimeMillis();
+    }
 
     public String getVehicleId() {
         return vehicleId;
@@ -26,14 +30,6 @@ public class VehicleControl implements Serializable {
 
     public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getSpeed() {
@@ -44,11 +40,11 @@ public class VehicleControl implements Serializable {
         this.speed = speed;
     }
 
-    public String getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 }

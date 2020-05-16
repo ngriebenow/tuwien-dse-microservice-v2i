@@ -4,6 +4,7 @@ import dse.grp20.actorcontrol.entities.VehicleControl;
 import dse.grp20.actorcontrol.repositories.IVehicleControlRepository;
 import dse.grp20.actorcontrol.services.IControlService;
 import dse.grp20.actorregistry.exception.NotFoundException;
+import dse.grp20.common.dto.VehicleControlDTO;
 import dse.grp20.common.dto.VehicleDTO;
 import dse.grp20.common.dto.VehicleStatusDTO;
 import org.junit.jupiter.api.AfterEach;
@@ -33,19 +34,19 @@ class VehicleControlIntegrationTest {
 
     private static long WAITING_TIME = 300;
 
-    private static String QUEUE_VEHICLE_PLAN = "vehicle.plan";
     private static String QUEUE_VEHICLE_CONTROL = "vehicle.control";
 
     private static VehicleDTO VEHICLE1;
-    private static VehicleStatusDTO VEHICLE_STATUS1;
+    private static VehicleControlDTO VEHICLE_CONTROL1;
 
     @BeforeAll
     static void initAll(){
         VEHICLE1 = new VehicleDTO();
         VEHICLE1.setId("v1");
         VEHICLE1.setName("vehicle1");
-        VEHICLE_STATUS1 = new VehicleStatusDTO();
-        VEHICLE_STATUS1.setVehicle(VEHICLE1);
+        VEHICLE_CONTROL1 = new VehicleControlDTO();
+        VEHICLE_CONTROL1.setVehicleId(VEHICLE1.getId());
+        VEHICLE_CONTROL1.setSpeed(50.0);
     }
 
     @AfterEach
@@ -54,11 +55,11 @@ class VehicleControlIntegrationTest {
     }
 
     @Test
-    public void testControlVehicle_calledDirectly_shouldSaveControlAdvice() throws InterruptedException, NotFoundException{
-        assertThrows(NotFoundException.class, () -> vehicleControlRepository.findById(VEHICLE1.getId()).orElseThrow(NotFoundException::new));
-        List<VehicleStatusDTO> vehicleStatusDTOList = new ArrayList<>();
-        vehicleStatusDTOList.add(VEHICLE_STATUS1);
-        controlService.controlVehicles(vehicleStatusDTOList);
+    public void testControlVehicle_calledDirectly_shouldSaveControlAdvice() throws NotFoundException{
+        assertThrows(NotFoundException.class, () -> vehicleControlRepository.findById(VEHICLE_CONTROL1.getVehicleId()).orElseThrow(NotFoundException::new));
+        List<VehicleControlDTO> vehicleControlDTO = new ArrayList<>();
+        vehicleControlDTO.add(VEHICLE_CONTROL1);
+        controlService.controlVehicles(vehicleControlDTO);
 
         VehicleControl vehicleControl = vehicleControlRepository.findById(VEHICLE1.getId()).orElseThrow(NotFoundException::new);
         assertNotNull(vehicleControl);
@@ -70,27 +71,10 @@ class VehicleControlIntegrationTest {
     }
 
     @Test
-    public void testControlVehicle_calledByQueue_shouldSaveControlAdvice() throws InterruptedException, NotFoundException{
-        assertThrows(NotFoundException.class, () -> vehicleControlRepository.findById(VEHICLE1.getId()).orElseThrow(NotFoundException::new));
-        List<VehicleStatusDTO> vehicleStatusDTOList = new ArrayList<>();
-        vehicleStatusDTOList.add(VEHICLE_STATUS1);
-        rabbitTemplate.convertAndSend(QUEUE_VEHICLE_PLAN, vehicleStatusDTOList);
-
-        Thread.sleep(WAITING_TIME);
-        VehicleControl vehicleControl = vehicleControlRepository.findById(VEHICLE1.getId()).orElseThrow(NotFoundException::new);
-        assertNotNull(vehicleControl);
-        assertEquals(VEHICLE1.getId(), vehicleControl.getVehicleId());
-        assertEquals(50.0, vehicleControl.getSpeed());
-
-        // Clear queue for tests coming after
-        rabbitTemplate.receive(QUEUE_VEHICLE_CONTROL);
-    }
-
-    @Test
-    public void testControlVehicle_sendVehicleStatus_shouldPublishControlAdvice() throws InterruptedException, NotFoundException {
-        List<VehicleStatusDTO> vehicleStatusDTOList = new ArrayList<>();
-        vehicleStatusDTOList.add(VEHICLE_STATUS1);
-        rabbitTemplate.convertAndSend(QUEUE_VEHICLE_PLAN, vehicleStatusDTOList);
+    public void testControlVehicle_sendVehicleStatus_shouldPublishControlAdvice() throws InterruptedException {
+        List<VehicleControlDTO> vehicleControlDTO = new ArrayList<>();
+        vehicleControlDTO.add(VEHICLE_CONTROL1);
+        controlService.controlVehicles(vehicleControlDTO);
 
         Thread.sleep(WAITING_TIME);
 
