@@ -3,14 +3,11 @@ package dse.grp20.actorcontrol;
 import dse.grp20.actorcontrol.entities.VehicleControl;
 import dse.grp20.actorcontrol.repositories.IVehicleControlRepository;
 import dse.grp20.actorcontrol.services.IControlService;
-import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.common.dto.VehicleControlDTO;
 import dse.grp20.common.dto.VehicleDTO;
-import dse.grp20.common.dto.VehicleStatusDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -55,16 +52,16 @@ class VehicleControlIntegrationTest {
     }
 
     @Test
-    public void testControlVehicle_calledDirectly_shouldSaveControlAdvice() throws NotFoundException{
-        assertThrows(NotFoundException.class, () -> vehicleControlRepository.findById(VEHICLE_CONTROL1.getVehicleId()).orElseThrow(NotFoundException::new));
+    public void testControlVehicle_calledDirectly_shouldSaveControlAdvice() {
+        assertTrue(() -> vehicleControlRepository.findAll().isEmpty());
         List<VehicleControlDTO> vehicleControlDTO = new ArrayList<>();
         vehicleControlDTO.add(VEHICLE_CONTROL1);
         controlService.controlVehicles(vehicleControlDTO);
 
-        VehicleControl vehicleControl = vehicleControlRepository.findById(VEHICLE1.getId()).orElseThrow(NotFoundException::new);
-        assertNotNull(vehicleControl);
-        assertEquals(VEHICLE1.getId(), vehicleControl.getVehicleId());
-        assertEquals(50.0, vehicleControl.getSpeed());
+        List<VehicleControl> vehicleControlList = vehicleControlRepository.findAll();
+        assertNotNull(vehicleControlList);
+        assertEquals(VEHICLE1.getId(), vehicleControlList.get(0).getVehicleId());
+        assertEquals(50.0, vehicleControlList.get(0).getSpeed());
 
         // Clear queue for tests coming after
         rabbitTemplate.receive(QUEUE_VEHICLE_CONTROL);

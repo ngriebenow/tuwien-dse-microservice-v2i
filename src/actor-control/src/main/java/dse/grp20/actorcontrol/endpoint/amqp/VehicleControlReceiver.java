@@ -8,7 +8,6 @@ import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -23,13 +22,11 @@ public class VehicleControlReceiver {
     public void controlVehicle(List<TrafficLightStatusDTO> trafficLightStatusDTOList,
                                List<VehicleStatusDTO> vehicleStatusDTOList) {
         // ToDo implement
-        throw new NotImplementedException();
     }
 
     @RabbitListener(queues = "trafficlight.plan")
     public void controlTrafficLight() {
         // ToDo implement
-        throw new NotImplementedException();
     }
 
 }

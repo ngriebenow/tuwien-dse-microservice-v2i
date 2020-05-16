@@ -3,7 +3,6 @@ package dse.grp20.actorcontrol;
 import dse.grp20.actorcontrol.entities.TrafficLightControl;
 import dse.grp20.actorcontrol.repositories.ITrafficLightControlRepository;
 import dse.grp20.actorcontrol.services.IControlService;
-import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.common.dto.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -60,7 +58,7 @@ class TrafficLightControlIntegrationTest {
     }
 
     @Test
-    public void testControlVehicle_calledDirectly_shouldSaveControlAdvice() throws NotFoundException{
+    public void testControlVehicle_calledDirectly_shouldSaveControlAdvice() {
         assertTrue(() -> trafficLightControlRepository.findAll().isEmpty());
         List<TrafficLightStatusDTO> trafficLightStatusDTOList = new ArrayList<>();
         trafficLightStatusDTOList.add(TRAFFICLIGHT_STATUS1);
