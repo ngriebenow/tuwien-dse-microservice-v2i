@@ -1,6 +1,5 @@
 package dse.grp20.actorcontrol;
 
-import dse.grp20.common.dto.TrafficLightStatusDTO;
 import org.springframework.amqp.core.Queue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +15,7 @@ public class ActorControlApplication {
     @Bean
     Queue queueVehiclePlan() { return new Queue("vehicle.plan", false); }
     @Bean
-    Queue queueTrafficLightPlan() { return new Queue("trafficlight.plan", false); }
+    Queue queueNCEReact() { return new Queue("nearcrashevent.react", false); }
 
     @Bean
     Queue queueVehicleControl() { return new Queue("vehicle.control", false); }
