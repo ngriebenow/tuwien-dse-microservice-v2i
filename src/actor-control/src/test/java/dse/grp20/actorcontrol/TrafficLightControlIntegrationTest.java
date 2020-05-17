@@ -45,11 +45,11 @@ class TrafficLightControlIntegrationTest {
         TRAFFICLIGHT_STATUS1 = new TrafficLightStatusDTO();
         TRAFFICLIGHT_STATUS1.setTrafficLight(TRAFFICLIGHT1);
         TRAFFICLIGHT_STATUS1.setLightDTO(LightDTO.GREEN);
-        TRAFFICLIGHT_STATUS1.setFrom(1L);
+        TRAFFICLIGHT_STATUS1.setFrom(System.currentTimeMillis());
         TRAFFICLIGHT_CONTROL = new TrafficLightControl();
-        TRAFFICLIGHT_CONTROL.setTrafficLight(TRAFFICLIGHT1);
+        TRAFFICLIGHT_CONTROL.setTrafficLightId(TRAFFICLIGHT1.getId());
         TRAFFICLIGHT_CONTROL.setLightDTO(LightDTO.GREEN);
-        TRAFFICLIGHT_CONTROL.setFrom(1L);
+        TRAFFICLIGHT_CONTROL.setFrom(System.currentTimeMillis());
     }
 
     @AfterEach
@@ -66,7 +66,7 @@ class TrafficLightControlIntegrationTest {
 
         List<TrafficLightControl> trafficLightControlList = trafficLightControlRepository.findAll();
         assertNotNull(trafficLightControlList);
-        assertEquals(TRAFFICLIGHT_CONTROL.getTrafficLight().getId(), trafficLightControlList.get(0).getTrafficLight().getId());
+        assertEquals(TRAFFICLIGHT_CONTROL.getTrafficLightId(), trafficLightControlList.get(0).getTrafficLightId());
 
         // Clear queue for tests coming after
         rabbitTemplate.receive(QUEUE_TRAFFICLIGHT_CONTROL);
@@ -80,8 +80,8 @@ class TrafficLightControlIntegrationTest {
 
         Thread.sleep(WAITING_TIME);
 
-        List<TrafficLightStatusDTO> trafficLightStatusDTOList1 = (List<TrafficLightStatusDTO>) rabbitTemplate.receiveAndConvert(QUEUE_TRAFFICLIGHT_CONTROL);
-        assertNotNull(trafficLightStatusDTOList1);
+        List<TrafficLightControlDTO> trafficLightControlDTOList = (List<TrafficLightControlDTO>) rabbitTemplate.receiveAndConvert(QUEUE_TRAFFICLIGHT_CONTROL);
+        assertNotNull(trafficLightControlDTOList);
     }
 
 }

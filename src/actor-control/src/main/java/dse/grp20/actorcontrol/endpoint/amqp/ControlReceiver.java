@@ -13,19 +13,20 @@ import java.util.List;
 
 @Component
 @EnableRabbit
-public class VehicleControlReceiver {
+public class ControlReceiver {
 
     @Autowired
     IControlService controlService;
 
     @RabbitListener(queues = "vehicle.plan")
-    public void controlVehicle(List<TrafficLightStatusDTO> trafficLightStatusDTOList,
-                               List<VehicleStatusDTO> vehicleStatusDTOList) {
+    public void controlVehicle(List<VehicleStatusDTO> vehicleStatusDTOList,
+                               List<TrafficLightStatusDTO> trafficLightStatusDTOList) {
         // ToDo implement
     }
 
-    @RabbitListener(queues = "trafficlight.plan")
-    public void controlTrafficLight() {
+    @RabbitListener(queues = "nearcrashevent.react")
+    public void controlTrafficLight(VehicleStatusDTO vehicleStatusDTO,
+                                    List<TrafficLightStatusDTO> trafficLightStatusDTOList) {
         // ToDo implement
     }
 

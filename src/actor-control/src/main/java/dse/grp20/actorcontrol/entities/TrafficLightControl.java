@@ -11,27 +11,26 @@ public class TrafficLightControl {
 
     @Id
     @MongoId
-    private String id;
+    private Long trafficLightId;
     private LightDTO lightDTO;
     private long from;
-    private boolean valid;
-    private TrafficLightDTO trafficLight;
     private long timestamp;
 
     public TrafficLightControl() {
         timestamp = System.currentTimeMillis();
     }
 
-    public String getId() {
-        return id;
+
+    public Long getTrafficLightId() {
+        return trafficLightId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTrafficLightId(Long trafficLightId) {
+        this.trafficLightId = trafficLightId;
     }
 
     public LightDTO getLightDTO() {
-        return this.lightDTO;
+        return lightDTO;
     }
 
     public void setLightDTO(LightDTO lightDTO) {
@@ -39,27 +38,11 @@ public class TrafficLightControl {
     }
 
     public long getFrom() {
-        return this.from;
+        return from;
     }
 
     public void setFrom(long from) {
         this.from = from;
-    }
-
-    public TrafficLightDTO getTrafficLight() {
-        return this.trafficLight;
-    }
-
-    public void setTrafficLight(TrafficLightDTO trafficLight) {
-        this.trafficLight = trafficLight;
-    }
-
-    public boolean isValid() {
-        return this.valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
     }
 
     public long getTimestamp() {

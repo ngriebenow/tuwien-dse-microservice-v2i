@@ -6,12 +6,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @Package: dse.grp20.actorcontrol.entities
- * @Class: VehicleControl
- * @Author: Guenter Windsperger {01302775}
- * @Date: 16.05.2020
- */
+
 public class VehicleControl implements Serializable {
 
     @Id
