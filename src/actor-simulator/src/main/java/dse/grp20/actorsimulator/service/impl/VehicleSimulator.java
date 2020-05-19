@@ -1,7 +1,12 @@
-package dse.grp20.actorsimulator.service;
+package dse.grp20.actorsimulator.service.impl;
 
 import dse.grp20.actorsimulator.entity.Geo;
+import dse.grp20.actorsimulator.entity.VehicleControl;
 import dse.grp20.actorsimulator.entity.VehicleStatus;
+import dse.grp20.actorsimulator.external.IStatusTrackingService;
+import dse.grp20.actorsimulator.service.ITimeService;
+import dse.grp20.common.dto.VehicleStatusDTO;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,21 +15,25 @@ import java.util.List;
 
 public class VehicleSimulator {
 
-    // TODO: remove new TimeService()
     @Autowired
-    private TimeService timeService = new TimeService();
+    private ITimeService timeService;
+
+    @Autowired
+    private IStatusTrackingService statusTrackingService;
 
     private static final double CURVE_ADAPTATION_FACTOR = 1000;
     private static final double SPEED_ADAPTATION_FACTOR = 1000;
+    private static final double DELTA_SPEED = 1;
 
-    private static Logger LOGGER = LoggerFactory.getLogger(Simulator.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(VehicleSimulationService.class);
 
-    private VehicleStatus latestControlStatus;
+    private ModelMapper modelMapper = new ModelMapper();
+    private VehicleControl latestControl;
     private List<Geo> route;
     private VehicleStatus currentStatus;
 
-    public VehicleSimulator(VehicleStatus latestControlStatus, List<Geo> route, VehicleStatus currentStatus) {
-        this.latestControlStatus = latestControlStatus;
+    public VehicleSimulator(VehicleControl latestControl, List<Geo> route, VehicleStatus currentStatus) {
+        this.latestControl = latestControl;
         this.route = route;
         this.currentStatus = currentStatus;
     }
@@ -35,7 +44,7 @@ public class VehicleSimulator {
 
         while (route.size() > 0) {
 
-            Thread.sleep(timeService.getRefreshRateInMs());
+            Thread.sleep(timeService.getRefreshRate());
 
             // refresh current position in currentStatus after some time has passed
             long now = timeService.getTime();
@@ -62,11 +71,12 @@ public class VehicleSimulator {
             if (nextTarget == null) break;
 
             // adapt speed if there is a speed recommendation
-            if (latestControlStatus != null) {
-                double speedAdaptFactor = Math.min(deltaTime / SPEED_ADAPTATION_FACTOR, 1);
-                currentStatus.setSpeed((currentStatus.getSpeed()*(1-speedAdaptFactor) + latestControlStatus.getSpeed()*speedAdaptFactor));
-                if (latestControlStatus.getLocation().inProximity(nextTarget)) {
-                    latestControlStatus = null;
+            if (latestControl != null) {
+                if (Math.abs(currentStatus.getSpeed() - latestControl.getSpeed()) < DELTA_SPEED) {
+                    latestControl = null;
+                } else {
+                    double speedAdaptFactor = Math.min(deltaTime / SPEED_ADAPTATION_FACTOR, 1);
+                    currentStatus.setSpeed((currentStatus.getSpeed()*(1-speedAdaptFactor) + latestControl.getSpeed()*speedAdaptFactor));
                 }
             }
 
@@ -80,7 +90,8 @@ public class VehicleSimulator {
 
             currentStatus.setDirection(finalDirection);
 
-            // TODO: update current status for status-tracking service
+
+            statusTrackingService.updateVehicle(modelMapper.map(currentStatus, VehicleStatusDTO.class));
         }
     }
 
@@ -88,8 +99,7 @@ public class VehicleSimulator {
         return currentStatus;
     }
 
-    // TODO: thread-safety for latestControlStatus
-    public void receiveControlStatus(VehicleStatus status) {
-        latestControlStatus = status;
+    public void receiveControlStatus(VehicleControl control) {
+        latestControl = control;
     }
 }
