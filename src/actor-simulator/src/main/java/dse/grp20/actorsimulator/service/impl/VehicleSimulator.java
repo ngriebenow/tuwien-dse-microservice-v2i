@@ -9,7 +9,6 @@ import dse.grp20.common.dto.VehicleStatusDTO;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -19,8 +18,8 @@ public class VehicleSimulator {
     private IStatusTrackingService statusTrackingService;
 
     private static final double CURVE_ADAPTATION_FACTOR = 1000;
-    private static final double SPEED_ADAPTATION_FACTOR = 1000;
-    private static final double DELTA_SPEED = 1;
+
+    private static final double MAX_ACCELERATION = 7.5;
 
     private static Logger LOGGER = LoggerFactory.getLogger(VehicleSimulationService.class);
 
@@ -71,11 +70,20 @@ public class VehicleSimulator {
 
             // adapt speed if there is a speed recommendation
             if (latestControl != null) {
-                if (Math.abs(currentStatus.getSpeed() - latestControl.getSpeed()) < DELTA_SPEED) {
+                long deltaControlTime = timeService.getTime() - latestControl.getTimestamp();
+
+                double deltaTargetSpeed = latestControl.getSpeed() - currentStatus.getSpeed();
+
+                double deltaSpeed = deltaTime / 1000. * MAX_ACCELERATION;
+
+                if (currentStatus.getSpeed() > latestControl.getSpeed()) {
+                    currentStatus.setSpeed(Math.max(currentStatus.getSpeed() - deltaSpeed, latestControl.getSpeed()));
+                } else if (currentStatus.getSpeed() < latestControl.getSpeed()) {
+                    currentStatus.setSpeed(Math.min(currentStatus.getSpeed() + deltaSpeed, latestControl.getSpeed()));
+                }
+
+                if (currentStatus.getSpeed() == latestControl.getSpeed()) {
                     latestControl = null;
-                } else {
-                    double speedAdaptFactor = Math.min(deltaTime / SPEED_ADAPTATION_FACTOR, 1);
-                    currentStatus.setSpeed((currentStatus.getSpeed()*(1-speedAdaptFactor) + latestControl.getSpeed()*speedAdaptFactor));
                 }
             }
 
@@ -100,5 +108,7 @@ public class VehicleSimulator {
 
     public void receiveControlStatus(VehicleControl control) {
         latestControl = control;
+        // record incoming timestamp
+        latestControl.setTimestamp(timeService.getTime());
     }
 }
