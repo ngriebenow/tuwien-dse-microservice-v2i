@@ -61,6 +61,7 @@ class TrafficLightSimulationIntegrationTest {
 	@Test
 	public void testRestartSimulation_shouldScheduleTrafficLight() throws InterruptedException, IOException, ClassNotFoundException {
 
+
 		List<TrafficLightStatusDTO> statusList = (List<TrafficLightStatusDTO>)
 				rabbitTemplate.receiveAndConvert("trafficlight.schedule", 10000);
 
@@ -75,16 +76,16 @@ class TrafficLightSimulationIntegrationTest {
 		assertEquals(s2.getFrom() - s1.getFrom(), 20000);
 		assertEquals(s3.getFrom() - s2.getFrom(), 20000);
 
-		assertEquals(s0.getLight(), LightDTO.RED);
-		assertEquals(s1.getLight(), LightDTO.GREEN);
-		assertEquals(s2.getLight(), LightDTO.RED);
-		assertEquals(s3.getLight(), LightDTO.GREEN);
+		assertEquals(s0.getLight(), LightDTO.GREEN);
+		assertEquals(s1.getLight(), LightDTO.RED);
+		assertEquals(s2.getLight(), LightDTO.GREEN);
+		assertEquals(s3.getLight(), LightDTO.RED);
 	}
 
 	@Test
 	public void testRestartSimulation_controlTrafficLight_shouldUpdateSchedule() throws InterruptedException, IOException, ClassNotFoundException {
 
-		Thread.sleep(5000);
+		timeService.sleep(5000);
 		while (rabbitTemplate.receive("trafficlight.schedule") != null) {}
 
 		TrafficLightControlDTO controlDTO = new TrafficLightControlDTO();
