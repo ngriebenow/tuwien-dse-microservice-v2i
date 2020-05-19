@@ -7,4 +7,6 @@ public interface ITrafficLightSimulationService {
     void restartSimulation();
 
     void controlTrafficLight(TrafficLightControlDTO controlDTO);
+
+    void stopSimulation();
 }

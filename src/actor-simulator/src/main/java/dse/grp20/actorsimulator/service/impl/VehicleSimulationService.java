@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,6 +45,17 @@ public class VehicleSimulationService implements IVehicleSimulationService {
     }
 
     @Override
+    public void stopSimulation() {
+        simulators.entrySet().forEach(e -> {
+            try {
+                e.getValue().stop();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        });
+    }
+
+    @Override
     public void restartSimulation() {
         Vehicle vehicle1 = Constants.VEHICLE1;
 
@@ -55,17 +67,11 @@ public class VehicleSimulationService implements IVehicleSimulationService {
         initialStatus.setDirection(Constants.VEHICLE1_ENTRY_A_POSITION.minus(Constants.VEHICLE1_INITIAL_POSITION));
         initialStatus.setSpeed(20);
         initialStatus.setVin(vehicle1.getVin());
-        VehicleSimulator vs1 = new VehicleSimulator(null, Constants.VEHICLE1_ROUTE, initialStatus,
+        VehicleSimulator vs1 = new VehicleSimulator(null, new ArrayList<>(Constants.VEHICLE1_ROUTE), initialStatus,
                 timeService, statusTrackingService);
         simulators.put(vehicle1.getVin(), vs1);
 
-        Thread t = new Thread(() -> {
-            try {
-                vs1.simulate();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+        Thread t = new Thread(vs1::simulate);
         t.start();
     }
 }

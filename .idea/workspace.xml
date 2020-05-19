@@ -2,24 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147ee5be-5255-4783-9f14-c44ae10f6205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/TrafficLightControlReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/Light.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/NearCrashEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/NearCrashEventDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-control/src/test/java/dse/grp20/actorcontrol/TrafficLightControlIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-control/src/test/java/dse/grp20/actorcontrol/TrafficLightControlIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IStatusTrackingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IStatusTrackingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/TrafficLightStatusDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/TrafficLightStatusDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/status-tracking/src/main/java/dse/grp20/statustracking/entities/TrafficLightStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/status-tracking/src/main/java/dse/grp20/statustracking/entities/TrafficLightStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/actor-simulator/target/" />
     <ignored path="$PROJECT_DIR$/src/common/target/" />
@@ -39,12 +38,101 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="19" column="66" lean-forward="true" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+            <state relative-caret-position="220">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-140">
+              <caret line="51" column="35" lean-forward="true" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1584#1585#0" expanded="true" />
+                <element signature="e#1635#1636#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,44 +141,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="85" column="80" selection-start-line="85" selection-start-column="80" selection-end-line="85" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="84" column="74" selection-start-line="84" selection-start-column="74" selection-end-line="84" selection-end-column="74" />
+            <state relative-caret-position="221">
+              <caret line="45" selection-start-line="45" selection-end-line="46" selection-end-column="54" />
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightControl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#341#342#0" expanded="true" />
-                <element signature="e#393#394#0" expanded="true" />
-                <element signature="e#645#646#0" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
+                <element signature="e#1147#1148#0" expanded="true" />
+                <element signature="e#1198#1199#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,6 +164,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>APP_FOLDER_SVC1</find>
+      <find>Thread.sleep</find>
+      <find>start simu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -138,36 +195,38 @@
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/VehicleControlDTO.java" />
         <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/VehicleControlReceiver.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/VehicleControl.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IActorRegistryService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/ActorRegistryService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/localtest/GuiTester.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/TimeService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleTest.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/Vehicle.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/VehicleStatus.java" />
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/VehicleStatusDTO.java" />
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/GeoDTO.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/Light.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/TrafficLightControlReceiver.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IStatusTrackingService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLight.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java" />
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/TrafficLightStatusDTO.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightStatus.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightControl.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/NearCrashEvent.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IStatusTrackingService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" />
+        <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/NearCrashEventDTO.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java" />
       </list>
     </option>
   </component>
@@ -745,11 +804,11 @@
       <recent name="$PROJECT_DIR$/src/actor-registry/src/test/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dse.grp20.common.dto" />
       <recent name="dse.grp20.actorsimulator" />
       <recent name="dse.grp20.actorsimulator.entity" />
       <recent name="dse.grp20.actorregistry.exception" />
       <recent name="dse.grp20.actorregistry.service" />
-      <recent name="dse.grp20.actorregistry.repository" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="dse.grp20.actorregistry.exception" />
@@ -767,15 +826,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule">
-    <configuration name="All in actor-control" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="actor-control" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.VehicleSimulationIntegrationTest">
     <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="actor-simulator" />
       <extension name="coverage">
@@ -792,7 +843,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_shouldRegisterTrafficLight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VehicleSimulationIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="actor-simulator" />
       <extension name="coverage">
         <pattern>
@@ -801,25 +852,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dse.grp20.actorsimulator" />
-      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorsimulator.TrafficLightSimulationIntegrationTest" />
-      <option name="METHOD_NAME" value="testRestartSimulation_shouldRegisterTrafficLight" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_shouldScheduleTrafficLight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="actor-simulator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dse.grp20.actorsimulator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dse.grp20.actorsimulator" />
-      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorsimulator.TrafficLightSimulationIntegrationTest" />
-      <option name="METHOD_NAME" value="testRestartSimulation_shouldScheduleTrafficLight" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorsimulator.VehicleSimulationIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -840,6 +874,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldEmitNCE" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="actor-simulator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dse.grp20.actorsimulator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dse.grp20.actorsimulator" />
+      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorsimulator.VehicleSimulationIntegrationTest" />
+      <option name="METHOD_NAME" value="testRestartSimulation_shouldEmitNCE" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldSimulateVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="actor-simulator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dse.grp20.actorsimulator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dse.grp20.actorsimulator" />
+      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorsimulator.VehicleSimulationIntegrationTest" />
+      <option name="METHOD_NAME" value="testRestartSimulation_shouldSimulateVehicle" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ActorSimulatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="actor-simulator" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="dse.grp20.actorsimulator.ActorSimulatorApplication" />
@@ -849,11 +915,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" />
-        <item itemvalue="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_shouldScheduleTrafficLight" />
-        <item itemvalue="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_shouldRegisterTrafficLight" />
+        <item itemvalue="JUnit.VehicleSimulationIntegrationTest" />
         <item itemvalue="JUnit.VehicleSimulationIntegrationTest.testRestartSimulation_controlVehicle_shouldControlVehicleWithin5Seconds" />
-        <item itemvalue="JUnit.All in actor-control" />
+        <item itemvalue="JUnit.VehicleSimulationIntegrationTest.testRestartSimulation_shouldSimulateVehicle" />
+        <item itemvalue="JUnit.VehicleSimulationIntegrationTest.testRestartSimulation_shouldEmitNCE" />
+        <item itemvalue="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" />
       </list>
     </recent_temporary>
   </component>
@@ -1036,39 +1102,46 @@
       <option name="project" value="LOCAL" />
       <updated>1589878346661</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add simulation and tests for traffic lights">
+      <created>1589893730215</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1589893730215</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 37m 36s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest_testRestartSimulation_shouldEmitNCE - 2020.05.19 at 15h 47m 40s.xml">
+      <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldEmitNCE" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 39m 17s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest_testRestartSimulation_shouldEmitNCE - 2020.05.19 at 15h 50m 28s.xml">
+      <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldEmitNCE" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 48m 51s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest_testRestartSimulation_shouldEmitNCE - 2020.05.19 at 15h 57m 05s.xml">
+      <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldEmitNCE" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 50m 20s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest - 2020.05.19 at 15h 58m 44s.xml">
+      <configuration name="VehicleSimulationIntegrationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 51m 51s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest_testRestartSimulation_shouldSimulateVehicle - 2020.05.19 at 16h 00m 35s.xml">
+      <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldSimulateVehicle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 53m 41s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest - 2020.05.19 at 16h 02m 45s.xml">
+      <configuration name="VehicleSimulationIntegrationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 54m 33s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest - 2020.05.19 at 16h 05m 46s.xml">
+      <configuration name="VehicleSimulationIntegrationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 14h 56m 44s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest_testRestartSimulation_controlVehicle_shouldControlVehicleWithin5Seconds - 2020.05.19 at 16h 07m 05s.xml">
+      <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_controlVehicle_shouldControlVehicleWithin5Seconds" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 15h 02m 50s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest - 2020.05.19 at 16h 07m 56s.xml">
+      <configuration name="VehicleSimulationIntegrationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TrafficLightSimulationIntegrationTest_testRestartSimulation_controlTrafficLight_shouldUpdateSchedule - 2020.05.19 at 15h 05m 02s.xml">
-      <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" configurationId="JUnit" />
+    <history-entry file="VehicleSimulationIntegrationTest - 2020.05.19 at 16h 24m 20s.xml">
+      <configuration name="VehicleSimulationIntegrationTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -1084,7 +1157,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25503355" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24899329" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1093,8 +1166,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.08923513" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.04957507" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.509915" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.04249292" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -1102,7 +1175,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.39235127" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.55807364" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.2592068" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.38668555" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1175,7 +1248,8 @@
     <MESSAGE value="Refactor actor simulator for vehicle simulation" />
     <MESSAGE value="Add tests for vehicle simulation" />
     <MESSAGE value="Change implementation for speed adaptation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change implementation for speed adaptation" />
+    <MESSAGE value="Add simulation and tests for traffic lights" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add simulation and tests for traffic lights" />
   </component>
   <component name="WindowStateProjectService">
     <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" />
@@ -1222,27 +1296,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java</url>
-          <line>55</line>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java</url>
-          <line>87</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java</url>
-          <line>61</line>
+          <line>66</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java</url>
-          <line>90</line>
+          <line>98</line>
           <properties />
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java</url>
+          <line>99</line>
+          <properties />
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1262,22 +1336,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/status-tracking/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TestConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TestConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1289,13 +1347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="30" selection-start-line="30" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1414,16 +1465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/status-tracking/src/main/java/dse/grp20/statustracking/receiver/TrafficLightTrackingReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1452,16 +1493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="80" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IStatusTrackingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1516,33 +1547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="83" column="121" lean-forward="true" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="121" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/LightDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1571,61 +1575,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="91" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="19" column="66" lean-forward="true" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="85" column="80" selection-start-line="85" selection-start-column="80" selection-end-line="85" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -1636,26 +1589,177 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/NearCrashEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="e#207#208#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#292#293#0" expanded="true" />
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/TrafficLightControlDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/NearCrashEventDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IStatusTrackingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/VehicleIntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-140">
+          <caret line="51" column="35" lean-forward="true" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="84" column="74" selection-start-line="84" selection-start-column="74" selection-end-line="84" selection-end-column="74" />
+        <state relative-caret-position="305">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="45" selection-start-line="45" selection-end-line="46" selection-end-column="54" />
+          <folding>
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+            <element signature="e#1635#1636#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -47,6 +47,11 @@ public class TrafficLightSimulator {
         continueSchedule(currentStatus);
     }
 
+    public void stop() throws InterruptedException{
+        workerThread.interrupt();
+        workerThread.join();
+    }
+
     public void simulate() {
         workerThread = Thread.currentThread();
         LOGGER.info("start simulation with initial status " + currentStatus);
@@ -56,10 +61,13 @@ public class TrafficLightSimulator {
             TrafficLightStatus nextTargetStatus = scheduledTrafficLightStati.get(0);
             long deltaNextActionTime = nextTargetStatus.getFrom() - timeService.getTime();
             try {
-                Thread.sleep(Math.max(0,(long) (deltaNextActionTime / TimeService.getSimSpeed())));
+                timeService.sleep(Math.max(0, deltaNextActionTime));
             } catch (InterruptedException e) {
                 // urgent control
                 LOGGER.info("interrupted due to recent control status");
+                if (latestControl == null) {
+                    return;
+                }
             }
 
 

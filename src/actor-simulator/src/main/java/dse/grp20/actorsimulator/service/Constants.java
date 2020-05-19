@@ -28,13 +28,13 @@ public class Constants {
 
     public static final Geo VEHICLE1_NCE_POSITION = new Geo(48.152659, 15.614569);
 
-    public static List<Geo> VEHICLE1_ROUTE_TODO = new ArrayList<>(Arrays.asList(TRAFFICLIGHT_A_POSITION,
+    public static List<Geo> VEHICLE1_ROUTE = new ArrayList<>(Arrays.asList(TRAFFICLIGHT_A_POSITION,
             TRAFFICLIGHT_B_POSITION,
             VEHICLE1_NCE_POSITION,
             TRAFFICLIGHT_C_POSITION,
             VEHICLE1_TARGET_POSITION));
 
-    public static List<Geo> VEHICLE1_ROUTE = new ArrayList<>(Arrays.asList(
+    public static List<Geo> VEHICLE1_ROUTE_TODO = new ArrayList<>(Arrays.asList(
             TEST1,
             TEST2,
             TEST3,

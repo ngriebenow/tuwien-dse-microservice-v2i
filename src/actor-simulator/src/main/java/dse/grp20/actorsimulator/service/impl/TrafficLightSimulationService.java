@@ -54,4 +54,15 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
     public void controlTrafficLight(TrafficLightControlDTO controlDTO) {
         simulators.get(controlDTO.getTrafficLightId()).receiveControlStatus(controlDTO);
     }
+
+    @Override
+    public void stopSimulation() {
+        simulators.entrySet().forEach(e -> {
+            try {
+                e.getValue().stop();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        });
+    }
 }

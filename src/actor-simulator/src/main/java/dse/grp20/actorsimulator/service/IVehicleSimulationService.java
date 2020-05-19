@@ -7,4 +7,6 @@ public interface IVehicleSimulationService {
     void controlVehicle(VehicleControlDTO vehicleControlDTO);
 
     void restartSimulation();
+
+    void stopSimulation();
 }

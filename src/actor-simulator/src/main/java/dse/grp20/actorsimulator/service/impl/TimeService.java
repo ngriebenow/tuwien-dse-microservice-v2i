@@ -8,7 +8,7 @@ import java.util.Calendar;
 @Component
 public class TimeService implements ITimeService {
 
-    private static double SIM_SPEED = 1;
+    private double simSpeed = 10;
 
     private long zeroTime;
 
@@ -18,20 +18,24 @@ public class TimeService implements ITimeService {
 
     @Override
     public long getTime() {
-        return (long)((Calendar.getInstance().getTimeInMillis() - zeroTime) * SIM_SPEED);
-    }
-
-    @Override
-    public long getRefreshRate() {
-        return (long)(500 / SIM_SPEED);
+        return (long)((Calendar.getInstance().getTimeInMillis() - zeroTime) * simSpeed);
     }
 
     @Override
     public void setSimulationSpeed(double speed) {
-        SIM_SPEED = speed;
+        simSpeed = speed;
     }
 
-    public static double getSimSpeed() {
-        return SIM_SPEED;
+    public double getSimSpeed() {
+        return simSpeed;
+    }
+
+    public void sleep(long milliseconds) throws InterruptedException {
+        Thread.sleep((long)(milliseconds / simSpeed));
+    }
+
+    @Override
+    public void sleepRefreshInterval() throws InterruptedException {
+        Thread.sleep((long)(500 /simSpeed));
     }
 }

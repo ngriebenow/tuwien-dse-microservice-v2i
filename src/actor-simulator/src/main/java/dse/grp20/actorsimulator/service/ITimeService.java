@@ -6,5 +6,7 @@ public interface ITimeService {
 
     long getTime();
 
-    long getRefreshRate();
+    void sleepRefreshInterval() throws InterruptedException;
+
+    void sleep(long milliseconds) throws InterruptedException;
 }

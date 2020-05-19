@@ -6,7 +6,9 @@ import dse.grp20.actorsimulator.service.ITimeService;
 import dse.grp20.actorsimulator.service.impl.TrafficLightSimulationService;
 import dse.grp20.actorsimulator.service.impl.VehicleSimulationService;
 import dse.grp20.common.dto.*;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +34,24 @@ class TrafficLightSimulationIntegrationTest {
 	@Autowired
 	private ITimeService timeService;
 
+	@BeforeEach
+	public void startSimulation() {
+		trafficLightSimulationService.restartSimulation();
+	}
+
+	@AfterEach
+	public void stopSimulation() {
+		trafficLightSimulationService.stopSimulation();
+
+		// discard all messages
+		while (rabbitTemplate.receive("trafficlight.register") != null) {}
+		while (rabbitTemplate.receive("trafficlight.update") != null) {}
+		while (rabbitTemplate.receive("trafficlight.schedule") != null) {}
+		while (rabbitTemplate.receive("trafficlight.control") != null) {}
+	}
+
 	@Test
 	public void testRestartSimulation_shouldRegisterTrafficLight() throws InterruptedException, IOException, ClassNotFoundException {
-		trafficLightSimulationService.restartSimulation();
 
 		TrafficLightDTO trafficLightDTO = (TrafficLightDTO) rabbitTemplate.receiveAndConvert("trafficlight.register");
 		assertEquals(trafficLightDTO.getId(), Constants.TRAFFICLIGHT1.getId());
@@ -43,7 +60,6 @@ class TrafficLightSimulationIntegrationTest {
 
 	@Test
 	public void testRestartSimulation_shouldScheduleTrafficLight() throws InterruptedException, IOException, ClassNotFoundException {
-		trafficLightSimulationService.restartSimulation();
 
 		List<TrafficLightStatusDTO> statusList = (List<TrafficLightStatusDTO>)
 				rabbitTemplate.receiveAndConvert("trafficlight.schedule", 10000);
@@ -67,7 +83,6 @@ class TrafficLightSimulationIntegrationTest {
 
 	@Test
 	public void testRestartSimulation_controlTrafficLight_shouldUpdateSchedule() throws InterruptedException, IOException, ClassNotFoundException {
-		trafficLightSimulationService.restartSimulation();
 
 		Thread.sleep(5000);
 		while (rabbitTemplate.receive("trafficlight.schedule") != null) {}

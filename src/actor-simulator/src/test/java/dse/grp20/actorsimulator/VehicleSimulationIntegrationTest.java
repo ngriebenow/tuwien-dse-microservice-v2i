@@ -3,16 +3,17 @@ package dse.grp20.actorsimulator;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dse.grp20.actorsimulator.entity.NearCrashEvent;
 import dse.grp20.actorsimulator.entity.VehicleControl;
 import dse.grp20.actorsimulator.service.Constants;
 import dse.grp20.actorsimulator.service.ITimeService;
 import dse.grp20.actorsimulator.service.impl.VehicleSimulationService;
+import dse.grp20.common.dto.NearCrashEventDTO;
 import dse.grp20.common.dto.VehicleControlDTO;
 import dse.grp20.common.dto.VehicleDTO;
 import dse.grp20.common.dto.VehicleStatusDTO;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.modelmapper.ModelMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,9 +40,27 @@ class VehicleSimulationIntegrationTest {
 	@Autowired
 	private ITimeService timeService;
 
+	private ModelMapper modelMapper = new ModelMapper();
+
+
+	@BeforeEach
+	public void startSimulation() {
+		vehicleSimulationService.restartSimulation();
+	}
+
+	@AfterEach
+	public void stopSimulation() {
+		vehicleSimulationService.stopSimulation();
+
+		// discard all messages
+		while (rabbitTemplate.receive("vehicle.register") != null) {}
+		while (rabbitTemplate.receive("vehicle.update") != null) {}
+		while (rabbitTemplate.receive("nearcrashevent.emit") != null) {}
+		while (rabbitTemplate.receive("vehicle.control") != null) {}
+	}
+
 	@Test
 	public void testRestartSimulation_shouldRegisterVehicle() throws InterruptedException, IOException, ClassNotFoundException {
-		vehicleSimulationService.restartSimulation();
 
 		VehicleDTO vehicleDTO = (VehicleDTO)rabbitTemplate.receiveAndConvert("vehicle.register");
 		assertEquals(vehicleDTO.getVin(), Constants.VEHICLE1.getVin());
@@ -51,7 +70,6 @@ class VehicleSimulationIntegrationTest {
 
 	@Test
 	public void testRestartSimulation_shouldSimulateVehicle() throws InterruptedException, IOException, ClassNotFoundException {
-		vehicleSimulationService.restartSimulation();
 
 		VehicleStatusDTO vehicleStatusDTO1 = (VehicleStatusDTO)rabbitTemplate.receiveAndConvert("vehicle.update", 10000);
 		VehicleStatusDTO vehicleStatusDTO2 = (VehicleStatusDTO)rabbitTemplate.receiveAndConvert("vehicle.update", 10000);
@@ -67,8 +85,6 @@ class VehicleSimulationIntegrationTest {
 
 	@Test
 	public void testRestartSimulation_controlVehicle_shouldControlVehicleWithin5Seconds() throws InterruptedException, IOException, ClassNotFoundException {
-		vehicleSimulationService.restartSimulation();
-
 
 		VehicleControlDTO control = new VehicleControlDTO();
 		control.setVin(Constants.VEHICLE1.getVin());
@@ -78,7 +94,7 @@ class VehicleSimulationIntegrationTest {
 
 		VehicleStatusDTO vehicleStatusDTO0 = (VehicleStatusDTO)rabbitTemplate.receiveAndConvert("vehicle.update", 10000);
 
-		Thread.sleep(5000);
+		timeService.sleep(5000);
 		while (rabbitTemplate.receive("vehicle.update") != null) {}
 
 		VehicleStatusDTO vehicleStatusDTO1 = (VehicleStatusDTO)rabbitTemplate.receiveAndConvert("vehicle.update", 10000);
@@ -87,6 +103,17 @@ class VehicleSimulationIntegrationTest {
 		Assertions.assertNotEquals(vehicleStatusDTO0.getLocation(), vehicleStatusDTO1.getLocation());
 		Assertions.assertEquals(vehicleStatusDTO1.getLocation(), vehicleStatusDTO2.getLocation());
 
+	}
+
+	@Test
+	public void testRestartSimulation_shouldEmitNCE() throws InterruptedException, IOException, ClassNotFoundException {
+
+		NearCrashEventDTO nearCrashEventDTO = (NearCrashEventDTO)rabbitTemplate.receiveAndConvert("nearcrashevent.emit", 1000000);
+
+		NearCrashEvent nearCrashEvent = modelMapper.map(nearCrashEventDTO,NearCrashEvent.class);
+
+		Assertions.assertTrue(nearCrashEvent.getLocation().inProximity(Constants.VEHICLE1_NCE_POSITION));
+		Assertions.assertEquals(nearCrashEvent.getVin(), Constants.VEHICLE1.getVin());
 
 	}
 
