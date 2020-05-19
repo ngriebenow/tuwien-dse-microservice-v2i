@@ -17,7 +17,7 @@ public class TrafficLightStatus implements Serializable {
     private long from;
     private boolean valid;
 
-    private TrafficLightDTO trafficLight;
+    private long trafficLightId;
 
     @Id
     @MongoId
@@ -25,14 +25,14 @@ public class TrafficLightStatus implements Serializable {
 
     public TrafficLightStatus () {}
 
-    public TrafficLightStatus (LightDTO light, long from, TrafficLightDTO trafficLight) {
+    public TrafficLightStatus (LightDTO light, long from, long trafficLight) {
         this.light = light;
         this.from = from;
-        this.trafficLight = trafficLight;
+        this.trafficLightId = trafficLight;
     }
 
     public TrafficLightStatus (TrafficLightStatusDTO dto) {
-        this(dto.getLight(), dto.getFrom(), dto.getTrafficLight());
+        this(dto.getLight(), dto.getFrom(), dto.getTrafficLightId());
     }
 
     public LightDTO getLight() {
@@ -51,12 +51,12 @@ public class TrafficLightStatus implements Serializable {
         this.from = from;
     }
 
-    public TrafficLightDTO getTrafficLight() {
-        return this.trafficLight;
+    public long getTrafficLightId() {
+        return trafficLightId;
     }
 
-    public void setTrafficLight(TrafficLightDTO trafficLight) {
-        this.trafficLight = trafficLight;
+    public void setTrafficLightId(long trafficLightId) {
+        this.trafficLightId = trafficLightId;
     }
 
     public boolean isValid() {

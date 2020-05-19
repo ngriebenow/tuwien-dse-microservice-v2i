@@ -10,6 +10,8 @@ public class VehicleStatusDTO implements Serializable {
 
     private long time;
 
+    private double speed;
+
     private String vin;
 
     public GeoDTO getLocation() {
@@ -42,5 +44,13 @@ public class VehicleStatusDTO implements Serializable {
 
     public void setVin(String vin) {
         this.vin = vin;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 }
