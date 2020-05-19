@@ -5,18 +5,18 @@ import java.io.Serializable;
 public class TrafficLightStatusDTO implements Serializable {
 
     private static final long serialVersionUID = -5354166941790297232L;
-    private LightDTO lightDTO;
+    private LightDTO light;
     private long from;
     private boolean valid;
 
     private TrafficLightDTO trafficLight;
 
-    public LightDTO getLightDTO() {
-        return this.lightDTO;
+    public LightDTO getLight() {
+        return this.light;
     }
 
-    public void setLightDTO(LightDTO lightDTO) {
-        this.lightDTO = lightDTO;
+    public void setLight(LightDTO light) {
+        this.light = light;
     }
 
     public long getFrom() {

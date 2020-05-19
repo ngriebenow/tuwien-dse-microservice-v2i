@@ -49,6 +49,11 @@ public class ActorSimulatorApplication {
 	}
 
 	@Bean
+	Queue queueTrafficlightSchedule() {
+		return new Queue("trafficlight.schedule", false);
+	}
+
+	@Bean
 	Queue queueVehicleControl() {
 		return new Queue("vehicle.control", false);
 	}

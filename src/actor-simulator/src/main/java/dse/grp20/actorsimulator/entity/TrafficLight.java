@@ -7,6 +7,15 @@ import java.io.Serializable;
 
 public class TrafficLight implements Serializable {
 
+    public TrafficLight(Long id, Double scanRadius, Geo location) {
+        this.id = id;
+        this.scanRadius = scanRadius;
+        this.location = location;
+    }
+
+    public TrafficLight() {
+    }
+
     @Id
     private Long id;
 

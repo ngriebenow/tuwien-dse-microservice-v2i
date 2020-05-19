@@ -32,7 +32,7 @@ public class TrafficLightStatus implements Serializable {
     }
 
     public TrafficLightStatus (TrafficLightStatusDTO dto) {
-        this(dto.getLightDTO(), dto.getFrom(), dto.getTrafficLight());
+        this(dto.getLight(), dto.getFrom(), dto.getTrafficLight());
     }
 
     public LightDTO getLight() {

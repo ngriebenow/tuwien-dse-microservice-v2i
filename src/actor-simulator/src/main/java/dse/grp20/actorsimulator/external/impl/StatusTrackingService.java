@@ -22,6 +22,11 @@ public class StatusTrackingService implements IStatusTrackingService {
 
     @Override
     public void updateTrafficLightSchedule(List<TrafficLightStatusDTO> trafficLightStati) {
-        rabbitTemplate.convertAndSend("trafficlight.update", trafficLightStati);
+        rabbitTemplate.convertAndSend("trafficlight.schedule", trafficLightStati);
+    }
+
+    @Override
+    public void updateTrafficLight(TrafficLightStatusDTO statusDTO) {
+        rabbitTemplate.convertAndSend("trafficlight.update", statusDTO);
     }
 }
