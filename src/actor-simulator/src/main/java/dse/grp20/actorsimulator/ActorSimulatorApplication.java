@@ -29,13 +29,34 @@ public class ActorSimulatorApplication {
 	}
 
 	@Bean
-	Queue queueVehicleDelete() {
-		return new Queue("vehicle.delete", false);
+	Queue queueVehicleRegister() {
+		return new Queue("vehicle.register", false);
 	}
 
 	@Bean
-	Queue queueTrafficlightDelete() {
-		return new Queue("trafficlight.delete", false);
+	Queue queueTrafficlightRegister() {
+		return new Queue("trafficlight.register", false);
 	}
+
+	@Bean
+	Queue queueVehicleUpdate() {
+		return new Queue("vehicle.update", false);
+	}
+
+	@Bean
+	Queue queueTrafficlightUpdate() {
+		return new Queue("trafficlight.update", false);
+	}
+
+	@Bean
+	Queue queueVehicleControl() {
+		return new Queue("vehicle.control", false);
+	}
+
+	@Bean
+	Queue queueTrafficlightControl() {
+		return new Queue("trafficlight.control", false);
+	}
+
 
 }

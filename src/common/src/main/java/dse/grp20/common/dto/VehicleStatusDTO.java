@@ -6,11 +6,11 @@ public class VehicleStatusDTO implements Serializable {
 
     private static final long serialVersionUID = 7928866262771344000L;
     private GeoDTO location;
-    private GeoDTO velocity;
+    private GeoDTO direction;
 
-    private long timeStamp;
+    private long time;
 
-    private VehicleDTO vehicle;
+    private String vin;
 
     public GeoDTO getLocation() {
         return this.location;
@@ -20,27 +20,27 @@ public class VehicleStatusDTO implements Serializable {
         this.location = location;
     }
 
-    public GeoDTO getVelocity() {
-        return this.velocity;
+    public GeoDTO getDirection() {
+        return this.direction;
     }
 
-    public void setVelocity(GeoDTO velocity) {
-        this.velocity = velocity;
+    public void setDirection(GeoDTO direction) {
+        this.direction = direction;
     }
 
-    public long getTimeStamp() {
-        return this.timeStamp;
+    public long getTime() {
+        return this.time;
     }
 
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTime(long time) {
+        this.time = time;
     }
 
-    public VehicleDTO getVehicle() {
-        return this.vehicle;
+    public String getVin() {
+        return vin;
     }
 
-    public void setVehicle(VehicleDTO vehicle) {
-        this.vehicle = vehicle;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 }

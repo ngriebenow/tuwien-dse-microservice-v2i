@@ -34,7 +34,7 @@ public class VehicleStatus implements Serializable {
     }
 
     public VehicleStatus(VehicleStatusDTO dto) {
-        this(dto.getLocation(), dto.getVelocity(), dto.getVehicle(), dto.getTimeStamp());
+        this(dto.getLocation(), dto.getDirection(), dto.getVehicle(), dto.getTime());
     }
 
     public String getId() {

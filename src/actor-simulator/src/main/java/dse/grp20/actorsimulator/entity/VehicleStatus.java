@@ -13,7 +13,7 @@ public class VehicleStatus implements Serializable {
 
     private long time;
 
-    private String vehicleId;
+    private String vin;
 
     private double speed;
 
@@ -31,7 +31,7 @@ public class VehicleStatus implements Serializable {
                 "location=" + location +
                 ", direction=" + direction +
                 ", time=" + time +
-                ", vehicleId='" + vehicleId + '\'' +
+                ", vin='" + vin + '\'' +
                 ", speed=" + speed +
                 '}';
     }
@@ -60,11 +60,11 @@ public class VehicleStatus implements Serializable {
         this.time = time;
     }
 
-    public String getVehicleId() {
-        return vehicleId;
+    public String getVin() {
+        return vin;
     }
 
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 }

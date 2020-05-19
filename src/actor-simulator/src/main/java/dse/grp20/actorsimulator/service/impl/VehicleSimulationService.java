@@ -4,7 +4,9 @@ import dse.grp20.actorsimulator.entity.Vehicle;
 import dse.grp20.actorsimulator.entity.VehicleControl;
 import dse.grp20.actorsimulator.entity.VehicleStatus;
 import dse.grp20.actorsimulator.external.IActorRegistryService;
+import dse.grp20.actorsimulator.external.IStatusTrackingService;
 import dse.grp20.actorsimulator.service.Constants;
+import dse.grp20.actorsimulator.service.ITimeService;
 import dse.grp20.actorsimulator.service.IVehicleSimulationService;
 import dse.grp20.common.dto.VehicleControlDTO;
 import dse.grp20.common.dto.VehicleDTO;
@@ -23,6 +25,12 @@ public class VehicleSimulationService implements IVehicleSimulationService {
     @Autowired
     private IActorRegistryService actorRegistryService;
 
+    @Autowired
+    private IStatusTrackingService statusTrackingService;
+
+    @Autowired
+    private ITimeService timeService;
+
     private static Logger LOGGER = LoggerFactory.getLogger(VehicleSimulationService.class);
 
     private Map<String, VehicleSimulator> simulators = new HashMap<>();
@@ -37,10 +45,7 @@ public class VehicleSimulationService implements IVehicleSimulationService {
 
     @Override
     public void restartSimulation() {
-        Vehicle vehicle1 = new Vehicle();
-        vehicle1.setVin("WVWZZZ1JZ3W386752");
-        vehicle1.setModelType("Golf IV");
-        vehicle1.setOem("Volkswagen");
+        Vehicle vehicle1 = Constants.VEHICLE1;
 
         // register vehicle
         actorRegistryService.registerVehicle(modelMapper.map(vehicle1, VehicleDTO.class));
@@ -49,8 +54,9 @@ public class VehicleSimulationService implements IVehicleSimulationService {
         initialStatus.setLocation(Constants.VEHICLE1_INITIAL_POSITION);
         initialStatus.setDirection(Constants.VEHICLE1_ENTRY_A_POSITION.minus(Constants.VEHICLE1_INITIAL_POSITION));
         initialStatus.setSpeed(20);
-        initialStatus.setVehicleId(vehicle1.getVin());
-        VehicleSimulator vs1 = new VehicleSimulator(null, Constants.VEHICLE1_ROUTE, initialStatus);
+        initialStatus.setVin(vehicle1.getVin());
+        VehicleSimulator vs1 = new VehicleSimulator(null, Constants.VEHICLE1_ROUTE, initialStatus,
+                timeService, statusTrackingService);
         simulators.put(vehicle1.getVin(), vs1);
 
         Thread t = new Thread(() -> {

@@ -15,10 +15,7 @@ import java.util.List;
 
 public class VehicleSimulator {
 
-    @Autowired
     private ITimeService timeService;
-
-    @Autowired
     private IStatusTrackingService statusTrackingService;
 
     private static final double CURVE_ADAPTATION_FACTOR = 1000;
@@ -32,10 +29,12 @@ public class VehicleSimulator {
     private List<Geo> route;
     private VehicleStatus currentStatus;
 
-    public VehicleSimulator(VehicleControl latestControl, List<Geo> route, VehicleStatus currentStatus) {
+    public VehicleSimulator(VehicleControl latestControl, List<Geo> route, VehicleStatus currentStatus, ITimeService timeService, IStatusTrackingService statusTrackingService) {
         this.latestControl = latestControl;
         this.route = route;
         this.currentStatus = currentStatus;
+        this.timeService = timeService;
+        this.statusTrackingService = statusTrackingService;
     }
 
     public void simulate() throws InterruptedException {

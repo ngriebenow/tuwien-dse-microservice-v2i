@@ -9,6 +9,16 @@ public class Vehicle implements Serializable {
     @Id
     private String vin;
 
+
+    public Vehicle(String vin, String modelType, String oem) {
+        this.vin = vin;
+        this.modelType = modelType;
+        this.oem = oem;
+    }
+
+    public Vehicle() {
+    }
+
     private String modelType;
 
     private String oem;
