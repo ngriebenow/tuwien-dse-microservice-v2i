@@ -4,14 +4,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
-import java.util.Date;
 
 
 public class VehicleControl implements Serializable {
 
     @Id
     @MongoId
-    private String vehicleId;
+    private String id;
+
+    private String vin;
+
     private double speed;
     private long timestamp;
 
@@ -19,12 +21,12 @@ public class VehicleControl implements Serializable {
         timestamp = System.currentTimeMillis();
     }
 
-    public String getVehicleId() {
-        return vehicleId;
+    public String getVin() {
+        return vin;
     }
 
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
     public double getSpeed() {
@@ -41,5 +43,13 @@ public class VehicleControl implements Serializable {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

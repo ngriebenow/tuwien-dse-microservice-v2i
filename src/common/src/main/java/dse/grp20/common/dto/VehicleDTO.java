@@ -4,23 +4,33 @@ import java.io.Serializable;
 
 public class VehicleDTO implements Serializable {
 
-    private String id;
+    private String vin;
 
-    private String name;
+    private String modelType;
 
-    public String getId() {
-        return id;
+    private String oem;
+
+    public String getVin() {
+        return vin;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
-    public String getName() {
-        return name;
+    public String getModelType() {
+        return modelType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModelType(String modelType) {
+        this.modelType = modelType;
+    }
+
+    public String getOem() {
+        return oem;
+    }
+
+    public void setOem(String oem) {
+        this.oem = oem;
     }
 }

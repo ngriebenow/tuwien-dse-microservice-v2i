@@ -39,10 +39,10 @@ class VehicleControlIntegrationTest {
     @BeforeAll
     static void initAll(){
         VEHICLE1 = new VehicleDTO();
-        VEHICLE1.setId("v1");
-        VEHICLE1.setName("vehicle1");
+        VEHICLE1.setVin("v1");
+        VEHICLE1.setModelType("vehicle1");
         VEHICLE_CONTROL1 = new VehicleControlDTO();
-        VEHICLE_CONTROL1.setVehicleId(VEHICLE1.getId());
+        VEHICLE_CONTROL1.setVin(VEHICLE1.getVin());
         VEHICLE_CONTROL1.setSpeed(50.0);
     }
 
@@ -60,7 +60,7 @@ class VehicleControlIntegrationTest {
 
         List<VehicleControl> vehicleControlList = vehicleControlRepository.findAll();
         assertNotNull(vehicleControlList);
-        assertEquals(VEHICLE1.getId(), vehicleControlList.get(0).getVehicleId());
+        assertEquals(VEHICLE1.getVin(), vehicleControlList.get(0).getVin());
         assertEquals(50.0, vehicleControlList.get(0).getSpeed());
 
         // Clear queue for tests coming after

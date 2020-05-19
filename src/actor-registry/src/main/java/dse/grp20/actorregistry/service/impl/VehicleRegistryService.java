@@ -20,7 +20,7 @@ public class VehicleRegistryService implements IVehicleRegistryService {
     @Override
     public void delete(VehicleDTO vehicleDTO) throws NotFoundException {
         Vehicle vehicle = modelMapper.map(vehicleDTO, Vehicle.class);
-        find(vehicle.getId());
+        find(vehicle.getVin());
         vehicleRepository.delete(vehicle);
     }
 

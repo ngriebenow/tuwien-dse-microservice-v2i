@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class VehicleControlDTO implements Serializable {
 
-    private String vehicleId;
+    private String vin;
     private double speed;
 
-    public String getVehicleId() {
-        return vehicleId;
+    public String getVin() {
+        return vin;
     }
 
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
     public Double getSpeed() {

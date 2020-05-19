@@ -19,13 +19,13 @@ public class Simulator {
 
     public void runSimulation() throws InterruptedException {
         Vehicle vehicle1 = new Vehicle();
-        vehicle1.setId("WVWZZZ1JZ3W386752");
-        vehicle1.setName("Volkswagen Golf IV");
+        vehicle1.setVin("WVWZZZ1JZ3W386752");
+        vehicle1.setModelType("Volkswagen Golf IV");
         VehicleStatus initialStatus = new VehicleStatus();
         initialStatus.setLocation(Constants.VEHICLE1_INITIAL_POSITION);
         initialStatus.setDirection(Constants.VEHICLE1_ENTRY_A_POSITION.minus(Constants.VEHICLE1_INITIAL_POSITION));
         initialStatus.setSpeed(20);
-        initialStatus.setVehicleId(vehicle1.getId());
+        initialStatus.setVehicleId(vehicle1.getVin());
         VehicleSimulator vs1 = new VehicleSimulator(null, Constants.VEHICLE1_ROUTE, initialStatus);
         simulators.add(vs1);
 

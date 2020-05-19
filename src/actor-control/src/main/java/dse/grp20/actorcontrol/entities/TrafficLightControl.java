@@ -11,7 +11,10 @@ public class TrafficLightControl {
 
     @Id
     @MongoId
+    private String id;
+
     private Long trafficLightId;
+
     private LightDTO lightDTO;
     private long from;
     private long timestamp;
