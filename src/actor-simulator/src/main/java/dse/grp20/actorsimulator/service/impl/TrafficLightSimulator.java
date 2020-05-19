@@ -7,6 +7,7 @@ import dse.grp20.actorsimulator.entity.TrafficLightStatus;
 import dse.grp20.actorsimulator.external.IStatusTrackingService;
 import dse.grp20.actorsimulator.service.ITimeService;
 import dse.grp20.common.dto.TrafficLightControlDTO;
+import dse.grp20.common.dto.TrafficLightDTO;
 import dse.grp20.common.dto.TrafficLightStatusDTO;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -21,19 +22,23 @@ public class TrafficLightSimulator {
     private static long SWITCHING_INTERVAL = 20000;
     private static long FORWARD_PLANNING_TIME = 600000;
 
+    private static long SCAN_INTERVAL = 2000;
+
     private ITimeService timeService;
     private IStatusTrackingService statusTrackingService;
 
     private List<TrafficLightStatus> scheduledTrafficLightStati = new LinkedList<>();
 
     private TrafficLight trafficLight;
-    private TrafficLightStatus currentStatus = new TrafficLightStatus();
+    private TrafficLightStatus currentStatus;
 
     private TrafficLightControl latestControl = null;
 
     private ModelMapper modelMapper = new ModelMapper();
 
     private Thread workerThread;
+
+    private Thread scanThread;
 
     private static Logger LOGGER = LoggerFactory.getLogger(TrafficLightSimulator.class);
 
@@ -49,10 +54,25 @@ public class TrafficLightSimulator {
 
     public void stop() throws InterruptedException{
         workerThread.interrupt();
+        scanThread.interrupt();
         workerThread.join();
+        scanThread.join();
     }
 
     public void simulate() {
+        scanThread = new Thread(() -> {
+            TrafficLightDTO trafficLightDTO = modelMapper.map(trafficLight,TrafficLightDTO.class);
+            while (true) {
+                statusTrackingService.scanTrafficLight(trafficLightDTO);
+                try {
+                    timeService.sleep(SCAN_INTERVAL);
+                } catch (InterruptedException e) {
+                    return;
+                }
+            }
+        });
+        scanThread.start();
+
         workerThread = Thread.currentThread();
         LOGGER.info("start simulation with initial status " + currentStatus);
 

@@ -2,6 +2,7 @@ package dse.grp20.actorsimulator.external;
 
 import dse.grp20.actorsimulator.entity.TrafficLightStatus;
 import dse.grp20.common.dto.NearCrashEventDTO;
+import dse.grp20.common.dto.TrafficLightDTO;
 import dse.grp20.common.dto.TrafficLightStatusDTO;
 import dse.grp20.common.dto.VehicleStatusDTO;
 
@@ -16,4 +17,6 @@ public interface IStatusTrackingService {
     void updateTrafficLight(TrafficLightStatusDTO trafficLightStatusDTO);
 
     void emitNearCrashEvent(NearCrashEventDTO nearCrashEventDTO);
+
+    void scanTrafficLight(TrafficLightDTO trafficLightDTO);
 }
