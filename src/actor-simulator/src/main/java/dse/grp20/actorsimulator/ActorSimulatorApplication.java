@@ -68,4 +68,9 @@ public class ActorSimulatorApplication {
 		return new Queue("nearcrashevent.emit", false);
 	}
 
+	@Bean
+	Queue queueScanTrafficLight() {
+		return new Queue("trafficlight.scan", false);
+	}
+
 }
