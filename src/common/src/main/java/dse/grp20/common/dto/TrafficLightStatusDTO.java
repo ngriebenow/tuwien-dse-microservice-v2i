@@ -42,4 +42,14 @@ public class TrafficLightStatusDTO implements Serializable {
     public void setValid(boolean valid) {
         this.valid = valid;
     }
+
+    @Override
+    public String toString() {
+        return "TrafficLightStatusDTO{" +
+                "light=" + light +
+                ", from=" + from +
+                ", valid=" + valid +
+                ", trafficLightId=" + trafficLightId +
+                '}';
+    }
 }

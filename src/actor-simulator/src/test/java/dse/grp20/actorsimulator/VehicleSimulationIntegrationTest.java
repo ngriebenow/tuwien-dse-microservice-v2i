@@ -43,20 +43,24 @@ class VehicleSimulationIntegrationTest {
 	private ModelMapper modelMapper = new ModelMapper();
 
 
+	public void clear() {
+		while (rabbitTemplate.receive("vehicle.register") != null) {}
+		while (rabbitTemplate.receive("vehicle.update") != null) {}
+		while (rabbitTemplate.receive("nearcrashevent.emit") != null) {}
+		while (rabbitTemplate.receive("vehicle.control") != null) {}
+	}
+
 	@BeforeEach
 	public void startSimulation() {
+		clear();
+		timeService.restartSimulation();
 		vehicleSimulationService.restartSimulation();
 	}
 
 	@AfterEach
 	public void stopSimulation() {
 		vehicleSimulationService.stopSimulation();
-
-		// discard all messages
-		while (rabbitTemplate.receive("vehicle.register") != null) {}
-		while (rabbitTemplate.receive("vehicle.update") != null) {}
-		while (rabbitTemplate.receive("nearcrashevent.emit") != null) {}
-		while (rabbitTemplate.receive("vehicle.control") != null) {}
+		clear();
 	}
 
 	@Test

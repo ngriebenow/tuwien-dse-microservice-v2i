@@ -9,4 +9,6 @@ public interface ITimeService {
     void sleepRefreshInterval() throws InterruptedException;
 
     void sleep(long milliseconds) throws InterruptedException;
+
+    void restartSimulation();
 }

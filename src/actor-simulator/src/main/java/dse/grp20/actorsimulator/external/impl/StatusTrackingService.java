@@ -9,6 +9,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -24,7 +25,13 @@ public class StatusTrackingService implements IStatusTrackingService {
 
     @Override
     public void updateTrafficLightSchedule(List<TrafficLightStatusDTO> trafficLightStati) {
-        rabbitTemplate.convertAndSend("trafficlight.schedule", trafficLightStati);
+        System.out.println("updating new schedule with " + trafficLightStati.get(0));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        rabbitTemplate.convertAndSend("trafficlight.schedule", new ArrayList<>(trafficLightStati));
     }
 
     @Override

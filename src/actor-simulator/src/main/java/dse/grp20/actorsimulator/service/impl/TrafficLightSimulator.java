@@ -48,7 +48,7 @@ public class TrafficLightSimulator {
         this.trafficLight = trafficLight;
         this.currentStatus = currentStatus;
 
-        scheduledTrafficLightStati.add(currentStatus);
+        //scheduledTrafficLightStati.add(currentStatus);
         continueSchedule(currentStatus);
     }
 
@@ -81,6 +81,7 @@ public class TrafficLightSimulator {
             TrafficLightStatus nextTargetStatus = scheduledTrafficLightStati.get(0);
             long deltaNextActionTime = nextTargetStatus.getFrom() - timeService.getTime();
             try {
+                LOGGER.info("sleeping for " + deltaNextActionTime + " seconds");
                 timeService.sleep(Math.max(0, deltaNextActionTime));
             } catch (InterruptedException e) {
                 // urgent control
@@ -107,11 +108,6 @@ public class TrafficLightSimulator {
                 // plan next schedule
                 continueSchedule(controlStatus);
 
-                List<TrafficLightStatusDTO> dtoList = scheduledTrafficLightStati.stream().map(s ->
-                        modelMapper.map(s, TrafficLightStatusDTO.class))
-                        .collect(Collectors.toList());
-                statusTrackingService.updateTrafficLightSchedule(dtoList);
-
                 latestControl = null;
             }
 
@@ -120,15 +116,12 @@ public class TrafficLightSimulator {
                 LOGGER.info("set new status to " + nextTargetStatus);
                 scheduledTrafficLightStati.remove(0);
                 currentStatus.setLight(nextTargetStatus.getLight());
+                currentStatus.setFrom(nextTargetStatus.getFrom());
                 statusTrackingService.updateTrafficLight(modelMapper.map(currentStatus, TrafficLightStatusDTO.class));
 
                 TrafficLightStatus lastFutureStatus = scheduledTrafficLightStati.get(scheduledTrafficLightStati.size()-1);
                 continueSchedule(lastFutureStatus);
 
-                List<TrafficLightStatusDTO> dtoList = scheduledTrafficLightStati.stream().map(s ->
-                        modelMapper.map(s, TrafficLightStatusDTO.class))
-                        .collect(Collectors.toList());
-                statusTrackingService.updateTrafficLightSchedule(dtoList);
             }
         }
     }
@@ -138,9 +131,15 @@ public class TrafficLightSimulator {
         long nextTime = lastTrafficLightStatus.getFrom() + SWITCHING_INTERVAL;
         Light nextLight = (lastTrafficLightStatus.getLight() == Light.GREEN) ? Light.RED : Light.GREEN;
 
-        long maxScheduleTime = scheduledTrafficLightStati.get(0).getFrom() + FORWARD_PLANNING_TIME;
 
-        while (nextTime < maxScheduleTime) {
+        long maxScheduleTime;
+        if (scheduledTrafficLightStati.size() > 0) {
+            maxScheduleTime = scheduledTrafficLightStati.get(0).getFrom() + FORWARD_PLANNING_TIME;
+        } else {
+            maxScheduleTime = lastTrafficLightStatus.getFrom() + FORWARD_PLANNING_TIME;
+        }
+
+        while (nextTime <= maxScheduleTime) {
             TrafficLightStatus plannedStatus = new TrafficLightStatus();
             plannedStatus.setLight(nextLight);
             plannedStatus.setFrom(nextTime);
@@ -151,6 +150,13 @@ public class TrafficLightSimulator {
             nextLight = (nextLight == Light.GREEN) ? Light.RED : Light.GREEN;
             nextTime = nextTime + SWITCHING_INTERVAL;
         }
+
+        LOGGER.info("delivering new schedule with first element " + scheduledTrafficLightStati.get(0));
+
+        List<TrafficLightStatusDTO> dtoList = scheduledTrafficLightStati.stream().map(s ->
+                modelMapper.map(s, TrafficLightStatusDTO.class))
+                .collect(Collectors.toList());
+        statusTrackingService.updateTrafficLightSchedule(dtoList);
     }
 
     public void receiveControlStatus(TrafficLightControlDTO control) {

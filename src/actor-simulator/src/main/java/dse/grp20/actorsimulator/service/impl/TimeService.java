@@ -10,12 +10,6 @@ public class TimeService implements ITimeService {
 
     private double simSpeed = 2;
     private long zeroTime;
-    //private long startTime = 1590152400000L;
-
-    public TimeService() {
-        //zeroTime = startTime;
-        zeroTime = Calendar.getInstance().getTimeInMillis();
-    }
 
     @Override
     public long getTime() {
@@ -27,8 +21,9 @@ public class TimeService implements ITimeService {
         simSpeed = speed;
     }
 
-    public double getSimSpeed() {
-        return simSpeed;
+    @Override
+    public void restartSimulation() {
+        zeroTime = Calendar.getInstance().getTimeInMillis();
     }
 
     public void sleep(long milliseconds) throws InterruptedException {
