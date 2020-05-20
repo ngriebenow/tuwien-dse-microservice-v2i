@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 
 @SpringBootTest
-@ActiveProfiles("dev-with-rabbitmq")
+//@ActiveProfiles("dev-with-rabbitmq")
 class TrafficLightSimulationIntegrationTest {
 
 	@Autowired
