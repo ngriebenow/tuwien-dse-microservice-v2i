@@ -8,7 +8,7 @@ import java.util.Calendar;
 @Component
 public class TimeService implements ITimeService {
 
-    private double simSpeed = 10;
+    private double simSpeed = 1;
 
     private long zeroTime;
 
