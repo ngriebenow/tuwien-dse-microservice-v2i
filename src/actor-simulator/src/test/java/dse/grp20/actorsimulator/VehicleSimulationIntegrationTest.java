@@ -53,7 +53,7 @@ class VehicleSimulationIntegrationTest {
 	@BeforeEach
 	public void startSimulation() {
 		clear();
-		timeService.setSimulationSpeed(100.);
+		timeService.setSimulationSpeed(10.);
 		timeService.restartSimulation();
 		vehicleSimulationService.restartSimulation();
 	}
