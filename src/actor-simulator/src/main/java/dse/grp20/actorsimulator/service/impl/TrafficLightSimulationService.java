@@ -35,19 +35,35 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
 
     @Override
     public void restartSimulation() {
-        TrafficLight trafficLight = Constants.TRAFFICLIGHT1;
+        TrafficLight trafficlight1 = Constants.TRAFFICLIGHT1;
+        actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight1, TrafficLightDTO.class));
+        TrafficLightStatus status1 = new TrafficLightStatus();
+        status1.setLight(Light.RED);
+        status1.setFrom(0);
+        TrafficLightSimulator ts1 = new TrafficLightSimulator(timeService, statusTrackingService, trafficlight1, status1);
+        simulators.put(trafficlight1.getId(), ts1);
+        Thread t1 = new Thread(ts1::simulate);
+        t1.start();
 
-        actorRegistryService.registerTrafficLight(modelMapper.map(trafficLight, TrafficLightDTO.class));
+        TrafficLight trafficlight2 = Constants.TRAFFICLIGHT1;
+        actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight2, TrafficLightDTO.class));
+        TrafficLightStatus status2 = new TrafficLightStatus();
+        status2.setLight(Light.GREEN);
+        status2.setFrom(0);
+        TrafficLightSimulator ts2 = new TrafficLightSimulator(timeService, statusTrackingService, trafficlight2, status2);
+        simulators.put(trafficlight2.getId(), ts1);
+        Thread t2 = new Thread(ts2::simulate);
+        t2.start();
 
-        TrafficLightStatus status = new TrafficLightStatus();
-        status.setLight(Light.RED);
-        status.setFrom(timeService.getTime());
-        TrafficLightSimulator ts1 = new TrafficLightSimulator(timeService, statusTrackingService, trafficLight, status);
-
-        simulators.put(trafficLight.getId(), ts1);
-
-        Thread t = new Thread(ts1::simulate);
-        t.start();
+        TrafficLight trafficlight3 = Constants.TRAFFICLIGHT1;
+        actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight2, TrafficLightDTO.class));
+        TrafficLightStatus status3 = new TrafficLightStatus();
+        status3.setLight(Light.RED);
+        status3.setFrom(10000);
+        TrafficLightSimulator ts3 = new TrafficLightSimulator(timeService, statusTrackingService, trafficlight3, status3);
+        simulators.put(trafficlight3.getId(), ts1);
+        Thread t3 = new Thread(ts3::simulate);
+        t3.start();
     }
 
     @Override
