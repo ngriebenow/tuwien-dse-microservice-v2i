@@ -43,10 +43,15 @@ public class VehicleSimulator {
         this.statusTrackingService = statusTrackingService;
     }
 
-    public void stop() throws InterruptedException {
+    public void stop() {
         quit = true;
-        workingThread.interrupt();
-        workingThread.join();
+        try {
+
+            workingThread.interrupt();
+            workingThread.join();
+        } catch (Exception e) {
+            LOGGER.info("could not properly interrupt and join working thread due to" + e.getMessage());
+        }
     }
 
     public void simulate(){
