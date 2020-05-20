@@ -16,6 +16,7 @@ import org.junit.jupiter.api.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -28,7 +29,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
-//@ActiveProfiles("dev-with-rabbitmq")
 class VehicleSimulationIntegrationTest {
 
 	@Autowired
@@ -42,6 +42,8 @@ class VehicleSimulationIntegrationTest {
 
 	private ModelMapper modelMapper = new ModelMapper();
 
+	@Value( "${simspeed}" )
+	private double simspeed = 10;
 
 	public void clear() {
 		while (rabbitTemplate.receive("vehicle.register") != null) {}
@@ -53,7 +55,7 @@ class VehicleSimulationIntegrationTest {
 	@BeforeEach
 	public void startSimulation() {
 		clear();
-		timeService.setSimulationSpeed(10.);
+		timeService.setSimulationSpeed(simspeed);
 		timeService.restartSimulation();
 		vehicleSimulationService.restartSimulation();
 	}

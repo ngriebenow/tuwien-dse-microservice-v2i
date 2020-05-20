@@ -9,3 +9,5 @@ spring:
 
 server:
   port: 5100
+
+simspeed: 1

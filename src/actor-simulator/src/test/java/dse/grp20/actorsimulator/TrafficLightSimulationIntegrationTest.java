@@ -9,6 +9,7 @@ import dse.grp20.common.dto.*;
 import org.junit.jupiter.api.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -21,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 
 @SpringBootTest
-//@ActiveProfiles("dev-with-rabbitmq")
 class TrafficLightSimulationIntegrationTest {
 
 	@Autowired
@@ -32,6 +32,9 @@ class TrafficLightSimulationIntegrationTest {
 
 	@Autowired
 	private ITimeService timeService;
+
+	@Value( "${simspeed}" )
+	private double simspeed = 10;
 
 	public void clear() {
 		while (rabbitTemplate.receive("trafficlight.register") != null) {}
