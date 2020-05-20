@@ -44,6 +44,8 @@ class TrafficLightSimulationIntegrationTest {
 	@BeforeEach
 	public void startSimulation() {
 		clear();
+		timeService.setSimulationSpeed(100.);
+		timeService.restartSimulation();
 		trafficLightSimulationService.restartSimulation();
 	}
 

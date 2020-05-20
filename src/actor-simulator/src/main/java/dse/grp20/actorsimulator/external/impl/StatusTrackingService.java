@@ -26,11 +26,6 @@ public class StatusTrackingService implements IStatusTrackingService {
     @Override
     public void updateTrafficLightSchedule(List<TrafficLightStatusDTO> trafficLightStati) {
         System.out.println("updating new schedule with " + trafficLightStati.get(0));
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         rabbitTemplate.convertAndSend("trafficlight.schedule", new ArrayList<>(trafficLightStati));
     }
 

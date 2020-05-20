@@ -55,7 +55,7 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
         TrafficLightSimulator ts2 = new TrafficLightSimulator(timeService, statusTrackingService, trafficlight2, status2);
         simulators.put(trafficlight2.getId(), ts1);
         Thread t2 = new Thread(ts2::simulate);
-        //t2.start();
+        t2.start();
 
         TrafficLight trafficlight3 = Constants.TRAFFICLIGHT3;
         actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight2, TrafficLightDTO.class));
@@ -66,7 +66,7 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
         TrafficLightSimulator ts3 = new TrafficLightSimulator(timeService, statusTrackingService, trafficlight3, status3);
         simulators.put(trafficlight3.getId(), ts1);
         Thread t3 = new Thread(ts3::simulate);
-        //t3.start();
+        t3.start();
     }
 
     @Override

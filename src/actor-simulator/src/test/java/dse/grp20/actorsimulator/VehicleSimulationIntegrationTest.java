@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
-@ActiveProfiles("dev")
+@ActiveProfiles("dev-with-rabbitmq")
 class VehicleSimulationIntegrationTest {
 
 	@Autowired
@@ -53,6 +53,7 @@ class VehicleSimulationIntegrationTest {
 	@BeforeEach
 	public void startSimulation() {
 		clear();
+		timeService.setSimulationSpeed(100.);
 		timeService.restartSimulation();
 		vehicleSimulationService.restartSimulation();
 	}

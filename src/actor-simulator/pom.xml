@@ -67,12 +67,13 @@
 		</dependency>
 
 		<!-- mock rabbitmy-->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.github.fridujo</groupId>
 			<artifactId>rabbitmq-mock</artifactId>
 			<version>1.0.14</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
+
         <dependency>
             <groupId>dse.grp20</groupId>
             <artifactId>common</artifactId>
