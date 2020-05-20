@@ -45,7 +45,7 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
         Thread t1 = new Thread(ts1::simulate);
         t1.start();
 
-        TrafficLight trafficlight2 = Constants.TRAFFICLIGHT1;
+        TrafficLight trafficlight2 = Constants.TRAFFICLIGHT2;
         actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight2, TrafficLightDTO.class));
         TrafficLightStatus status2 = new TrafficLightStatus();
         status2.setLight(Light.GREEN);
@@ -55,7 +55,7 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
         Thread t2 = new Thread(ts2::simulate);
         t2.start();
 
-        TrafficLight trafficlight3 = Constants.TRAFFICLIGHT1;
+        TrafficLight trafficlight3 = Constants.TRAFFICLIGHT3;
         actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight2, TrafficLightDTO.class));
         TrafficLightStatus status3 = new TrafficLightStatus();
         status3.setLight(Light.RED);
