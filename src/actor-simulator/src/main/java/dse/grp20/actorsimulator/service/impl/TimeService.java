@@ -8,12 +8,13 @@ import java.util.Calendar;
 @Component
 public class TimeService implements ITimeService {
 
-    private double simSpeed = 1;
-
+    private double simSpeed = 2;
     private long zeroTime;
+    private long startTime = 1590152400000L;
 
     public TimeService() {
-        zeroTime = Calendar.getInstance().getTimeInMillis();
+        zeroTime = startTime;
+        //zeroTime = Calendar.getInstance().getTimeInMillis();
     }
 
     @Override
