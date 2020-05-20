@@ -42,6 +42,8 @@ public class TrafficLightSimulator {
 
     private static Logger LOGGER = LoggerFactory.getLogger(TrafficLightSimulator.class);
 
+    private boolean quit = false;
+
     public TrafficLightSimulator(ITimeService timeService, IStatusTrackingService statusTrackingService, TrafficLight trafficLight, TrafficLightStatus currentStatus) {
         this.timeService = timeService;
         this.statusTrackingService = statusTrackingService;
@@ -53,6 +55,7 @@ public class TrafficLightSimulator {
     }
 
     public void stop() throws InterruptedException{
+        quit = true;
         workerThread.interrupt();
         scanThread.interrupt();
         workerThread.join();
@@ -62,7 +65,7 @@ public class TrafficLightSimulator {
     public void simulate() {
         scanThread = new Thread(() -> {
             TrafficLightDTO trafficLightDTO = modelMapper.map(trafficLight,TrafficLightDTO.class);
-            while (true) {
+            while (!quit) {
                 statusTrackingService.scanTrafficLight(trafficLightDTO);
                 try {
                     timeService.sleep(SCAN_INTERVAL);
@@ -76,7 +79,7 @@ public class TrafficLightSimulator {
         workerThread = Thread.currentThread();
         LOGGER.info("start simulation with initial status " + currentStatus);
 
-        while (true) {
+        while (!quit) {
 
             TrafficLightStatus nextTargetStatus = scheduledTrafficLightStati.get(0);
             long deltaNextActionTime = nextTargetStatus.getFrom() - timeService.getTime();

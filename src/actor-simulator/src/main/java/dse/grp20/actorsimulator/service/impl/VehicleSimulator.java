@@ -33,6 +33,8 @@ public class VehicleSimulator {
 
     private Thread workingThread;
 
+    private boolean quit = false;
+
     public VehicleSimulator(VehicleControl latestControl, List<Geo> route, VehicleStatus currentStatus, ITimeService timeService, IStatusTrackingService statusTrackingService) {
         this.latestControl = latestControl;
         this.route = route;
@@ -42,6 +44,7 @@ public class VehicleSimulator {
     }
 
     public void stop() throws InterruptedException {
+        quit = true;
         workingThread.interrupt();
         workingThread.join();
     }
@@ -52,7 +55,7 @@ public class VehicleSimulator {
             workingThread = Thread.currentThread();
             currentStatus.setTime(timeService.getTime());
 
-            while (route.size() > 0) {
+            while (!quit && route.size() > 0) {
 
                 timeService.sleepRefreshInterval();
 

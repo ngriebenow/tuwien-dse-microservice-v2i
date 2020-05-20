@@ -46,6 +46,7 @@ public class VehicleSimulationService implements IVehicleSimulationService {
 
     @Override
     public void stopSimulation() {
+        LOGGER.info("stopping vehicle simulations");
         simulators.entrySet().forEach(e -> {
             try {
                 e.getValue().stop();
