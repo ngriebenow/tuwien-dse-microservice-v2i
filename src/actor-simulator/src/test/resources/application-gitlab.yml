@@ -10,4 +10,4 @@ spring:
 server:
   port: 5100
 
-simspeed: 0.5
+simspeed: 1
