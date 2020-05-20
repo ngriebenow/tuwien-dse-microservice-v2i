@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147ee5be-5255-4783-9f14-c44ae10f6205" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/actor-simulator/target/" />
@@ -38,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="64" selection-start-line="64" selection-end-line="64" selection-end-column="50" />
+            <state relative-caret-position="465">
+              <caret line="65" column="13" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -53,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+            <state relative-caret-position="365">
+              <caret line="52" column="102" selection-start-line="52" selection-start-column="102" selection-end-line="52" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -92,7 +89,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-782">
@@ -113,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-gitlab.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -136,6 +133,7 @@
       <find>sleep</find>
       <find>start simu</find>
       <find>emitt</find>
+      <find>stopping</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,10 +194,10 @@
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-gitlab.yml" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-gitlab.yml" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" />
       </list>
     </option>
   </component>
@@ -540,7 +538,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in actor-simulator">
+  <component name="RunManager" selected="JUnit.VehicleSimulationIntegrationTest.testRestartSimulation_shouldRegisterVehicle">
     <configuration name="All in actor-registry" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="actor-registry" />
       <option name="PACKAGE_NAME" value="" />
@@ -589,7 +587,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrafficLightSimulationIntegrationTest.testRestartSimulation_shouldScheduleTrafficLight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldRegisterVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="actor-simulator" />
       <extension name="coverage">
         <pattern>
@@ -598,8 +596,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dse.grp20.actorsimulator" />
-      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorsimulator.TrafficLightSimulationIntegrationTest" />
-      <option name="METHOD_NAME" value="testRestartSimulation_shouldScheduleTrafficLight" />
+      <option name="MAIN_CLASS_NAME" value="dse.grp20.actorsimulator.VehicleSimulationIntegrationTest" />
+      <option name="METHOD_NAME" value="testRestartSimulation_shouldRegisterVehicle" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -614,11 +612,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VehicleSimulationIntegrationTest.testRestartSimulation_shouldRegisterVehicle" />
         <item itemvalue="JUnit.All in actor-simulator" />
         <item itemvalue="JUnit.All in actor-registry" />
         <item itemvalue="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldControl" />
         <item itemvalue="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_controlTrafficLight_shouldUpdateSchedule" />
-        <item itemvalue="JUnit.TrafficLightSimulationIntegrationTest.testRestartSimulation_shouldScheduleTrafficLight" />
       </list>
     </recent_temporary>
   </component>
@@ -934,13 +932,24 @@
       <option name="project" value="LOCAL" />
       <updated>1589987103829</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Add quit variable">
+      <created>1589988931323</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1589988931323</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Use simspeed=1 for gitlab">
+      <created>1589988979465</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1589988979465</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_actor-simulator - 2020.05.20 at 16h 04m 48s.xml">
-      <configuration name="All in actor-simulator" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_actor-simulator - 2020.05.20 at 16h 06m 11s.xml">
       <configuration name="All in actor-simulator" configurationId="JUnit" />
     </history-entry>
@@ -968,6 +977,9 @@
     <history-entry file="All_in_actor-simulator - 2020.05.20 at 16h 57m 21s.xml">
       <configuration name="All in actor-simulator" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="VehicleSimulationIntegrationTest_testRestartSimulation_shouldRegisterVehicle - 2020.05.20 at 17h 39m 24s.xml">
+      <configuration name="VehicleSimulationIntegrationTest.testRestartSimulation_shouldRegisterVehicle" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -982,7 +994,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25503355" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25503355" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -992,7 +1004,7 @@
       <window_info anchor="bottom" id="CheckStyle" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.76203966" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.04249292" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1053,8 +1065,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add first draft for vehicle simulator" />
-    <MESSAGE value="Bugfix VehicleSimulator" />
     <MESSAGE value="Prepare for correct speed calculation" />
     <MESSAGE value="Prepare for using scalar speed" />
     <MESSAGE value="Include VIN, oem and modelType to vehicle entity" />
@@ -1078,7 +1088,9 @@
     <MESSAGE value="Use default profile with rabbitmq from dst" />
     <MESSAGE value="Use guest as pw and us for gitlab CI" />
     <MESSAGE value="Use custom sim speed for gitlab" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use custom sim speed for gitlab" />
+    <MESSAGE value="Add quit variable" />
+    <MESSAGE value="Use simspeed=1 for gitlab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use simspeed=1 for gitlab" />
   </component>
   <component name="WindowStateProjectService">
     <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" />
@@ -1463,6 +1475,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-549">
+          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1472,15 +1498,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-gitlab.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="64" selection-start-line="64" selection-end-line="64" selection-end-column="50" />
+        <state relative-caret-position="465">
+          <caret line="65" column="13" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1493,22 +1519,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-549">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782">
-          <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+        <state relative-caret-position="365">
+          <caret line="52" column="102" selection-start-line="52" selection-start-column="102" selection-end-line="52" selection-end-column="102" />
         </state>
       </provider>
     </entry>

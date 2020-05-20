@@ -48,11 +48,7 @@ public class VehicleSimulationService implements IVehicleSimulationService {
     public void stopSimulation() {
         LOGGER.info("stopping vehicle simulations");
         simulators.entrySet().forEach(e -> {
-            try {
-                e.getValue().stop();
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            e.getValue().stop();
         });
     }
 
