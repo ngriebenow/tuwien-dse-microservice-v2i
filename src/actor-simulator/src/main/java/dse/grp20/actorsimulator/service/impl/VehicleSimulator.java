@@ -15,13 +15,18 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/**
+ * This class simulates a single vehicle.
+ */
 public class VehicleSimulator {
 
     private ITimeService timeService;
     private IStatusTrackingService statusTrackingService;
 
+    // curve adaption factor in ms. The more ms, the longer a vehicle needs to change its direction.
     private static final double CURVE_ADAPTATION_FACTOR = 1000;
 
+    // max allowed acceleration of a vehicle in m/s
     private static final double MAX_ACCELERATION = 7.5;
 
     private static Logger LOGGER = LoggerFactory.getLogger(VehicleSimulator.class);
@@ -62,6 +67,7 @@ public class VehicleSimulator {
 
             while (!quit && route.size() > 0) {
 
+                // let some time pass by as defined in the time service
                 timeService.sleepRefreshInterval();
 
                 // refresh current position in currentStatus after some time has passed
@@ -71,22 +77,19 @@ public class VehicleSimulator {
                 double directionDistance = Geo.distance(currentStatus.getLocation(), currentStatus.getLocation().plus(direction));
                 Geo deltaLocation = direction.scale(currentStatus.getSpeed() * deltaTime / directionDistance / 1000);
                 Geo nowLocation = currentStatus.getLocation().plus(deltaLocation);
-
                 LOGGER.info("currentStatus: " + currentStatus);
-
                 currentStatus.setLocation(nowLocation);
                 currentStatus.setTime(now);
 
-
+                // check if it should simulate the NCE
                 if (currentStatus.getLocation().inProximity(Constants.VEHICLE1_NCE_POSITION)) {
                     simulateNearCrashEvent();
                 }
 
-                // get next target, or break if no more navigation targets available
+                // get next target position, or stop if no more navigation targets available
                 Geo nextTarget = null;
                 while (route.size() > 0 && nextTarget == null) {
                     nextTarget = route.get(0);
-                    // TODO OPTIONAL: find better logic for passing the next target
                     if (currentStatus.getLocation().inProximity(nextTarget)) {
                         LOGGER.info("target reached: " + nextTarget);
                         nextTarget = null;
@@ -97,18 +100,15 @@ public class VehicleSimulator {
 
                 // adapt speed if there is a speed recommendation
                 if (latestControl != null) {
-                    long deltaControlTime = timeService.getTime() - latestControl.getTimestamp();
-
-                    double deltaTargetSpeed = latestControl.getSpeed() - currentStatus.getSpeed();
-
+                    // calculate the delta speed which the vehicle reaches by accelerating or braking
                     double deltaSpeed = deltaTime / 1000. * MAX_ACCELERATION;
-
                     if (currentStatus.getSpeed() > latestControl.getSpeed()) {
                         currentStatus.setSpeed(Math.max(currentStatus.getSpeed() - deltaSpeed, latestControl.getSpeed()));
                     } else if (currentStatus.getSpeed() < latestControl.getSpeed()) {
                         currentStatus.setSpeed(Math.min(currentStatus.getSpeed() + deltaSpeed, latestControl.getSpeed()));
                     }
 
+                    // latestControl fulfilled delete it
                     if (currentStatus.getSpeed() == latestControl.getSpeed()) {
                         latestControl = null;
                     }
@@ -124,17 +124,18 @@ public class VehicleSimulator {
 
                 currentStatus.setDirection(finalDirection);
 
-
+                // deliver current status to status tracking service
                 statusTrackingService.updateVehicle(modelMapper.map(currentStatus, VehicleStatusDTO.class));
             }
 
         } catch (InterruptedException ex) {
-            // got interrupted
+            // got interrupted, so stop the simulation
         }
     }
 
     private void simulateNearCrashEvent() throws InterruptedException {
         LOGGER.warn("pedestrian detected, emergency break!");
+
         // simulate break
         long sleepTime = (long)(currentStatus.getSpeed() * 1000. / MAX_ACCELERATION);
         timeService.sleep(sleepTime);
@@ -149,8 +150,8 @@ public class VehicleSimulator {
 
         statusTrackingService.emitNearCrashEvent(modelMapper.map(nearCrashEvent, NearCrashEventDTO.class));
 
+        // simulate waiting time
         timeService.sleep(20000);
-
 
         double targetSpeedAfterNCE = 13.8888;
         LOGGER.info("re-accelerating to " + targetSpeedAfterNCE);

@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class abstracts the status tracking service. It delegates incoming requests to the other microservice by sending a rabbitMQ message.
+ */
 @Component
 public class StatusTrackingService implements IStatusTrackingService {
 

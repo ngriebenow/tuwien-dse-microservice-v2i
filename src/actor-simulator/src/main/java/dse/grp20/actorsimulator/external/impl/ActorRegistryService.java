@@ -7,6 +7,9 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class abstracts the actor registry service. It delegates incoming requests to the other microservice by sending a rabbitMQ message.
+ */
 @Component
 public class ActorRegistryService implements IActorRegistryService {
 

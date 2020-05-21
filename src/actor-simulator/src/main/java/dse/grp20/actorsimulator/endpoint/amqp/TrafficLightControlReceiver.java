@@ -5,6 +5,9 @@ import dse.grp20.common.dto.TrafficLightControlDTO;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * This class receives incoming rabbitMQ packages and delivers them to the trafficLightSimulation service.
+ */
 public class TrafficLightControlReceiver {
 
     @Autowired

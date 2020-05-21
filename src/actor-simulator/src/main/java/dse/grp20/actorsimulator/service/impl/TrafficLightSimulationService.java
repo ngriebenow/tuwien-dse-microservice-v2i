@@ -17,6 +17,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class simulates the traffic lights during the simulation scenario.
+ */
 @Component
 public class TrafficLightSimulationService implements ITrafficLightSimulationService {
 
@@ -35,6 +38,7 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
 
     @Override
     public void restartSimulation() {
+        // simulate trafficlight 1
         TrafficLight trafficlight1 = Constants.TRAFFICLIGHT1;
         actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight1, TrafficLightDTO.class));
         TrafficLightStatus status1 = new TrafficLightStatus();
@@ -46,6 +50,7 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
         Thread t1 = new Thread(ts1::simulate);
         t1.start();
 
+        // simulate trafficlight 2
         TrafficLight trafficlight2 = Constants.TRAFFICLIGHT2;
         actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight2, TrafficLightDTO.class));
         TrafficLightStatus status2 = new TrafficLightStatus();
@@ -57,6 +62,7 @@ public class TrafficLightSimulationService implements ITrafficLightSimulationSer
         Thread t2 = new Thread(ts2::simulate);
         t2.start();
 
+        // simulate trafficlight 3
         TrafficLight trafficlight3 = Constants.TRAFFICLIGHT3;
         actorRegistryService.registerTrafficLight(modelMapper.map(trafficlight2, TrafficLightDTO.class));
         TrafficLightStatus status3 = new TrafficLightStatus();

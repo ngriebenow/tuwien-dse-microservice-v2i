@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147ee5be-5255-4783-9f14-c44ae10f6205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/status-tracking/src/main/resources/application-prod.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-control/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-control/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-control/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-control/src/main/resources/application-prod.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-registry/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-simulator/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/resources/application-prod.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/api-gateway/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/status-tracking/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/status-tracking/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/TrafficLightControlReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/TrafficLightControlReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/VehicleControlReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/VehicleControlReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/ActorRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/ActorRegistryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/localtest/GuiTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/localtest/GuiTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/VehicleDeletor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/actor-simulator/target/" />
     <ignored path="$PROJECT_DIR$/src/common/target/" />
@@ -35,85 +36,92 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-registry/Dockerfile">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="6" selection-end-column="82" />
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-control/src/main/resources/application-prod.yml">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/resources/application-prod.yml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-simulator/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="6" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/resources/application-prod.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api-gateway/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="6" selection-end-column="79" />
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/status-tracking/Dockerfile">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/status-tracking/src/main/resources/application-gitlab.yml">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="9" />
+            <state relative-caret-position="102">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/status-tracking/src/main/resources/application-prod.yml">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="390">
+              <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+              <folding>
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#451#452#0" expanded="true" />
+                <element signature="e#517#518#0" expanded="true" />
+                <element signature="e#549#550#0" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+                <element signature="e#669#670#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/status-tracking/src/test/resources/application-gitlab.yml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="19" selection-start-line="19" selection-end-line="21" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-338">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="25" column="100" selection-start-line="25" selection-start-column="100" selection-end-line="25" selection-end-column="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="19" selection-start-line="19" selection-end-line="21" selection-end-column="3" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -147,15 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/TimeService.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleTest.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/Vehicle.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/VehicleStatus.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/Light.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/TrafficLightControlReceiver.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLight.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightStatus.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightControl.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/NearCrashEvent.java" />
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/NearCrashEventDTO.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java" />
@@ -167,25 +166,15 @@
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java" />
         <option value="$PROJECT_DIR$/src/actor-control/src/test/java/dse/grp20/actorcontrol/TrafficLightControlIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/GeoDTO.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" />
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/dto/TrafficLightStatusDTO.java" />
         <option value="$PROJECT_DIR$/src/status-tracking/src/main/resources/application-dev-with-rabbitmq.yml" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TestConfiguration.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-dev-with-rabbitmq.yml" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/pom.xml" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java" />
-        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
-        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" />
-        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" />
-        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" />
         <option value="$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-gitlab.yml" />
         <option value="$PROJECT_DIR$/src/common/src/main/java/dse/grp20/common/Main.java" />
         <option value="$PROJECT_DIR$/src/actor-registry/pom.xml" />
@@ -198,6 +187,25 @@
         <option value="$PROJECT_DIR$/src/api-gateway/Dockerfile" />
         <option value="$PROJECT_DIR$/src/status-tracking/src/main/resources/application-prod.yml" />
         <option value="$PROJECT_DIR$/src/status-tracking/Dockerfile" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
+        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java" />
+        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java" />
+        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/rest/TestEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/rest/ActorRegistryEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TrafficLightRegistryService.java" />
+        <option value="$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/TrafficLightControlReceiver.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/VehicleControlReceiver.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/ActorRegistryService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/localtest/GuiTester.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/VehicleDeletor.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java" />
+        <option value="$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java" />
       </list>
     </option>
   </component>
@@ -225,9 +233,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="425" />
-    <option name="height" value="1040" />
+    <option name="x" value="-54" />
+    <option name="y" value="-12" />
+    <option name="width" value="1937" />
+    <option name="height" value="1058" />
   </component>
   <component name="ProjectId" id="1bDEooZh3ap0fu8IQOPeGKwD8Zl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -345,12 +354,6 @@
               <item name="parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="dse" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actor-control" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dse" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="actor-registry" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -375,7 +378,40 @@
               <item name="actor-registry" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actor-registry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="actorregistry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actor-registry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="actorregistry" type="462c0819:PsiDirectoryNode" />
+              <item name="endpoint" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actor-registry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="actorregistry" type="462c0819:PsiDirectoryNode" />
+              <item name="endpoint" type="462c0819:PsiDirectoryNode" />
+              <item name="amqp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="parent" type="b2602c69:ProjectViewProjectNode" />
@@ -405,7 +441,51 @@
               <item name="actor-simulator" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actor-simulator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="actorsimulator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actor-simulator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="actorsimulator" type="462c0819:PsiDirectoryNode" />
+              <item name="amqp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actor-simulator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="actorsimulator" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actor-simulator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="actorsimulator" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="parent" type="b2602c69:ProjectViewProjectNode" />
@@ -620,20 +700,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585319566289</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Use custom docker image for gitlab CI">
-      <created>1585325758469</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1585325758469</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Change Vit to ActorRegistryApplication">
-      <created>1585344449493</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1585344449493</updated>
     </task>
     <task id="LOCAL-00003" summary="Add namespace">
       <created>1585344571583</created>
@@ -957,7 +1023,28 @@
       <option name="project" value="LOCAL" />
       <updated>1589990046412</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Fix Dockerfiles to use deployed jar file instead of mvn goal">
+      <created>1590047924823</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1590047924823</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Add package to deploy stage in gitlab CI">
+      <created>1590047989059</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1590047989060</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Add javadoc to the actor registry service">
+      <created>1590052216292</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1590052216292</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1005,7 +1092,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25503355" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22080536" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1021,7 +1108,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.10623229" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.11473088" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.5991501" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.5509915" />
@@ -1032,7 +1119,7 @@
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven" order="7" visible="true" weight="0.23020135" />
+      <window_info anchor="right" id="Maven" order="7" weight="0.23020135" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1076,9 +1163,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Include VIN, oem and modelType to vehicle entity" />
-    <MESSAGE value="Refactor actor simulator for vehicle simulation" />
-    <MESSAGE value="Add tests for vehicle simulation" />
     <MESSAGE value="Change implementation for speed adaptation" />
     <MESSAGE value="Add simulation and tests for traffic lights" />
     <MESSAGE value="Add queue emptiers in tests" />
@@ -1101,7 +1185,10 @@
     <MESSAGE value="Use simspeed=1 for gitlab" />
     <MESSAGE value="Add try/catch to stop vehicle simulator" />
     <MESSAGE value="Use simspeed 10 for gitlab" />
-    <option name="LAST_COMMIT_MESSAGE" value="Use simspeed 10 for gitlab" />
+    <MESSAGE value="Fix Dockerfiles to use deployed jar file instead of mvn goal" />
+    <MESSAGE value="Add package to deploy stage in gitlab CI" />
+    <MESSAGE value="Add javadoc to the actor registry service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add javadoc to the actor registry service" />
   </component>
   <component name="WindowStateProjectService">
     <state x="721" y="168" width="468" height="784" key="#com.intellij.ide.util.MemberChooser" />
@@ -1175,186 +1262,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.5.2/junit-jupiter-engine-5.5.2.jar!/org/junit/jupiter/engine/extension/TimeoutExtension.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/entity/TrafficLightStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/status-tracking/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.5.2/junit-platform-commons-1.5.2.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4947">
-          <caret line="356" selection-start-line="356" selection-end-line="356" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TestConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="e#754#755#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-            <element signature="method#sleep#0;class#TimeService#0" />
-            <element signature="method#sleepRefreshInterval#0;class#TimeService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#1158#1159#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/resources/application-gitlab.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TestConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/test/java/dse/grp20/actorregistry/TrafficLightIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-dev-with-rabbitmq.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/TrafficLightSimulationIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/java/dse/grp20/actorsimulator/VehicleSimulationIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="50" column="33" lean-forward="true" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/test/resources/application-gitlab.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1414,27 +1321,6 @@
             <element signature="e#90#91#0" expanded="true" />
             <element signature="e#126#127#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-141">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1507,15 +1393,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/resources/application-prod.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api-gateway/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="6" selection-end-column="79" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/status-tracking/src/test/resources/application-gitlab.yml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/status-tracking/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-gcp.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-gcp-test.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="104" selection-start-line="104" selection-end-line="120" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/status-tracking/src/main/resources/application-gitlab.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1524,9 +1438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/resources/application-prod.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/status-tracking/src/main/resources/application-prod.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1534,10 +1445,192 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/status-tracking/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/src/status-tracking/src/test/resources/application-gitlab.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/VehicleReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="101">
+          <caret line="16" column="90" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/rest/ActorRegistryEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/repository/ITrafficLightRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/TrafficLightRegistryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" selection-start-line="12" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/service/impl/VehicleRegistryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-control/src/main/java/dse/grp20/actorcontrol/endpoint/amqp/ControlReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-registry/src/main/java/dse/grp20/actorregistry/endpoint/amqp/TrafficLightReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/TrafficLightControlReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="97" selection-start-line="8" selection-start-column="97" selection-end-line="8" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/endpoint/amqp/VehicleControlReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="92" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/ActorRegistryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" selection-start-line="9" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/impl/StatusTrackingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-219">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IActorRegistryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/external/IStatusTrackingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/localtest/GuiTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="112" selection-start-line="11" selection-start-column="112" selection-end-line="11" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITimeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/ITrafficLightSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/ActorSimulatorApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TimeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+          <folding>
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" selection-start-line="19" selection-end-line="21" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/TrafficLightSimulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" selection-start-line="19" selection-end-line="21" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/impl/VehicleSimulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="25" column="100" selection-start-line="25" selection-start-column="100" selection-end-line="25" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/VehicleDeletor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actor-simulator/src/main/java/dse/grp20/actorsimulator/service/IVehicleSimulationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>

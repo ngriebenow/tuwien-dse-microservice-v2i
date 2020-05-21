@@ -6,6 +6,9 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class receives incoming rabbitMQ packages and delivers them to the vehicleSimulation service.
+ */
 @Component
 public class VehicleControlReceiver {
 

@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class simulates the vehicles during the simulation scenario.
+ */
 @Component
 public class VehicleSimulationService implements IVehicleSimulationService {
 
