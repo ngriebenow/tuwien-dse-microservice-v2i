@@ -1,8 +1,11 @@
 FROM maven:3.6.0-jdk-11-slim
-COPY src src
-COPY pom.xml pom.xml
+
+COPY ./target/api-gateway-0.0.1-SNAPSHOT.jar api-gateway.jar
 
 EXPOSE 80
-CMD mvn clean compile spring-boot:run -Dspring-boot.run.profiles=prod
+
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "api-gateway.jar"]
+
+
 
 

@@ -9,4 +9,4 @@ spring:
       uri: "mongodb+srv://dse-user:dse-password@dse-actor-control-service-9ztit.mongodb.net/test?retryWrites=true&w=majority"
 
 server:
-  port: 5100
+  port: 5000

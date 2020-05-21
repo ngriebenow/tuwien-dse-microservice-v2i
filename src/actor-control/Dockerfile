@@ -1,8 +1,11 @@
 FROM maven:3.6.0-jdk-11-slim
-COPY src src
-COPY pom.xml pom.xml
+
+
+COPY ./target/actor-control-0.0.1-SNAPSHOT.jar actor-control.jar
 
 EXPOSE 5000
-CMD mvn clean compile spring-boot:run
+
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "actor-control.jar"]
+
 
 
