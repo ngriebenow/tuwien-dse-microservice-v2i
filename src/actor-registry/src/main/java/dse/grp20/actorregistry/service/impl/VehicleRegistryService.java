@@ -9,6 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class handles incoming CRUD requests and delegates them to the repository.
+ */
 @Component
 public class VehicleRegistryService implements IVehicleRegistryService {
 

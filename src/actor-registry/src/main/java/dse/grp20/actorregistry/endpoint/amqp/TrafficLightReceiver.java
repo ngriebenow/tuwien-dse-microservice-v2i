@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @EnableRabbit
+/**
+ * This class receives incoming rabbitMQ packages and delivers them to the trafficLightRegistry service.
+ */
 public class TrafficLightReceiver {
 
     @Autowired

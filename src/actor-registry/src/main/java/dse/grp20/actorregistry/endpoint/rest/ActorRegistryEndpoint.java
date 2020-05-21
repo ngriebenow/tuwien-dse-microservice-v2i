@@ -6,8 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/")
-public class TestEndpoint {
+/**
+ * This class receives incoming GET REST requests and returns the results from the services.
+ */
+public class ActorRegistryEndpoint {
 
+    // TODO: add REST endpoints
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
     public String get() {
         return "Hello World";
