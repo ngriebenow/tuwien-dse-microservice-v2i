@@ -15,7 +15,7 @@ public class ActorControlApplication {
     @Bean
     Queue queueVehiclePlan() { return new Queue("vehicle.plan", false); }
     @Bean
-    Queue queueNCEReact() { return new Queue("nearcrashevent.react", false); }
+    Queue queueTrafficLightPlan() { return new Queue("trafficlight.plan", false); }
 
     @Bean
     Queue queueVehicleControl() { return new Queue("vehicle.control", false); }

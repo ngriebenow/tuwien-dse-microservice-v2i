@@ -1,7 +1,8 @@
 package dse.grp20.actorcontrol.endpoint.amqp;
 
 
-import dse.grp20.actorcontrol.services.IControlService;
+import dse.grp20.actorcontrol.services.IPlanService;
+import dse.grp20.common.dto.TrafficLightPlanDTO;
 import dse.grp20.common.dto.TrafficLightStatusDTO;
 import dse.grp20.common.dto.VehicleStatusDTO;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
@@ -16,18 +17,17 @@ import java.util.List;
 public class ControlReceiver {
 
     @Autowired
-    IControlService controlService;
+    IPlanService planService;
 
     @RabbitListener(queues = "vehicle.plan")
-    public void controlVehicle(List<VehicleStatusDTO> vehicleStatusDTOList,
-                               List<TrafficLightStatusDTO> trafficLightStatusDTOList) {
-        // ToDo implement
+    public void controlVehicle(List<TrafficLightStatusDTO> trafficLightStatusDTOList,
+                               List<VehicleStatusDTO> vehicleStatusDTOList) {
+        planService.planVehicle(trafficLightStatusDTOList, vehicleStatusDTOList);
     }
 
-    @RabbitListener(queues = "nearcrashevent.react")
-    public void controlTrafficLight(VehicleStatusDTO vehicleStatusDTO,
-                                    List<TrafficLightStatusDTO> trafficLightStatusDTOList) {
-        // ToDo implement
+    @RabbitListener(queues = "trafficlight.plan")
+    public void controlTrafficLight(TrafficLightPlanDTO trafficLightPlanDTO) {
+        planService.planTrafficLight(trafficLightPlanDTO);
     }
 
 }
