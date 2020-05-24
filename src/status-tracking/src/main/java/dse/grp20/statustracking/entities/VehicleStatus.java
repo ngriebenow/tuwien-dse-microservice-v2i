@@ -14,11 +14,12 @@ public class VehicleStatus implements Serializable {
 
     private static final long serialVersionUID = -1620525001941958403L;
     private Geo location;
-    private Geo velocity;
+    private Geo direction;
+    private double speed;
 
-    private long timeStamp;
+    private long time;
 
-    private VehicleDTO vehicle;
+    private String vin;
 
     @Id
     @MongoId
@@ -26,15 +27,17 @@ public class VehicleStatus implements Serializable {
 
     public VehicleStatus() {}
 
-    public VehicleStatus(GeoDTO location, GeoDTO velocity, VehicleDTO vehicle, long timeStamp) {
+    public VehicleStatus(GeoDTO location, GeoDTO direction, VehicleDTO vehicle, long timeStamp) {
         this.location = new Geo("Point", location.getLongitude(), location.getLatitude());
-        this.velocity = new Geo("Point", velocity.getLongitude(), velocity.getLatitude());
+        this.velocity = new Geo("Point", direction.getLongitude(), direction.getLatitude());
         this.vehicle = vehicle;
-        this.timeStamp = timeStamp;
+        this.vin = vin;
+        this.time = time;
+        this.speed = speed;
     }
 
     public VehicleStatus(VehicleStatusDTO dto) {
-        this(dto.getLocation(), dto.getVelocity(), dto.getVehicle(), dto.getTimeStamp());
+        this(dto.getLocation(), dto.getDirection(), dto.getVin(), dto.getTime(), dto.getSpeed());
     }
 
     public String getId() {
@@ -54,27 +57,34 @@ public class VehicleStatus implements Serializable {
         this.location = location;
     }
 
-    public Geo getVelocity() {
-        return this.velocity;
+    public Geo getDirection() {
+        return this.direction;
     }
 
-    public void setVelocity(Geo velocity) {
-        this.velocity = velocity;
+    public void setDirection(Geo direction) {
+        this.direction = direction;
     }
 
-    public long getTimeStamp() {
-        return this.timeStamp;
+    public long getTime() {
+        return this.time;
     }
 
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTime(long time) {
+        this.time = time;
     }
 
-    public VehicleDTO getVehicle() {
-        return this.vehicle;
+    public String getVin() {
+        return vin;
     }
 
-    public void setVehicle(VehicleDTO vehicle) {
-        this.vehicle = vehicle;
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
     }
 }

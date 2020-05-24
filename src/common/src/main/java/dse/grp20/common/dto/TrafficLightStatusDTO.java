@@ -5,18 +5,18 @@ import java.io.Serializable;
 public class TrafficLightStatusDTO implements Serializable {
 
     private static final long serialVersionUID = -5354166941790297232L;
-    private LightDTO lightDTO;
+    private LightDTO light;
     private long from;
     private boolean valid;
 
-    private TrafficLightDTO trafficLight;
+    private long trafficLightId;
 
-    public LightDTO getLightDTO() {
-        return this.lightDTO;
+    public LightDTO getLight() {
+        return this.light;
     }
 
-    public void setLightDTO(LightDTO lightDTO) {
-        this.lightDTO = lightDTO;
+    public void setLight(LightDTO light) {
+        this.light = light;
     }
 
     public long getFrom() {
@@ -27,12 +27,12 @@ public class TrafficLightStatusDTO implements Serializable {
         this.from = from;
     }
 
-    public TrafficLightDTO getTrafficLight() {
-        return this.trafficLight;
+    public long getTrafficLightId() {
+        return trafficLightId;
     }
 
-    public void setTrafficLight(TrafficLightDTO trafficLight) {
-        this.trafficLight = trafficLight;
+    public void setTrafficLightId(long trafficLightId) {
+        this.trafficLightId = trafficLightId;
     }
 
     public boolean isValid() {
@@ -45,10 +45,11 @@ public class TrafficLightStatusDTO implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Light: ").append(this.lightDTO).append(System.lineSeparator())
-                .append("from: ").append(this.from).append(System.lineSeparator()).append("trafficlight: ")
-                .append(this.trafficLight.getId());
-        return super.toString();
+        return "TrafficLightStatusDTO{" +
+                "light=" + light +
+                ", from=" + from +
+                ", valid=" + valid +
+                ", trafficLightId=" + trafficLightId +
+                '}';
     }
 }

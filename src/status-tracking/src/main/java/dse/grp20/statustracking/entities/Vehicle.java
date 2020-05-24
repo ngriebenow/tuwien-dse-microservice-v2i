@@ -5,23 +5,33 @@ import java.io.Serializable;
 public class Vehicle implements Serializable {
 
     private static final long serialVersionUID = -3430637426277794475L;
-    private String id;
+    private String vin;
 
-    private String name;
+    private String modelType;
 
-    public String getId() {
-        return this.id;
+    private String oem;
+
+    public String getVin() {
+        return this.vin;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
-    public String getName() {
-        return this.name;
+    public String getModelType() {
+        return this.modelType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModelType(String modelType) {
+        this.modelType = modelType;
+    }
+
+    public String getOem() {
+        return oem;
+    }
+
+    public void setOem(String oem) {
+        this.oem = oem;
     }
 }

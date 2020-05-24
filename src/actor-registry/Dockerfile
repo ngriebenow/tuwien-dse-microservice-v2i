@@ -1,8 +1,9 @@
 FROM maven:3.6.0-jdk-11-slim
-COPY src src
-COPY pom.xml pom.xml
+
+COPY ./target/actor-registry-0.0.1-SNAPSHOT.jar actor-registry.jar
 
 EXPOSE 5100
-CMD mvn clean compile spring-boot:run -Dspring-boot.run.profiles=prod
+
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "actor-registry.jar"]
 
 

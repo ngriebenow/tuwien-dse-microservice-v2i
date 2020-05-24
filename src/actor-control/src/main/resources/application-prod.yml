@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    include: prod
+  rabbitmq:
+    host: message-broker-service
+    port: 5672
+  data:
+    mongodb:
+      uri: "mongodb+srv://dse-user:dse-password@dse-actor-control-service-9ztit.mongodb.net/test?retryWrites=true&w=majority"
+
+server:
+  port: 5000

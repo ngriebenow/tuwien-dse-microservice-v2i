@@ -74,6 +74,8 @@ deploy-job:
         # - echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
         # - apt-get update
         # - apt-get install -y kubectl
+        # package
+        - mvn -Dmaven.test.skip=true package
         # Deploy to GCP
         - gcloud config set project $PROJECT
         - gcloud auth activate-service-account --key-file key_test_gcp.json

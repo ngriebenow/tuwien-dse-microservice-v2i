@@ -1,4 +1,4 @@
-package dse.grp20.actorregistry.exception;
+package dse.grp20.actorsimulator.exception;
 
 public class InvalidVehicleException extends Exception {
 }

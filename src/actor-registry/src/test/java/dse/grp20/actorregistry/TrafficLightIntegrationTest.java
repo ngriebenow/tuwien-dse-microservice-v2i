@@ -1,13 +1,11 @@
 package dse.grp20.actorregistry;
 
-import dse.grp20.actorregistry.entity.TrafficLight;
 import dse.grp20.actorregistry.exception.InvalidTrafficLightException;
 import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.actorregistry.service.ITrafficLightRegistryService;
 import dse.grp20.common.dto.GeoDTO;
 import dse.grp20.common.dto.TrafficLightDTO;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

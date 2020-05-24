@@ -3,10 +3,8 @@ package dse.grp20.actorregistry;
 import dse.grp20.actorregistry.exception.InvalidVehicleException;
 import dse.grp20.actorregistry.exception.NotFoundException;
 import dse.grp20.actorregistry.service.IVehicleRegistryService;
-import dse.grp20.common.dto.TrafficLightDTO;
 import dse.grp20.common.dto.VehicleDTO;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -38,41 +36,41 @@ class VehicleIntegrationTest {
 	@BeforeAll
 	static void initAll(){
 		VEHICLE1 = new VehicleDTO();
-		VEHICLE1.setId("v1");
-		VEHICLE1.setName("vehicle1");
+		VEHICLE1.setVin("v1");
+		VEHICLE1.setModelType("vehicle1");
 
 		NON_EXISTING_VEHICLE = new VehicleDTO();
-		NON_EXISTING_VEHICLE.setId("v2");
-		NON_EXISTING_VEHICLE.setName("non_existing");
+		NON_EXISTING_VEHICLE.setVin("v2");
+		NON_EXISTING_VEHICLE.setModelType("non_existing");
 
 	}
 
 	@Test
 	public void testRegister_NewVehicle_shouldBeSaved() throws InterruptedException, NotFoundException {
-		assertThrows(NotFoundException.class, () -> registryService.find(VEHICLE1.getId()));
+		assertThrows(NotFoundException.class, () -> registryService.find(VEHICLE1.getVin()));
 		rabbitTemplate.convertAndSend(QUEUE_VEHICLE_REGISTER,VEHICLE1);
 		Thread.sleep(WAITING_TIME);
-		VehicleDTO vehicleDTO = registryService.find(VEHICLE1.getId());
+		VehicleDTO vehicleDTO = registryService.find(VEHICLE1.getVin());
 		assertNotNull(vehicleDTO);
 	}
 
 	@Test
 	public void testDelete_ExistingVehicle_shouldDelete() throws InterruptedException, NotFoundException, InvalidVehicleException {
 		registryService.register(VEHICLE1);
-		assertNotNull(registryService.find(VEHICLE1.getId()));
+		assertNotNull(registryService.find(VEHICLE1.getVin()));
 
 		rabbitTemplate.convertAndSend(QUEUE_VEHICLE_DELETE,VEHICLE1);
 
 		Thread.sleep(WAITING_TIME);
 
-		assertThrows(NotFoundException.class,() -> registryService.find(VEHICLE1.getId()));
+		assertThrows(NotFoundException.class,() -> registryService.find(VEHICLE1.getVin()));
 
 	}
 
 	@Test
 	public void testDelete_NonExistingVehicle_shouldIgnore() throws InterruptedException, NotFoundException, InvalidVehicleException {
 		registryService.register(VEHICLE1);
-		assertNotNull(registryService.find(VEHICLE1.getId()));
+		assertNotNull(registryService.find(VEHICLE1.getVin()));
 
 		rabbitTemplate.convertAndSend(QUEUE_VEHICLE_DELETE,NON_EXISTING_VEHICLE);
 
