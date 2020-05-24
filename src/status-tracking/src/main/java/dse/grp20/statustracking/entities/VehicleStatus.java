@@ -13,8 +13,8 @@ import java.io.Serializable;
 public class VehicleStatus implements Serializable {
 
     private static final long serialVersionUID = -1620525001941958403L;
-    private GeoDTO location;
-    private GeoDTO velocity;
+    private Geo location;
+    private Geo velocity;
 
     private long timeStamp;
 
@@ -27,8 +27,8 @@ public class VehicleStatus implements Serializable {
     public VehicleStatus() {}
 
     public VehicleStatus(GeoDTO location, GeoDTO velocity, VehicleDTO vehicle, long timeStamp) {
-        this.location = location;
-        this.velocity = velocity;
+        this.location = new Geo("Point", location.getLongitude(), location.getLatitude());
+        this.velocity = new Geo("Point", velocity.getLongitude(), velocity.getLatitude());
         this.vehicle = vehicle;
         this.timeStamp = timeStamp;
     }
@@ -46,19 +46,19 @@ public class VehicleStatus implements Serializable {
         this.id = id;
     }
 
-    public GeoDTO getLocation() {
+    public Geo getLocation() {
         return this.location;
     }
 
-    public void setLocation(GeoDTO location) {
+    public void setLocation(Geo location) {
         this.location = location;
     }
 
-    public GeoDTO getVelocity() {
+    public Geo getVelocity() {
         return this.velocity;
     }
 
-    public void setVelocity(GeoDTO velocity) {
+    public void setVelocity(Geo velocity) {
         this.velocity = velocity;
     }
 

@@ -6,31 +6,32 @@ public class Geo implements Serializable {
 
     private static final long serialVersionUID = -6885435710143140474L;
 
+
     public Geo() {
     }
 
-    public Geo(Double latitude, Double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    public Geo(String type, Double longitude, Double latitude) {
+        this.type = type;
+        this.coordinates = new Double[]{longitude, latitude};
     }
 
-    private Double latitude;
+    private String type;
 
-    private Double longitude;
+    private Double[] coordinates;
 
-    public Double getLatitude() {
-        return this.latitude;
+    public String getType() {
+        return this.type;
     }
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Double getLongitude() {
-        return this.longitude;
+    public Double[] getCoordinates() {
+        return this.coordinates;
     }
 
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
+    public void setCoordinates(Double[] coordinates) {
+        this.coordinates = coordinates;
     }
 }

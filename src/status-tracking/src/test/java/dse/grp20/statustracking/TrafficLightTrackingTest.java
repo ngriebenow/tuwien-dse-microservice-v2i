@@ -60,7 +60,7 @@ public class TrafficLightTrackingTest {
     @BeforeEach
     public void init(@Autowired MongoTemplate mongoTemplate) {
 
-        mongoTemplate.dropCollection(TrafficLightStatus.class);
+        mongoTemplate.dropCollection("TrafficLightStatus");
 
         trafficLight1 = TestUtils.createTrafficLight(1, null, null);
         trafficLight2 = TestUtils.createTrafficLight(2, null, null);
@@ -77,16 +77,16 @@ public class TrafficLightTrackingTest {
         trafficLight3_status1 = TestUtils.createTrafficLightStatus(trafficLight3, LightDTO.RED, System.currentTimeMillis() - 10000000);
         trafficLight3_status2 = TestUtils.createTrafficLightStatus(trafficLight3, LightDTO.GREEN, System.currentTimeMillis() + 10000000);
 
-        mongoTemplate.save(modelMapper.map(trafficLight1_status1, TrafficLightStatus.class));
-        mongoTemplate.save(modelMapper.map(trafficLight1_status2, TrafficLightStatus.class));
+        mongoTemplate.save(modelMapper.map(trafficLight1_status1, TrafficLightStatus.class), "TrafficLightStatus");
+        mongoTemplate.save(modelMapper.map(trafficLight1_status2, TrafficLightStatus.class), "TrafficLightStatus");
 
-        mongoTemplate.save(modelMapper.map(trafficLight2_status1, TrafficLightStatus.class));
-        mongoTemplate.save(modelMapper.map(trafficLight2_status2, TrafficLightStatus.class));
-        mongoTemplate.save(modelMapper.map(trafficLight2_status3, TrafficLightStatus.class));
+        mongoTemplate.save(modelMapper.map(trafficLight2_status1, TrafficLightStatus.class), "TrafficLightStatus");
+        mongoTemplate.save(modelMapper.map(trafficLight2_status2, TrafficLightStatus.class), "TrafficLightStatus");
+        mongoTemplate.save(modelMapper.map(trafficLight2_status3, TrafficLightStatus.class), "TrafficLightStatus");
 
 
-        mongoTemplate.save(modelMapper.map(trafficLight3_status1, TrafficLightStatus.class));
-        mongoTemplate.save(modelMapper.map(trafficLight3_status2, TrafficLightStatus.class));
+        mongoTemplate.save(modelMapper.map(trafficLight3_status1, TrafficLightStatus.class), "TrafficLightStatus");
+        mongoTemplate.save(modelMapper.map(trafficLight3_status2, TrafficLightStatus.class), "TrafficLightStatus");
     }
 
     @Test

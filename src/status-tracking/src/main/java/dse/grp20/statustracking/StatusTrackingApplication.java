@@ -30,5 +30,8 @@ public class StatusTrackingApplication {
     @Bean
     Queue queueTrafficlightScan() { return new Queue("trafficlight.scan", false); }
 
+    @Bean
+    Queue queueNearCrashEvent() { return new Queue("nearcrashevent.emit", false); }
+
 
 }
