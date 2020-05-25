@@ -20,6 +20,9 @@ public class StatusTrackingApplication {
     }
 
     @Bean
+    Queue queueVehiclePlan() { return new Queue("vehicle.plan", false); }
+
+    @Bean
     Queue queueTrafficlightUpdate() {
         return new Queue("trafficlight.update", false);
     }
@@ -31,7 +34,8 @@ public class StatusTrackingApplication {
     Queue queueTrafficlightScan() { return new Queue("trafficlight.scan", false); }
 
     @Bean
+    Queue queueTrafficlightPlan() { return new Queue("trafficlight.plan", false); }
+
+    @Bean
     Queue queueNearCrashEvent() { return new Queue("nearcrashevent.emit", false); }
-
-
 }

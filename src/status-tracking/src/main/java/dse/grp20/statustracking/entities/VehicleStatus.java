@@ -1,11 +1,9 @@
 package dse.grp20.statustracking.entities;
 
 import dse.grp20.common.dto.GeoDTO;
-import dse.grp20.common.dto.VehicleDTO;
 import dse.grp20.common.dto.VehicleStatusDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
 
@@ -22,15 +20,13 @@ public class VehicleStatus implements Serializable {
     private String vin;
 
     @Id
-    @MongoId
     private String id;
 
     public VehicleStatus() {}
 
-    public VehicleStatus(GeoDTO location, GeoDTO direction, VehicleDTO vehicle, long timeStamp) {
+    public VehicleStatus(GeoDTO location, GeoDTO direction, String vin, long time, double speed) {
         this.location = new Geo("Point", location.getLongitude(), location.getLatitude());
-        this.velocity = new Geo("Point", direction.getLongitude(), direction.getLatitude());
-        this.vehicle = vehicle;
+        this.direction = new Geo("Point", direction.getLongitude(), direction.getLatitude());
         this.vin = vin;
         this.time = time;
         this.speed = speed;
@@ -74,14 +70,14 @@ public class VehicleStatus implements Serializable {
     }
 
     public String getVin() {
-        return vin;
+        return this.vin;
     }
 
     public void setVin(String vin) {
         this.vin = vin;
     }
     public double getSpeed() {
-        return speed;
+        return this.speed;
     }
 
     public void setSpeed(double speed) {

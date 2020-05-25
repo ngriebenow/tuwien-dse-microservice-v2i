@@ -1,11 +1,9 @@
 package dse.grp20.statustracking.entities;
 
 import dse.grp20.common.dto.LightDTO;
-import dse.grp20.common.dto.TrafficLightDTO;
 import dse.grp20.common.dto.TrafficLightStatusDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
 
@@ -20,7 +18,6 @@ public class TrafficLightStatus implements Serializable {
     private long trafficLightId;
 
     @Id
-    @MongoId
     private String id;
 
     public TrafficLightStatus () {}
@@ -52,7 +49,7 @@ public class TrafficLightStatus implements Serializable {
     }
 
     public long getTrafficLightId() {
-        return trafficLightId;
+        return this.trafficLightId;
     }
 
     public void setTrafficLightId(long trafficLightId) {
@@ -80,7 +77,7 @@ public class TrafficLightStatus implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("Light: ").append(this.light).append(System.lineSeparator())
                 .append("from: ").append(this.from).append(System.lineSeparator()).append("trafficlight: ")
-                .append(this.trafficLight.getId());
+                .append(this.trafficLightId);
         return super.toString();
     }
 }

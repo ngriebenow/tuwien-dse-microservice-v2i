@@ -2,10 +2,8 @@ package dse.grp20.statustracking.service.impl;
 
 import com.mongodb.client.result.DeleteResult;
 import dse.grp20.common.dto.*;
-import dse.grp20.statustracking.entities.Geo;
-import dse.grp20.statustracking.entities.Position;
-import dse.grp20.statustracking.entities.TrafficLightStatus;
-import dse.grp20.statustracking.entities.VehicleStatus;
+import dse.grp20.statustracking.entities.*;
+import dse.grp20.statustracking.external.IActorControlService;
 import dse.grp20.statustracking.repositories.ITrafficLightStatusRepository;
 import dse.grp20.statustracking.repositories.IVehicleStatusRepository;
 import dse.grp20.statustracking.service.ITrafficLightTrackingService;
@@ -31,6 +29,9 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @Autowired
+    private IActorControlService actorControlService;
+
     private ModelMapper modelMapper = new ModelMapper();
 
 
@@ -40,62 +41,23 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
 //        List<TrafficLightStatus> stati = this.trafficLightStatusRepository
 //                .findFutureStatusEntries(trafficLightStatus.getFrom(), trafficLightStatus.getTrafficLight().getId());
 
-        List<TrafficLightStatus> stati1 = this.mongoTemplate.find(new Query(Criteria
+        List<TrafficLightStatus> invalidTrafficLightStati = this.mongoTemplate.find(new Query(Criteria
                 .where("from").gte(trafficLightStatus.getFrom())
-                .and("trafficLight.id").is(trafficLightStatus.getTrafficLight().getId())), TrafficLightStatus.class, "TrafficLightStatus");
-
-//        System.out.println("Search for invalid Stati found: " + stati.size());
-        System.out.println("Search for invalid Stati1 found: " + stati1.size());
+                .and("trafficLightId").is(trafficLightStatus.getTrafficLightId())), TrafficLightStatus.class, "TrafficLightStatus");
 
 
-//        for (TrafficLightStatus status : stati) {
-//            System.out.println("id: " + status.getId());
-////            this.trafficLightStatusRepository.delete(status);
-////            this.mongoTemplate.remove(status);
-////            this.mongoTemplate.remove(new Query(Criteria.where("id").is(status.getId())), TrafficLightStatus.class);
-//        }
-
-        for (TrafficLightStatus status : stati1) {
-            System.out.println("stati1 id: " + status.getId());
-//            this.trafficLightStatusRepository.delete(status);
-//            this.mongoTemplate.remove(status);
-            List<TrafficLightStatus> fRes = this.mongoTemplate.find(new Query(Criteria.where("id").is(status.getId())), TrafficLightStatus.class, "TrafficLightStatus");
-
-            List<TrafficLightStatus> all = this.mongoTemplate.findAll(TrafficLightStatus.class, "TrafficLightStatus");
-            System.out.println(all.size());
-
-            for (TrafficLightStatus stat : all) {
-                if (stat.getId().equals(status.getId())) {
-                    System.out.println("match");
-                    DeleteResult dleRes = this.mongoTemplate.remove(stat, "TrafficLightStatus");
-                    System.out.println(dleRes);
-                }
-            }
-            all.forEach(item -> System.out.println("id: " + item.getId()));
-
-            System.out.println("--------------------------------------------");
-
-
-            System.out.println(fRes.size());
-            fRes.forEach(item -> System.out.println("id: " + item.getId()));
-
-            DeleteResult dlRes = this.mongoTemplate.remove(new Query(Criteria.where("id").is(status.getId())), TrafficLightStatus.class, "TrafficLightStatus");
-
+        for (TrafficLightStatus status : invalidTrafficLightStati) {
+            DeleteResult dlRes = this.mongoTemplate.remove(new Query(Criteria.where("id").is(status.getId()))
+                    , TrafficLightStatus.class, "TrafficLightStatus");
             System.out.println(dlRes);
         }
 
 
-
-        System.out.println("-------------------------------------------------------");
-        this.trafficLightStatusRepository.findAll().forEach(item -> {
-            System.out.println("id: " + item.getId());
-            System.out.println("from: " + item.getFrom());
-            System.out.println("trafficLight: " + item.getTrafficLight().getId());
-        } );
-
-        TrafficLightStatus dto = this.convertDTOtoEntity(trafficLightStatus);
-        this.mongoTemplate.save(dto, "TrafficLightStatus");
-//        this.trafficLightStatusRepository.insert(this.convertDTOtoEntity(trafficLightStatus));
+        this.mongoTemplate.save(this.convertDTOtoEntity(trafficLightStatus), "TrafficLightStatus");
+//
+//        TrafficLightStatus dto = this.convertDTOtoEntity(trafficLightStatus);
+//        this.mongoTemplate.save(dto, "TrafficLightStatus");
+////        this.trafficLightStatusRepository.insert(this.convertDTOtoEntity(trafficLightStatus));
     }
 
     @Override
@@ -109,53 +71,94 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
         //find entry with the smallest from value.
         TrafficLightStatusDTO earliest = null;
         for (TrafficLightStatusDTO status : trafficLightStatuses) {
-            if (earliest == null || earliest.getFrom() < status.getFrom()) {
+            if (earliest == null || earliest.getFrom() > status.getFrom()) {
                 earliest = status;
             }
         }
-//
-        List<TrafficLightStatus> stati = this.trafficLightStatusRepository
-                .findFutureStatusEntries(earliest.getFrom(), earliest.getTrafficLight().getId());
 
-        this.trafficLightStatusRepository.deleteAll(stati);
-        this.trafficLightStatusRepository.insert(this.convertDTOListToEntites(trafficLightStatuses));
+        System.out.println("from: " + earliest.getFrom());
+
+        List<TrafficLightStatus> list = this.mongoTemplate.findAll(TrafficLightStatus.class, "TrafficLightStatus");
+        list.forEach(item -> System.out.println("id: " + item.getId() + " from: " + item.getFrom()));
+
+
+        List<TrafficLightStatus> invalidTrafficLightStati = this.mongoTemplate.find(new Query(Criteria
+                .where("from").gte(earliest.getFrom())
+                .and("trafficLightId").is(earliest.getTrafficLightId())), TrafficLightStatus.class, "TrafficLightStatus");
+//        List<TrafficLightStatus> stati = this.trafficLightStatusRepository
+//                .findFutureStatusEntries(earliest.getFrom(), earliest.getTrafficLightId());
+        System.out.println(invalidTrafficLightStati.size());
+
+        this.mongoTemplate.findAllAndRemove(new Query(Criteria
+                .where("from").gte(earliest.getFrom())
+                .and("trafficLightId").is(earliest.getTrafficLightId())), TrafficLightStatus.class, "TrafficLightStatus");
+//        this.trafficLightStatusRepository.deleteAll(stati);
+        this.mongoTemplate.insert(this.convertDTOListToEntites(trafficLightStatuses), "TrafficLightStatus");
+//        this.trafficLightStatusRepository.insert(this.convertDTOListToEntites(trafficLightStatuses));
 
     }
 
     @Override
     public ScanDTO scanTrafficLight(TrafficLightDTO trafficLight) {
 
-        List<TrafficLightStatus> futureStati = this.trafficLightStatusRepository
-                .findFutureStatusEntries(System.currentTimeMillis(), trafficLight.getId());
+
+        List<TrafficLightStatus> futureStati = this.mongoTemplate.find(new Query(Criteria
+                .where("from").gte(System.currentTimeMillis())
+                .and("trafficLightId").is(trafficLight.getId())), TrafficLightStatus.class, "TrafficLightStatus");
 
         List<VehicleStatus> vehicleInRadius = this.mongoTemplate.find(new Query(Criteria.where("location")
                 .withinSphere(new Circle(trafficLight.getLocation().getLongitude(),trafficLight.getLocation().getLatitude()
                         , trafficLight.getScanRadius() / 6378.1))
-                .and("timeStamp").gt(System.currentTimeMillis() - 10000)), VehicleStatus.class);
+                .and("time").gt(System.currentTimeMillis() - 10000)), VehicleStatus.class);
+
+        // find NCE within radius in the last 10s
+        List<NearCrashEvent> nearCrashEvents = this.mongoTemplate.find(new Query(Criteria.where("location")
+                .withinSphere(new Circle(trafficLight.getLocation().getLongitude(),trafficLight.getLocation().getLatitude()
+                        , trafficLight.getScanRadius() / 6378.1))
+                .and("time").gt(System.currentTimeMillis() - 10000)), NearCrashEvent.class);
 
 
         // only the ones that approach the traffic light!
         Map<String, VehicleStatus> vehicleIdToStatus = new HashMap<>();
         for (VehicleStatus status : vehicleInRadius) {
-            VehicleStatus existingStatus = vehicleIdToStatus.get(status.getVehicle().getId());
+            VehicleStatus existingStatus = vehicleIdToStatus.get(status.getVin());
             if (existingStatus != null) {
                 // check which of the Entries is more recent
-                if (existingStatus.getTimeStamp() < status.getTimeStamp()) {
+                if (existingStatus.getTime() < status.getTime()) {
 
                     //remove old entry
-                    vehicleIdToStatus.remove(existingStatus.getVehicle().getId());
+                    vehicleIdToStatus.remove(existingStatus.getVin());
 
                     //check if new entry is approaching or not
-                    if (this.isApproaching(status.getLocation(), status.getVelocity(), trafficLight.getLocation())) {
-                        vehicleIdToStatus.put(status.getVehicle().getId(), status);
+                    if (this.isApproaching(status.getLocation(), status.getDirection(), trafficLight.getLocation())) {
+                        vehicleIdToStatus.put(status.getVin(), status);
                     }
                 }
             } else {
-                if (this.isApproaching(status.getLocation(), status.getVelocity(), trafficLight.getLocation())) {
-                    vehicleIdToStatus.put(status.getVehicle().getId(), status);
+                if (this.isApproaching(status.getLocation(), status.getDirection(), trafficLight.getLocation())) {
+                    vehicleIdToStatus.put(status.getVin(), status);
                 }
             }
         }
+
+        List<TrafficLightPlanDTO> trafficLightPlans = new ArrayList<>();
+        for (NearCrashEvent event : nearCrashEvents) {
+            VehicleStatus nceVehicle = vehicleIdToStatus.get(event.getVin());
+            if (nceVehicle != null) {
+                trafficLightPlans.add(new TrafficLightPlanDTO(trafficLight,
+                        this.modelMapper.map(nceVehicle, VehicleStatusDTO.class)));
+//                this.actorControlService.sendTrafficLightPlan(new TrafficLightPlanDTO(trafficLight,
+//                        this.modelMapper.map(nceVehicle, VehicleStatusDTO.class)));
+            }
+        }
+
+        this.actorControlService.sendTrafficLightPlan(trafficLightPlans);
+
+        // for every NCE send a TrafficLightplan
+
+        this.actorControlService.sendTrafficLightScanResult(new ScanDTO(this.convertTrafficLightStatusEntitiesToDTO(futureStati)
+                , this.convertVehicleStatusEntitiesToDTO(vehicleIdToStatus.values())));
+
 
         return new ScanDTO(this.convertTrafficLightStatusEntitiesToDTO(futureStati)
                 , this.convertVehicleStatusEntitiesToDTO(vehicleIdToStatus.values()));
@@ -288,6 +291,10 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
             dtos.add(this.modelMapper.map(entity, TrafficLightStatusDTO.class));
         }
         return dtos;
+    }
+
+    private NearCrashEvent checkForNCEs () {
+        return null;
     }
 
 }

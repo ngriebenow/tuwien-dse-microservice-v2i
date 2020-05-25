@@ -1,16 +1,24 @@
 package dse.grp20.common.dto;
 
 import java.io.Serializable;
-import java.net.ServerSocket;
 
 public class NearCrashEventDTO implements Serializable {
 
+    private static final long serialVersionUID = -7245482283242621646L;
     private GeoDTO location;
     private long time;
     private String vin;
 
+    public NearCrashEventDTO () {};
+
+    public NearCrashEventDTO (GeoDTO location, long time, String vin) {
+        this.location = location;
+        this.time = time;
+        this.vin = vin;
+    }
+
     public GeoDTO getLocation() {
-        return location;
+        return this.location;
     }
 
     public void setLocation(GeoDTO location) {
@@ -18,7 +26,7 @@ public class NearCrashEventDTO implements Serializable {
     }
 
     public long getTime() {
-        return time;
+        return this.time;
     }
 
     public void setTime(long time) {
@@ -26,7 +34,7 @@ public class NearCrashEventDTO implements Serializable {
     }
 
     public String getVin() {
-        return vin;
+        return this.vin;
     }
 
     public void setVin(String vin) {

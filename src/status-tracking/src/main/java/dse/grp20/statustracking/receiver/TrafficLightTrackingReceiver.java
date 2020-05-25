@@ -1,7 +1,7 @@
 package dse.grp20.statustracking.receiver;
 
+import dse.grp20.common.dto.TrafficLightDTO;
 import dse.grp20.common.dto.TrafficLightStatusDTO;
-import dse.grp20.statustracking.entities.TrafficLight;
 import dse.grp20.statustracking.service.ITrafficLightTrackingService;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -28,8 +28,8 @@ public class TrafficLightTrackingReceiver {
     }
 
     @RabbitListener(queues = "trafficlight.scan")
-    public void scanTrafficLight (TrafficLight trafficLight) {
-        this.scanTrafficLight(trafficLight);
+    public void scanTrafficLight (TrafficLightDTO trafficLight) {
+        this.trafficLightTrackingService.scanTrafficLight(trafficLight);
     }
 
 }

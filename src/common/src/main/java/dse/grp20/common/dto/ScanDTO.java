@@ -1,9 +1,11 @@
 package dse.grp20.common.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ScanDTO {
+public class ScanDTO implements Serializable {
 
+    private static final long serialVersionUID = 1902323176359433426L;
     private List<TrafficLightStatusDTO> trafficLightStati;
     private List<VehicleStatusDTO> vehicleStati;
 
