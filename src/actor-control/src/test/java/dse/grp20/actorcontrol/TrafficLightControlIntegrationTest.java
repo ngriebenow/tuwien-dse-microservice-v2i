@@ -43,7 +43,7 @@ class TrafficLightControlIntegrationTest {
         TRAFFICLIGHT1.setLocation(new GeoDTO(3.,4.));
         TRAFFICLIGHT1.setScanRadius(30.);
         TRAFFICLIGHT_STATUS1 = new TrafficLightStatusDTO();
-        TRAFFICLIGHT_STATUS1.setTrafficLightId(TRAFFICLIGHT1.getId());
+        TRAFFICLIGHT_STATUS1.setTrafficLightDTO(TRAFFICLIGHT1);
         TRAFFICLIGHT_STATUS1.setLight(LightDTO.GREEN);
         TRAFFICLIGHT_STATUS1.setFrom(System.currentTimeMillis());
         TRAFFICLIGHT_CONTROL = new TrafficLightControl();
