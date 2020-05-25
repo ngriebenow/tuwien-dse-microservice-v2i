@@ -28,13 +28,18 @@ class TrafficLightControlIntegrationTest {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    private static long WAITING_TIME = 300;
+    private static final long WAITING_TIME = 300;
 
-    private static String QUEUE_TRAFFICLIGHT_CONTROL = "trafficlight.control";
+    private static final String QUEUE_TRAFFICLIGHT_CONTROL = "trafficlight.control";
 
     private static TrafficLightDTO TRAFFICLIGHT1;
-    private static TrafficLightStatusDTO TRAFFICLIGHT_STATUS1;
-    private static TrafficLightControl TRAFFICLIGHT_CONTROL;
+    private static TrafficLightPlanDTO TRAFFICLIGHT_PLAN1;
+    private static TrafficLightControlDTO TRAFFICLIGHT_CONTROL;
+
+    private static final String vin = "v1";
+    private static final double speed = 19.66;
+    private static final GeoDTO vehicleLocation = new GeoDTO(3.,4.);
+
 
     @BeforeAll
     static void initAll(){
@@ -60,13 +65,13 @@ class TrafficLightControlIntegrationTest {
     @Test
     public void testControlVehicle_calledDirectly_shouldSaveControlAdvice() {
         assertTrue(() -> trafficLightControlRepository.findAll().isEmpty());
-        List<TrafficLightStatusDTO> trafficLightStatusDTOList = new ArrayList<>();
-        trafficLightStatusDTOList.add(TRAFFICLIGHT_STATUS1);
-        controlService.controlTrafficLights(trafficLightStatusDTOList);
+        List<TrafficLightControlDTO> trafficLightControlDTOList = new ArrayList<>();
+        trafficLightControlDTOList.add(TRAFFICLIGHT_CONTROL);
+        controlService.controlTrafficLights(trafficLightControlDTOList);
 
-        List<TrafficLightControl> trafficLightControlList = trafficLightControlRepository.findAll();
-        assertNotNull(trafficLightControlList);
-        assertEquals(TRAFFICLIGHT_CONTROL.getTrafficLightId(), trafficLightControlList.get(0).getTrafficLightId());
+        List<TrafficLightControl> trafficLightControlDTOList1 = trafficLightControlRepository.findAll();
+        assertNotNull(trafficLightControlDTOList1);
+        assertEquals(TRAFFICLIGHT_CONTROL.getTrafficLightId(), trafficLightControlDTOList1.get(0).getTrafficLightId());
 
         // Clear queue for tests coming after
         rabbitTemplate.receive(QUEUE_TRAFFICLIGHT_CONTROL);
@@ -74,14 +79,14 @@ class TrafficLightControlIntegrationTest {
 
     @Test
     public void testControlVehicle_sendVehicleStatus_shouldPublishControlAdvice() throws InterruptedException {
-        List<TrafficLightStatusDTO> trafficLightStatusDTOList = new ArrayList<>();
-        trafficLightStatusDTOList.add(TRAFFICLIGHT_STATUS1);
-        controlService.controlTrafficLights(trafficLightStatusDTOList);
+        List<TrafficLightControlDTO> trafficLightControlDTOList = new ArrayList<>();
+        trafficLightControlDTOList.add(TRAFFICLIGHT_CONTROL);
+        controlService.controlTrafficLights(trafficLightControlDTOList);
 
         Thread.sleep(WAITING_TIME);
 
-        List<TrafficLightControlDTO> trafficLightControlDTOList = (List<TrafficLightControlDTO>) rabbitTemplate.receiveAndConvert(QUEUE_TRAFFICLIGHT_CONTROL);
-        assertNotNull(trafficLightControlDTOList);
+        List<TrafficLightControlDTO> trafficLightControlDTOList1 = (List<TrafficLightControlDTO>) rabbitTemplate.receiveAndConvert(QUEUE_TRAFFICLIGHT_CONTROL);
+        assertNotNull(trafficLightControlDTOList1);
     }
 
 }

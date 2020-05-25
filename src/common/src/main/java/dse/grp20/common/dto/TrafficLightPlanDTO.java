@@ -1,32 +1,52 @@
 package dse.grp20.common.dto;
 
-import java.io.Serializable;
 
-public class TrafficLightPlanDTO implements Serializable {
+public class TrafficLightPlanDTO {
 
-    private static final long serialVersionUID = -8646310830561537270L;
-    TrafficLightDTO trafficLight;
-    VehicleStatusDTO vehicleStatus;
+    private long trafficLightId;
+    private GeoDTO trafficLightLocation;
 
-    public TrafficLightPlanDTO () {}
+    private String vin;
+    private double speed;
+    private GeoDTO vehicleLocation;
 
-    public TrafficLightPlanDTO (TrafficLightDTO trafficLight, VehicleStatusDTO vehicleStatus) {
-        this.trafficLight = trafficLight;
-        this.vehicleStatus = vehicleStatus;
-    }
-    public TrafficLightDTO getTrafficLightDTO() {
-        return this.trafficLight;
+    public long getTrafficLightId() {
+        return trafficLightId;
     }
 
-    public void setTrafficLightDTO(TrafficLightDTO trafficLight) {
-        this.trafficLight = trafficLight;
+    public void setTrafficLightId(long trafficLightId) {
+        this.trafficLightId = trafficLightId;
     }
 
-    public VehicleStatusDTO getVehicleStatusDTO() {
-        return this.vehicleStatus;
+    public GeoDTO getTrafficLightLocation() {
+        return trafficLightLocation;
     }
 
-    public void setVehicleStatusDTO(VehicleStatusDTO vehicleStatus) {
-        this.vehicleStatus = vehicleStatus;
+    public void setTrafficLightLocation(GeoDTO trafficLightLocation) {
+        this.trafficLightLocation = trafficLightLocation;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public GeoDTO getVehicleLocation() {
+        return vehicleLocation;
+    }
+
+    public void setVehicleLocation(GeoDTO vehicleLocation) {
+        this.vehicleLocation = vehicleLocation;
     }
 }

@@ -8,6 +8,15 @@ public class TrafficLightControlDTO implements Serializable {
     private LightDTO lightDTO;
     private long from;
 
+    public TrafficLightControlDTO() {
+    }
+
+    public TrafficLightControlDTO(Long trafficLightId, LightDTO lightDTO, long from) {
+        this.trafficLightId = trafficLightId;
+        this.lightDTO = lightDTO;
+        this.from = from;
+    }
+
     public Long getTrafficLightId() {
         return trafficLightId;
     }
