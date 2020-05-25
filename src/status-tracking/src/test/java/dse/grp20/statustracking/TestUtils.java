@@ -1,17 +1,18 @@
 package dse.grp20.statustracking;
 
 import dse.grp20.common.dto.*;
+import dse.grp20.statustracking.entities.TrafficLightStatus;
 
 public class TestUtils {
 
 
 
-    public static VehicleStatusDTO createVehicleStatus(GeoDTO location, long timestamp, VehicleDTO vehicle, GeoDTO velocity) {
+    public static VehicleStatusDTO createVehicleStatus(GeoDTO location, long timestamp, String vehicle, GeoDTO velocity) {
         VehicleStatusDTO vehicleStatusDTO = new VehicleStatusDTO();
         vehicleStatusDTO.setLocation(location);
-        vehicleStatusDTO.setTimeStamp(timestamp);
-        vehicleStatusDTO.setVehicle(vehicle);
-        vehicleStatusDTO.setVelocity(velocity);
+        vehicleStatusDTO.setTime(timestamp);
+        vehicleStatusDTO.setVin(vehicle);
+        vehicleStatusDTO.setDirection(velocity);
 
         return vehicleStatusDTO;
     }
@@ -26,7 +27,7 @@ public class TestUtils {
 
     public static VehicleDTO createVehicleDTO(String id) {
         VehicleDTO vehicleDTO = new VehicleDTO();
-        vehicleDTO.setId(id);
+        vehicleDTO.setVin(id);
 
         return vehicleDTO;
     }
@@ -39,11 +40,15 @@ public class TestUtils {
         return trafficLightDTO;
     }
 
-    public static TrafficLightStatusDTO createTrafficLightStatus(TrafficLightDTO trafficLightDTO, LightDTO lightDTO, long from) {
+    public static TrafficLightStatusDTO createTrafficLightStatus(Long trafficLightDTO, LightDTO lightDTO, long from) {
         TrafficLightStatusDTO trafficLightStatusDTO = new TrafficLightStatusDTO();
-        trafficLightStatusDTO.setTrafficLight(trafficLightDTO);
-        trafficLightStatusDTO.setLightDTO(lightDTO);
+        trafficLightStatusDTO.setTrafficLightId(trafficLightDTO);
+        trafficLightStatusDTO.setLight(lightDTO);
         trafficLightStatusDTO.setFrom(from);
         return trafficLightStatusDTO;
+    }
+
+    public static TrafficLightStatus convertDTOtoEntity(TrafficLightStatusDTO dto) {
+        return new TrafficLightStatus(dto);
     }
 }

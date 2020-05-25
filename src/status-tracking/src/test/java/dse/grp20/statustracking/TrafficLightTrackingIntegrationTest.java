@@ -4,14 +4,12 @@ import dse.grp20.common.dto.LightDTO;
 import dse.grp20.common.dto.TrafficLightDTO;
 import dse.grp20.common.dto.TrafficLightStatusDTO;
 import dse.grp20.statustracking.entities.TrafficLightStatus;
-import dse.grp20.statustracking.service.ITrafficLightTrackingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.modelmapper.ModelMapper;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,17 +17,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@ActiveProfiles("dev")
-public class TrafficLightTrackingTest {
+public class TrafficLightTrackingIntegrationTest {
 
     @Autowired
-    private ITrafficLightTrackingService trackingService;
+    private RabbitTemplate rabbitTemplate;
 
-    private static long WAITING_TIME = 300;
-    
-
-    private static ModelMapper modelMapper = new ModelMapper();
-
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     private static TrafficLightDTO trafficLight1;
     private static TrafficLightDTO trafficLight2;
@@ -56,11 +50,19 @@ public class TrafficLightTrackingTest {
     private static TrafficLightStatusDTO trafficLight3_status1;
     private static TrafficLightStatusDTO trafficLight3_status2;
 
+    public void clear() {
+        while (this.rabbitTemplate.receive("trafficlight.update") != null) {}
+        while (this.rabbitTemplate.receive("trafficlight.shedule") != null) {}
+    }
 
     @BeforeEach
-    public void init(@Autowired MongoTemplate mongoTemplate) {
+    public void init () {
+        this.clear();
+        this.setupAndQueueData();
+    }
 
-        mongoTemplate.dropCollection("TrafficLightStatus");
+    private void setupAndQueueData() {
+        this.mongoTemplate.dropCollection("TrafficLightStatus");
 
         trafficLight1 = TestUtils.createTrafficLight(1, null, null);
         trafficLight2 = TestUtils.createTrafficLight(2, null, null);
@@ -78,37 +80,35 @@ public class TrafficLightTrackingTest {
         trafficLight3_status2 = TestUtils.createTrafficLightStatus(trafficLight3.getId(), LightDTO.GREEN, System.currentTimeMillis() + 10000000);
 
 
-        mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight1_status1), "TrafficLightStatus");
-        mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight1_status2), "TrafficLightStatus");
+        this.mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight1_status1), "TrafficLightStatus");
+        this.mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight1_status2), "TrafficLightStatus");
 
-        mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status1), "TrafficLightStatus");
-        mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status2), "TrafficLightStatus");
-        mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status3), "TrafficLightStatus");
+        this.mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status1), "TrafficLightStatus");
+        this.mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status2), "TrafficLightStatus");
+        this.mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status3), "TrafficLightStatus");
 
 
-        mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight3_status1), "TrafficLightStatus");
-        mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight3_status2), "TrafficLightStatus");
+        this.mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight3_status1), "TrafficLightStatus");
+        this.mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight3_status2), "TrafficLightStatus");
     }
 
+
     @Test
-    public void testUpdateTrafficLightStatus(@Autowired MongoTemplate mongoTemplate) {
-
-//        mongoTemplate.findAll(TrafficLightStatus.class).forEach(item -> System.out.println("id: " + item.getId()
-//                + " trafficLightId: " + item.getTrafficLightId() + " from: " + item.getFrom()));
-
+    public void testUpdateTrafficLight_shouldTrigger () throws InterruptedException {
 
         trafficLight1_status3 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.RED, System.currentTimeMillis());
-        this.trackingService.updateTrafficLight(trafficLight1_status3);
+        this.rabbitTemplate.convertAndSend("trafficlight.update", trafficLight1_status3);
 
+        Thread.sleep(1000);
 
         // now trafficLight1_status2 should be deleted everything else should still exist
-        List<TrafficLightStatus> persistedTrafficLightStati = mongoTemplate.findAll(TrafficLightStatus.class);
+        List<TrafficLightStatus> persistedTrafficLightStati = this.mongoTemplate.findAll(TrafficLightStatus.class);
         assertEquals(7, persistedTrafficLightStati.size());
 
     }
 
     @Test
-    public void testUpdateTrafficLightShedule(@Autowired MongoTemplate mongoTemplate) {
+    public void testUpdateTrafficLightShedule_shouldTrigger () throws InterruptedException {
 
 
         trafficLight2_status4 = TestUtils.createTrafficLightStatus(trafficLight2.getId(), LightDTO.RED, System.currentTimeMillis());
@@ -123,8 +123,12 @@ public class TrafficLightTrackingTest {
                 ,trafficLight2_status6,trafficLight2_status7,trafficLight2_status8,trafficLight2_status9
                 ,trafficLight2_status10);
 
-        this.trackingService.updateTrafficLightShedule(shedule);
-        List<TrafficLightStatus> persistedTrafficLightStati = mongoTemplate.findAll(TrafficLightStatus.class);
+        this.rabbitTemplate.convertAndSend("trafficlight.shedule", shedule);
+
+        Thread.sleep(1000);
+
+        List<TrafficLightStatus> persistedTrafficLightStati = this.mongoTemplate.findAll(TrafficLightStatus.class);
         assertEquals(12, persistedTrafficLightStati.size());
+
     }
 }

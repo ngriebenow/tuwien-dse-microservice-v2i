@@ -31,16 +31,16 @@ public class VehicleTrackingServiceTest {
     @BeforeAll
     public static void init(@Autowired MongoTemplate mongoTemplate) {
 
-        mongoTemplate.dropCollection(VehicleStatusDTO.class);
+        mongoTemplate.dropCollection(VehicleStatus.class);
 
         vehicleStatus1 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.12,12.12), System.currentTimeMillis(),
-                TestUtils.createVehicleDTO("Vehicle1"), TestUtils.createGeoDTO(12.13,12.14));
+                "Vehicle1", TestUtils.createGeoDTO(12.13,12.14));
 
         vehicleStatus2 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.12,12.12), System.currentTimeMillis(),
-                TestUtils.createVehicleDTO("Vehicle1"), TestUtils.createGeoDTO(12.13,12.14));
+                "Vehicle1", TestUtils.createGeoDTO(12.13,12.14));
 
         vehicleStatus3 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.12,12.12), System.currentTimeMillis(),
-                TestUtils.createVehicleDTO("Vehicle1"), TestUtils.createGeoDTO(12.13,12.14));
+                "Vehicle1", TestUtils.createGeoDTO(12.13,12.14));
 
     }
 
