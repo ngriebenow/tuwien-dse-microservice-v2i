@@ -5,6 +5,7 @@ import dse.grp20.actorcontrol.entities.VehicleControl;
 import dse.grp20.actorcontrol.repositories.ITrafficLightControlRepository;
 import dse.grp20.actorcontrol.repositories.IVehicleControlRepository;
 import dse.grp20.actorcontrol.services.IControlService;
+import dse.grp20.common.dto.TrafficLightControlDTO;
 import dse.grp20.common.dto.TrafficLightStatusDTO;
 import dse.grp20.common.dto.VehicleControlDTO;
 import org.modelmapper.ModelMapper;
@@ -34,8 +35,8 @@ public class ControlService implements IControlService {
     }
 
     @Override
-    public void controlTrafficLights(List<TrafficLightStatusDTO> trafficLightStatusDTOList) {
-        rabbitTemplate.convertAndSend("trafficlight.control", trafficLightStatusDTOList);
-        trafficLightStatusDTOList.forEach(t -> trafficLightControlRepository.save(modelMapper.map(t, TrafficLightControl.class)));
+    public void controlTrafficLights(List<TrafficLightControlDTO> trafficLightControlDTOList) {
+        rabbitTemplate.convertAndSend("trafficlight.control", trafficLightControlDTOList);
+        trafficLightControlDTOList.forEach(t -> trafficLightControlRepository.save(modelMapper.map(t, TrafficLightControl.class)));
     }
 }

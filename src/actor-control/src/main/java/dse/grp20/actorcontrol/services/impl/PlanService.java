@@ -100,6 +100,41 @@ public class PlanService implements IPlanService {
 
     @Override
     public void planTrafficLight(TrafficLightPlanDTO trafficLightPlanDTO) {
+        List<TrafficLightControlDTO> trafficLightControlDTOList = new ArrayList<>();
 
+        long newGreenphase = calculateGreenphase(trafficLightPlanDTO);
+        trafficLightControlDTOList.add(new TrafficLightControlDTO(
+                trafficLightPlanDTO.getTrafficLightId(),
+                LightDTO.GREEN,
+                newGreenphase
+                )
+        );
+
+        controlService.controlTrafficLights(trafficLightControlDTOList);
+    }
+
+    public long calculateGreenphase(TrafficLightPlanDTO trafficLightPlanDTO) {
+        // extract positions
+        GeoDTO trafficLightPos = trafficLightPlanDTO.getTrafficLightLocation();
+        GeoDTO vehiclePos = trafficLightPlanDTO.getVehicleLocation();
+
+        // calculate distance
+        double distance = Utils.distance(vehiclePos, trafficLightPos);
+        double speed = trafficLightPlanDTO.getSpeed();
+        logger.info("distance: {}", distance);
+        logger.info("speed: {}", speed);
+
+        // calculate init travel time
+        long timeOfArrivalInMilliseconds = Math.round((distance / speed) * 1000);
+        logger.info("timeOfArrivalInMilliseconds: {}", timeOfArrivalInMilliseconds);
+
+        // calculate current and arrival time
+        long currentTime = timeService.getTime();
+        long arrivalTime = currentTime + timeOfArrivalInMilliseconds;
+        logger.info("currentTime: {}", currentTime);
+        logger.info("arrivalTime: {}", arrivalTime);
+
+        // TODO add time buffer of 1/2 seconds?
+        return arrivalTime;
     }
 }

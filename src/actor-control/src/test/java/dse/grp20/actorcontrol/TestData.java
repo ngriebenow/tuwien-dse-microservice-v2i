@@ -2,8 +2,6 @@ package dse.grp20.actorcontrol;
 
 import dse.grp20.common.dto.*;
 
-import java.util.Calendar;
-
 
 public class TestData {
 
@@ -51,49 +49,55 @@ public class TestData {
     public static final double VEHICLE1_SPEED_AFTER_TRAFFICLIGHT2 = 11.66;
     public static final double VEHICLE1_SPEED_AFTER_TRAFFICLIGHT3 = 13.9;
 
-    public static long TRAFFICLIGHT1_ID = 1L;
-    public static long TRAFFICLIGHT2_ID = 2L;
-    public static long TRAFFICLIGHT3_ID = 3L;
-    public static GeoDTO TRAFFICLIGHT1_GEO = new GeoDTO(48.139175, 15.613267);
-    public static GeoDTO TRAFFICLIGHT2_GEO = new GeoDTO(48.145468, 15.613710);
-    public static GeoDTO TRAFFICLIGHT3_GEO = new GeoDTO(48.157159, 15.614965);
+    public static final long TRAFFICLIGHT1_ID = 1L;
+    public static final long TRAFFICLIGHT2_ID = 2L;
+    public static final long TRAFFICLIGHT3_ID = 3L;
+    public static final GeoDTO TRAFFICLIGHT1_GEO = new GeoDTO(48.139175, 15.613267);
+    public static final GeoDTO TRAFFICLIGHT2_GEO = new GeoDTO(48.145468, 15.613710);
+    public static final GeoDTO TRAFFICLIGHT3_GEO = new GeoDTO(48.157159, 15.614965);
 
-    public static LightDTO TRAFFICLIGHT1_STATUS1_LIGHT = LightDTO.GREEN;
-    public static LightDTO TRAFFICLIGHT1_STATUS2_LIGHT = LightDTO.RED;
-    public static LightDTO TRAFFICLIGHT1_STATUS3_LIGHT = LightDTO.GREEN;
-    public static LightDTO TRAFFICLIGHT1_STATUS4_LIGHT = LightDTO.RED;
-    public static LightDTO TRAFFICLIGHT1_STATUS5_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT1_STATUS1_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT1_STATUS2_LIGHT = LightDTO.RED;
+    public static final LightDTO TRAFFICLIGHT1_STATUS3_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT1_STATUS4_LIGHT = LightDTO.RED;
+    public static final LightDTO TRAFFICLIGHT1_STATUS5_LIGHT = LightDTO.GREEN;
 
-    public static LightDTO TRAFFICLIGHT2_STATUS1_LIGHT = LightDTO.GREEN;
-    public static LightDTO TRAFFICLIGHT2_STATUS2_LIGHT = LightDTO.RED;
-    public static LightDTO TRAFFICLIGHT2_STATUS3_LIGHT = LightDTO.GREEN;
-    public static LightDTO TRAFFICLIGHT2_STATUS4_LIGHT = LightDTO.RED;
-    public static LightDTO TRAFFICLIGHT2_STATUS5_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT2_STATUS1_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT2_STATUS2_LIGHT = LightDTO.RED;
+    public static final LightDTO TRAFFICLIGHT2_STATUS3_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT2_STATUS4_LIGHT = LightDTO.RED;
+    public static final LightDTO TRAFFICLIGHT2_STATUS5_LIGHT = LightDTO.GREEN;
 
-    public static LightDTO TRAFFICLIGHT3_STATUS1_LIGHT = LightDTO.GREEN;
-    public static LightDTO TRAFFICLIGHT3_STATUS2_LIGHT = LightDTO.RED;
-    public static LightDTO TRAFFICLIGHT3_STATUS3_LIGHT = LightDTO.GREEN;
-    public static LightDTO TRAFFICLIGHT3_STATUS4_LIGHT = LightDTO.RED;
-    public static LightDTO TRAFFICLIGHT3_STATUS5_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT3_STATUS1_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT3_STATUS2_LIGHT = LightDTO.RED;
+    public static final LightDTO TRAFFICLIGHT3_STATUS3_LIGHT = LightDTO.GREEN;
+    public static final LightDTO TRAFFICLIGHT3_STATUS4_LIGHT = LightDTO.RED;
+    public static final LightDTO TRAFFICLIGHT3_STATUS5_LIGHT = LightDTO.GREEN;
 
     // delta seconds beginning with START_TIME
-    public static long TRAFFICLIGHT1_STATUS1_FROM = 60 * 1000;
-    public static long TRAFFICLIGHT1_STATUS2_FROM = 80 * 1000;
-    public static long TRAFFICLIGHT1_STATUS3_FROM = 100 * 1000;
-    public static long TRAFFICLIGHT1_STATUS4_FROM = 120 * 1000;
-    public static long TRAFFICLIGHT1_STATUS5_FROM = 140 * 1000;
+    public static final long TRAFFICLIGHT1_STATUS1_FROM = 60 * 1000;
+    public static final long TRAFFICLIGHT1_STATUS2_FROM = 80 * 1000;
+    public static final long TRAFFICLIGHT1_STATUS3_FROM = 100 * 1000;
+    public static final long TRAFFICLIGHT1_STATUS4_FROM = 120 * 1000;
+    public static final long TRAFFICLIGHT1_STATUS5_FROM = 140 * 1000;
 
-    public static long TRAFFICLIGHT2_STATUS1_FROM = 120 * 1000;
-    public static long TRAFFICLIGHT2_STATUS2_FROM = 140 * 1000;
-    public static long TRAFFICLIGHT2_STATUS3_FROM = 180 * 1000;
-    public static long TRAFFICLIGHT2_STATUS4_FROM = 200 * 1000;
-    public static long TRAFFICLIGHT2_STATUS5_FROM = 240 * 1000;
+    public static final long TRAFFICLIGHT2_STATUS1_FROM = 120 * 1000;
+    public static final long TRAFFICLIGHT2_STATUS2_FROM = 140 * 1000;
+    public static final long TRAFFICLIGHT2_STATUS3_FROM = 180 * 1000;
+    public static final long TRAFFICLIGHT2_STATUS4_FROM = 200 * 1000;
+    public static final long TRAFFICLIGHT2_STATUS5_FROM = 240 * 1000;
 
-    public static long TRAFFICLIGHT3_STATUS1_FROM = 150 * 1000;
-    public static long TRAFFICLIGHT3_STATUS2_FROM = 170 * 1000;
-    public static long TRAFFICLIGHT3_STATUS3_FROM = 190 * 1000;
-    public static long TRAFFICLIGHT3_STATUS4_FROM = 210 * 1000;
-    public static long TRAFFICLIGHT3_STATUS5_FROM = 230 * 1000;
+    public static final long TRAFFICLIGHT3_STATUS1_FROM = 150 * 1000;
+    public static final long TRAFFICLIGHT3_STATUS2_FROM = 170 * 1000;
+    public static final long TRAFFICLIGHT3_STATUS3_FROM = 190 * 1000;
+    public static final long TRAFFICLIGHT3_STATUS4_FROM = 210 * 1000;
+    public static final long TRAFFICLIGHT3_STATUS5_FROM = 230 * 1000;
+
+    /* trafficLight-plan */
+    public TrafficLightPlanDTO trafficLight3PlanDTO;
+    // 500m before trafficLight3
+    public static final GeoDTO VEHICLE1_POSITION_AFTER_NCE = new GeoDTO(48.152668, 15.61371);
+    public static final long TRAFFICLIGHT3_NEXT_GREENPHASE_AFTER_NCE =  219 * 1000;
 
     public TestData(long time) {
         startTime = time;
@@ -212,5 +216,14 @@ public class TestData {
         trafficLight3Status5.setTrafficLightDTO(trafficLight3);
         trafficLight3Status5.setLight(TRAFFICLIGHT3_STATUS5_LIGHT);
         trafficLight3Status5.setFrom(startTime + TRAFFICLIGHT3_STATUS5_FROM);
+
+
+        /* TRAFFICLIGHTPLAN */
+        trafficLight3PlanDTO = new TrafficLightPlanDTO();
+        trafficLight3PlanDTO.setTrafficLightId(trafficLight3.getId());
+        trafficLight3PlanDTO.setTrafficLightLocation(trafficLight3.getLocation());
+        trafficLight3PlanDTO.setVin(vehicle1Status.getVin());
+        trafficLight3PlanDTO.setSpeed(13.88);
+        trafficLight3PlanDTO.setVehicleLocation(VEHICLE1_POSITION_AFTER_NCE);
     };
 }

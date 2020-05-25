@@ -3,11 +3,20 @@ package dse.grp20.common.dto;
 
 public class TrafficLightPlanDTO {
 
+    private long trafficLightId;
     private GeoDTO trafficLightLocation;
 
     private String vin;
     private double speed;
     private GeoDTO vehicleLocation;
+
+    public long getTrafficLightId() {
+        return trafficLightId;
+    }
+
+    public void setTrafficLightId(long trafficLightId) {
+        this.trafficLightId = trafficLightId;
+    }
 
     public GeoDTO getTrafficLightLocation() {
         return trafficLightLocation;

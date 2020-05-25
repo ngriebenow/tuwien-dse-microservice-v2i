@@ -15,4 +15,6 @@ public interface IPlanService {
     double calculateSpeed(VehicleStatusDTO vehicleStatusDTO, List<TrafficLightStatusDTO> trafficLightStatusDTOList);
 
     void planTrafficLight(TrafficLightPlanDTO trafficLightPlanDTO);
+
+    long calculateGreenphase(TrafficLightPlanDTO trafficLightPlanDTO);
 }
