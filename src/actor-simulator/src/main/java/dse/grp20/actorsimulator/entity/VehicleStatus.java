@@ -1,12 +1,9 @@
 package dse.grp20.actorsimulator.entity;
 
-import org.springframework.data.annotation.Id;
-
 import java.io.Serializable;
 
 public class VehicleStatus implements Serializable {
 
-    @Id
     private Geo location;
 
     private Geo direction;

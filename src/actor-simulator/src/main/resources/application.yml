@@ -1,9 +1,9 @@
 spring:
-  profiles:
-    include: dev
   rabbitmq:
     host: 192.168.99.99
     port: 5672
+    password: dst
+    username: dst
 
 server:
   port: 5100

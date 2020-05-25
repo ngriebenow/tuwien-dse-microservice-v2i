@@ -1,8 +1,5 @@
 package dse.grp20.actorsimulator.entity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.MongoId;
-
 import java.io.Serializable;
 
 public class TrafficLight implements Serializable {
@@ -16,7 +13,6 @@ public class TrafficLight implements Serializable {
     public TrafficLight() {
     }
 
-    @Id
     private Long id;
 
     private Double scanRadius;

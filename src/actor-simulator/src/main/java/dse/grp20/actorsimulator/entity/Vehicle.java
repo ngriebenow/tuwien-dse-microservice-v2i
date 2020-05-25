@@ -1,12 +1,10 @@
 package dse.grp20.actorsimulator.entity;
 
-import org.springframework.data.annotation.Id;
-
 import java.io.Serializable;
 
 public class Vehicle implements Serializable {
 
-    @Id
+
     private String vin;
 
 

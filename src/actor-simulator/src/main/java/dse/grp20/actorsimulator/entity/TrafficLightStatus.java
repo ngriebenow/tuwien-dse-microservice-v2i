@@ -1,12 +1,5 @@
 package dse.grp20.actorsimulator.entity;
 
-import dse.grp20.common.dto.LightDTO;
-import dse.grp20.common.dto.TrafficLightDTO;
-import dse.grp20.common.dto.TrafficLightStatusDTO;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
-
 import java.io.Serializable;
 
 public class TrafficLightStatus implements Serializable {
