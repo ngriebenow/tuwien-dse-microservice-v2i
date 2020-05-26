@@ -4,6 +4,7 @@ package dse.grp20.statustracking;
 import dse.grp20.common.dto.*;
 import dse.grp20.statustracking.entities.TrafficLightStatus;
 import dse.grp20.statustracking.entities.VehicleStatus;
+import dse.grp20.statustracking.service.ITimeService;
 import dse.grp20.statustracking.service.ITrafficLightTrackingService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -52,46 +53,48 @@ public class TrafficLightScanTest {
 
 
     @BeforeAll
-    public static void init (@Autowired MongoTemplate mongoTemplate) {
+    public static void init (@Autowired MongoTemplate mongoTemplate, @Autowired ITimeService timeService) {
 
         mongoTemplate.dropCollection(VehicleStatus.class);
         mongoTemplate.dropCollection(TrafficLightStatus.class);
 
+        timeService.setTime(System.currentTimeMillis(), 1);
+
         // car within 200m radius
         vehicleStatus1 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(15.753431, 48.185847),
-                System.currentTimeMillis() - 500, "Vehicle1",
+                timeService.getTime() - 500, "Vehicle1",
                 TestUtils.createGeoDTO(15.753458,48.185838));
 
         // own test for this behaviour -> later
         // same car within radius but older status -> should not be found
         vehicleStatus2 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(15.753109, 48.185897),
-                System.currentTimeMillis() - 1000, "Vehicle1",
+                timeService.getTime() - 1000, "Vehicle1",
                 TestUtils.createGeoDTO(15.75431,48.185847));
 
         // car outside of 200m radius
         vehicleStatus3 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(15.749150, 48.186212),
-                System.currentTimeMillis() - 500, "Vehicle2",
+                timeService.getTime() - 500, "Vehicle2",
                 TestUtils.createGeoDTO(15.749201,48.186200));
 
         // car inside radius but not on road (test for circular range)
         vehicleStatus4 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(15.754815, 48.184996),
-                System.currentTimeMillis() - 500, "Vehicle3",
+                timeService.getTime() - 500, "Vehicle3",
                 TestUtils.createGeoDTO(15.754823,48.185002));
 
         // car inside of 200m radius "behind" trafficLight                              15.754987, 48.185697
         vehicleStatus5 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(15.756103, 48.185604),
-                System.currentTimeMillis() - 500, "Vehicle4",
+                timeService.getTime() - 500, "Vehicle4",
                 TestUtils.createGeoDTO(15.756110,48.185598));
 
         // car outside of 200m radius "behind" trafficLight                             15.754987, 48.185697
         vehicleStatus6 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(15.758892, 48.185346),
-                System.currentTimeMillis() - 500, "Vehicle5",
+                timeService.getTime() - 500, "Vehicle5",
                 TestUtils.createGeoDTO(null,null));
 
         // own test for this behaviour -> later
         // older than 10s should not be found                                               15.754987, 48.185697
         vehicleStatus7 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(15.753458,48.185838),
-                System.currentTimeMillis() - 13000, "Vehicle6",
+                timeService.getTime() - 13000, "Vehicle6",
                 TestUtils.createGeoDTO(15.758892, 48.185346));
 
         mongoTemplate.save(convertDTOtoEntity(vehicleStatus1));
@@ -104,11 +107,11 @@ public class TrafficLightScanTest {
 
 
         trafficLight1 = TestUtils.createTrafficLight(1, TestUtils.createGeoDTO(15.754987, 48.185697), 0.2);
-        trafficLight1_status1 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.RED, System.currentTimeMillis() - 10000000);
-        trafficLight1_status2 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.GREEN, System.currentTimeMillis() + 10000000);
-        trafficLight1_status3 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.RED, System.currentTimeMillis() + 20000000);
-        trafficLight1_status4 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.GREEN, System.currentTimeMillis() + 30000000);
-        trafficLight1_status5 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.RED, System.currentTimeMillis() + 40000000);
+        trafficLight1_status1 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.RED, timeService.getTime() - 10000000);
+        trafficLight1_status2 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.GREEN, timeService.getTime() + 10000000);
+        trafficLight1_status3 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.RED, timeService.getTime() + 20000000);
+        trafficLight1_status4 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.GREEN, timeService.getTime() + 30000000);
+        trafficLight1_status5 = TestUtils.createTrafficLightStatus(trafficLight1.getId(), LightDTO.RED, timeService.getTime() + 40000000);
 
         mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight1_status1));
         mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight1_status2));
@@ -117,9 +120,9 @@ public class TrafficLightScanTest {
         mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight1_status5));
 
         trafficLight2 = TestUtils.createTrafficLight(2, TestUtils.createGeoDTO(48.185697, 15.754987), 2.0);
-        trafficLight2_status1 = TestUtils.createTrafficLightStatus(trafficLight2.getId(), LightDTO.RED, System.currentTimeMillis() - 10000000);
-        trafficLight2_status2 = TestUtils.createTrafficLightStatus(trafficLight2.getId(), LightDTO.GREEN, System.currentTimeMillis() + 10000000);
-        trafficLight2_status3 = TestUtils.createTrafficLightStatus(trafficLight2.getId(), LightDTO.RED, System.currentTimeMillis() + 20000000);
+        trafficLight2_status1 = TestUtils.createTrafficLightStatus(trafficLight2.getId(), LightDTO.RED, timeService.getTime() - 10000000);
+        trafficLight2_status2 = TestUtils.createTrafficLightStatus(trafficLight2.getId(), LightDTO.GREEN, timeService.getTime() + 10000000);
+        trafficLight2_status3 = TestUtils.createTrafficLightStatus(trafficLight2.getId(), LightDTO.RED, timeService.getTime() + 20000000);
 
         mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status1));
         mongoTemplate.save(TestUtils.convertDTOtoEntity(trafficLight2_status2));

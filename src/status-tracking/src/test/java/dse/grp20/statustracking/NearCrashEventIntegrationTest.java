@@ -2,6 +2,8 @@ package dse.grp20.statustracking;
 
 import dse.grp20.common.dto.NearCrashEventDTO;
 import dse.grp20.statustracking.entities.NearCrashEvent;
+import dse.grp20.statustracking.service.ITimeService;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -27,8 +29,16 @@ public class NearCrashEventIntegrationTest {
     @Autowired
     MongoTemplate mongoTemplate;
 
+    @Autowired
+    ITimeService timeService;
+
     public void clear() {
         while (this.rabbitTemplate.receive("nearcrashevent.emit") != null) {}
+    }
+
+    @BeforeAll
+    public static void initForAll(@Autowired ITimeService timeService) {
+        timeService.setTime(System.currentTimeMillis(), 1);
     }
 
     @BeforeEach
@@ -41,11 +51,17 @@ public class NearCrashEventIntegrationTest {
 
         this.mongoTemplate.dropCollection(NearCrashEvent.class);
 
+//        nce1 = new NearCrashEventDTO(TestUtils.createGeoDTO(15.753431, 48.185847),
+//                System.currentTimeMillis() - 500, "Vehicle1");
+//
+//        nce2 = new NearCrashEventDTO(TestUtils.createGeoDTO(15.753445, 48.185838),
+//                System.currentTimeMillis() - 1000, "Vehicle2");
+
         nce1 = new NearCrashEventDTO(TestUtils.createGeoDTO(15.753431, 48.185847),
-                System.currentTimeMillis() - 500, "Vehicle1");
+                this.timeService.getTime() - 500, "Vehicle1");
 
         nce2 = new NearCrashEventDTO(TestUtils.createGeoDTO(15.753445, 48.185838),
-                System.currentTimeMillis() - 1000, "Vehicle2");
+                this.timeService.getTime() - 1000, "Vehicle2");
 
         this.rabbitTemplate.convertAndSend("nearcrashevent.emit", nce1);
         this.rabbitTemplate.convertAndSend("nearcrashevent.emit", nce2);

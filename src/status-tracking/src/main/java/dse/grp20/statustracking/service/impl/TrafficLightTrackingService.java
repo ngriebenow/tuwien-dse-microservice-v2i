@@ -6,6 +6,7 @@ import dse.grp20.statustracking.entities.*;
 import dse.grp20.statustracking.external.IActorControlService;
 import dse.grp20.statustracking.repositories.ITrafficLightStatusRepository;
 import dse.grp20.statustracking.repositories.IVehicleStatusRepository;
+import dse.grp20.statustracking.service.ITimeService;
 import dse.grp20.statustracking.service.ITrafficLightTrackingService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
 
     @Autowired
     private IVehicleStatusRepository vehicleStatusRepository;
+
+    @Autowired
+    private ITimeService timeService;
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -102,20 +106,24 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
     public ScanDTO scanTrafficLight(TrafficLightDTO trafficLight) {
 
 
+//        List<TrafficLightStatus> futureStati = this.mongoTemplate.find(new Query(Criteria
+//                .where("from").gte(System.currentTimeMillis())
+//                .and("trafficLightId").is(trafficLight.getId())), TrafficLightStatus.class, "TrafficLightStatus");
+
         List<TrafficLightStatus> futureStati = this.mongoTemplate.find(new Query(Criteria
-                .where("from").gte(System.currentTimeMillis())
+                .where("from").gte(this.timeService.getTime())
                 .and("trafficLightId").is(trafficLight.getId())), TrafficLightStatus.class, "TrafficLightStatus");
 
         List<VehicleStatus> vehicleInRadius = this.mongoTemplate.find(new Query(Criteria.where("location")
                 .withinSphere(new Circle(trafficLight.getLocation().getLongitude(),trafficLight.getLocation().getLatitude()
                         , trafficLight.getScanRadius() / 6378.1))
-                .and("time").gt(System.currentTimeMillis() - 10000)), VehicleStatus.class);
+                .and("time").gt(this.timeService.getTime() - 10000)), VehicleStatus.class);
 
         // find NCE within radius in the last 10s
         List<NearCrashEvent> nearCrashEvents = this.mongoTemplate.find(new Query(Criteria.where("location")
                 .withinSphere(new Circle(trafficLight.getLocation().getLongitude(),trafficLight.getLocation().getLatitude()
                         , trafficLight.getScanRadius() / 6378.1))
-                .and("time").gt(System.currentTimeMillis() - 10000)), NearCrashEvent.class);
+                .and("time").gt(this.timeService.getTime() - 10000)), NearCrashEvent.class);
 
 
         // only the ones that approach the traffic light!
@@ -162,6 +170,16 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
 
         return new ScanDTO(this.convertTrafficLightStatusEntitiesToDTO(futureStati)
                 , this.convertVehicleStatusEntitiesToDTO(vehicleIdToStatus.values()));
+    }
+
+    @Override
+    public List<TrafficLightStatusDTO> findAllLatest() {
+        return null;
+    }
+
+    @Override
+    public TrafficLightStatusDTO findByIdLatest(long id) {
+        return null;
     }
 
     private boolean isApproaching (Geo position, Geo futurePosition, GeoDTO trafficLightPosition) {

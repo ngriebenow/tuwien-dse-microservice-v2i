@@ -2,7 +2,9 @@ package dse.grp20.statustracking;
 
 import dse.grp20.common.dto.VehicleStatusDTO;
 import dse.grp20.statustracking.entities.VehicleStatus;
+import dse.grp20.statustracking.service.ITimeService;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -27,12 +29,20 @@ public class VehicleTrackingIntegrationService {
     @Autowired
     MongoTemplate mongoTemplate;
 
+    @Autowired
+    ITimeService timeService;
+
     private static VehicleStatusDTO vehicleStatus1;
     private static VehicleStatusDTO vehicleStatus2;
     private static VehicleStatusDTO vehicleStatus3;
 
     public void clear() {
         while (this.rabbitTemplate.receive("vehicle.update") != null) {}
+    }
+
+    @BeforeAll
+    public static void initAll(@Autowired ITimeService timeService) {
+        timeService.setTime(System.currentTimeMillis(), 1);
     }
 
     @BeforeEach
@@ -70,13 +80,13 @@ public class VehicleTrackingIntegrationService {
     private void setupAndQueueData() {
         this.mongoTemplate.dropCollection(VehicleStatus.class);
 
-        vehicleStatus1 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.12,12.12), System.currentTimeMillis(),
+        vehicleStatus1 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.12,12.12), this.timeService.getTime(),
                 "Vehicle1", TestUtils.createGeoDTO(12.13,12.14));
 
-        vehicleStatus2 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.13,12.14), System.currentTimeMillis(),
+        vehicleStatus2 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.13,12.14), this.timeService.getTime(),
                 "Vehicle2", TestUtils.createGeoDTO(12.15,12.16));
 
-        vehicleStatus3 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.12,12.12), System.currentTimeMillis(),
+        vehicleStatus3 = TestUtils.createVehicleStatus(TestUtils.createGeoDTO(12.12,12.12), this.timeService.getTime(),
                 "Vehicle3", TestUtils.createGeoDTO(12.13,12.14));
 
         this.rabbitTemplate.convertAndSend("vehicle.update", vehicleStatus1);

@@ -3,6 +3,7 @@ package dse.grp20.statustracking;
 import dse.grp20.common.dto.NearCrashEventDTO;
 import dse.grp20.statustracking.entities.NearCrashEvent;
 import dse.grp20.statustracking.service.INearCrashEventService;
+import dse.grp20.statustracking.service.ITimeService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +32,16 @@ public class NearCrashEventTest {
 
 
     @BeforeAll
-    public static void init(@Autowired MongoTemplate mongoTemplate) {
+    public static void init(@Autowired MongoTemplate mongoTemplate, @Autowired ITimeService timeService) {
         mongoTemplate.dropCollection(NearCrashEvent.class);
 
+        timeService.setTime(System.currentTimeMillis(), 1);
+
         nce1 = new NearCrashEventDTO(TestUtils.createGeoDTO(15.753431, 48.185847),
-                System.currentTimeMillis() - 500, "Vehicle1");
+                timeService.getTime() - 500, "Vehicle1");
 
         nce2 = new NearCrashEventDTO(TestUtils.createGeoDTO(15.753445, 48.185838),
-                System.currentTimeMillis() - 1000, "Vehicle2");
+                timeService.getTime() - 1000, "Vehicle2");
 
     }
 
