@@ -15,4 +15,8 @@ public interface ITrafficLightTrackingService {
     void updateTrafficLightShedule(List<TrafficLightStatusDTO> trafficLightStatuses);
 
     ScanDTO scanTrafficLight(TrafficLightDTO trafficLight);
+
+    List<TrafficLightStatusDTO> findAllLatest();
+
+    TrafficLightStatusDTO findByIdLatest(long id);
 }
