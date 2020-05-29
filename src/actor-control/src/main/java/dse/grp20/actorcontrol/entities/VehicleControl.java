@@ -10,8 +10,6 @@ public class VehicleControl implements Serializable {
 
     @Id
     @MongoId
-    private String id;
-
     private String vin;
 
     private double speed;
@@ -43,13 +41,5 @@ public class VehicleControl implements Serializable {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

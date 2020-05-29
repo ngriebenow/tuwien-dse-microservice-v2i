@@ -7,6 +7,14 @@ public class VehicleControlDTO implements Serializable {
     private String vin;
     private double speed;
 
+    public VehicleControlDTO() {
+    }
+
+    public VehicleControlDTO(String vin, double speed) {
+        this.vin = vin;
+        this.speed = speed;
+    }
+
     public String getVin() {
         return vin;
     }

@@ -11,18 +11,15 @@ public class TrafficLightControl {
 
     @Id
     @MongoId
-    private String id;
-
     private Long trafficLightId;
-
     private LightDTO lightDTO;
     private long from;
+
     private long timestamp;
 
     public TrafficLightControl() {
         timestamp = System.currentTimeMillis();
     }
-
 
     public Long getTrafficLightId() {
         return trafficLightId;
