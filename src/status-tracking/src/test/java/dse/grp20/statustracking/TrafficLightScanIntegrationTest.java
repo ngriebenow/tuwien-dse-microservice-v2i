@@ -230,8 +230,8 @@ public class TrafficLightScanIntegrationTest {
 
         assertEquals(1, trafficlightPlans.size());
 
-        assertEquals("Vehicle1", trafficlightPlans.get(0).getVehicleStatusDTO().getVin());
-        assertEquals(1, trafficlightPlans.get(0).getTrafficLightDTO().getId());
+        assertEquals("Vehicle1", trafficlightPlans.get(0).getVin());
+        assertEquals(1, trafficlightPlans.get(0).getTrafficLightId());
     }
 
     @Test

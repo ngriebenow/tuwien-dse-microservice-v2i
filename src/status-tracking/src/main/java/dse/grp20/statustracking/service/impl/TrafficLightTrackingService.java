@@ -153,8 +153,13 @@ public class TrafficLightTrackingService implements ITrafficLightTrackingService
         for (NearCrashEvent event : nearCrashEvents) {
             VehicleStatus nceVehicle = vehicleIdToStatus.get(event.getVin());
             if (nceVehicle != null) {
-                trafficLightPlans.add(new TrafficLightPlanDTO(trafficLight,
-                        this.modelMapper.map(nceVehicle, VehicleStatusDTO.class)));
+                TrafficLightPlanDTO planDTO = new TrafficLightPlanDTO();
+                planDTO.setTrafficLightId(trafficLight.getId());
+                planDTO.setTrafficLightLocation(trafficLight.getLocation());
+                planDTO.setVin(nceVehicle.getVin());
+                planDTO.setVehicleLocation(this.modelMapper.map(nceVehicle.getLocation(), GeoDTO.class));
+                planDTO.setSpeed(nceVehicle.getSpeed());
+                trafficLightPlans.add(planDTO);
 //                this.actorControlService.sendTrafficLightPlan(new TrafficLightPlanDTO(trafficLight,
 //                        this.modelMapper.map(nceVehicle, VehicleStatusDTO.class)));
             }
