@@ -155,65 +155,65 @@ public class TestData {
         trafficLight3Status5 = new TrafficLightStatusDTO();
 
         /* TRAFFICLIGHT 1 */
-        trafficLight1Status1.setTrafficLightDTO(trafficLight1);
+        trafficLight1Status1.setTrafficLightId(trafficLight1.getId());
         trafficLight1Status1.setLight(TRAFFICLIGHT1_STATUS1_LIGHT);
         trafficLight1Status1.setFrom(startTime + TRAFFICLIGHT1_STATUS1_FROM);
 
-        trafficLight1Status2.setTrafficLightDTO(trafficLight1);
+        trafficLight1Status2.setTrafficLightId(trafficLight1.getId());
         trafficLight1Status2.setLight(TRAFFICLIGHT1_STATUS2_LIGHT);
         trafficLight1Status2.setFrom(startTime + TRAFFICLIGHT1_STATUS2_FROM);
 
-        trafficLight1Status3.setTrafficLightDTO(trafficLight1);
+        trafficLight1Status2.setTrafficLightId(trafficLight1.getId());
         trafficLight1Status3.setLight(TRAFFICLIGHT1_STATUS3_LIGHT);
         trafficLight1Status3.setFrom(startTime + TRAFFICLIGHT1_STATUS3_FROM);
 
-        trafficLight1Status4.setTrafficLightDTO(trafficLight1);
+        trafficLight1Status4.setTrafficLightId(trafficLight1.getId());
         trafficLight1Status4.setLight(TRAFFICLIGHT1_STATUS4_LIGHT);
         trafficLight1Status4.setFrom(startTime + TRAFFICLIGHT1_STATUS4_FROM);
 
-        trafficLight1Status5.setTrafficLightDTO(trafficLight1);
+        trafficLight1Status5.setTrafficLightId(trafficLight1.getId());
         trafficLight1Status5.setLight(TRAFFICLIGHT1_STATUS5_LIGHT);
         trafficLight1Status5.setFrom(startTime + TRAFFICLIGHT1_STATUS5_FROM);
 
         /* TRAFFICLIGHT 2 */
-        trafficLight2Status1.setTrafficLightDTO(trafficLight2);
+        trafficLight2Status1.setTrafficLightId(trafficLight2.getId());
         trafficLight2Status1.setLight(TRAFFICLIGHT2_STATUS1_LIGHT);
         trafficLight2Status1.setFrom(startTime + TRAFFICLIGHT2_STATUS1_FROM);
 
-        trafficLight2Status2.setTrafficLightDTO(trafficLight2);
+        trafficLight2Status2.setTrafficLightId(trafficLight2.getId());
         trafficLight2Status2.setLight(TRAFFICLIGHT2_STATUS2_LIGHT);
         trafficLight2Status2.setFrom(startTime + TRAFFICLIGHT2_STATUS2_FROM);
 
-        trafficLight2Status3.setTrafficLightDTO(trafficLight2);
+        trafficLight2Status3.setTrafficLightId(trafficLight2.getId());
         trafficLight2Status3.setLight(TRAFFICLIGHT2_STATUS3_LIGHT);
         trafficLight2Status3.setFrom(startTime + TRAFFICLIGHT2_STATUS3_FROM);
 
-        trafficLight2Status4.setTrafficLightDTO(trafficLight2);
+        trafficLight2Status4.setTrafficLightId(trafficLight2.getId());
         trafficLight2Status4.setLight(TRAFFICLIGHT2_STATUS4_LIGHT);
         trafficLight2Status4.setFrom(startTime + TRAFFICLIGHT2_STATUS4_FROM);
 
-        trafficLight2Status5.setTrafficLightDTO(trafficLight2);
+        trafficLight2Status5.setTrafficLightId(trafficLight2.getId());
         trafficLight2Status5.setLight(TRAFFICLIGHT2_STATUS5_LIGHT);
         trafficLight2Status5.setFrom(startTime + TRAFFICLIGHT2_STATUS5_FROM);
 
         /* TRAFFICLIGHT 3 */
-        trafficLight3Status1.setTrafficLightDTO(trafficLight3);
+        trafficLight3Status1.setTrafficLightId(trafficLight3.getId());
         trafficLight3Status1.setLight(TRAFFICLIGHT3_STATUS1_LIGHT);
         trafficLight3Status1.setFrom(startTime + TRAFFICLIGHT3_STATUS1_FROM);
 
-        trafficLight3Status2.setTrafficLightDTO(trafficLight3);
+        trafficLight3Status2.setTrafficLightId(trafficLight3.getId());
         trafficLight3Status2.setLight(TRAFFICLIGHT3_STATUS2_LIGHT);
         trafficLight3Status2.setFrom(startTime + TRAFFICLIGHT3_STATUS2_FROM);
 
-        trafficLight3Status3.setTrafficLightDTO(trafficLight3);
+        trafficLight3Status3.setTrafficLightId(trafficLight3.getId());
         trafficLight3Status3.setLight(TRAFFICLIGHT3_STATUS3_LIGHT);
         trafficLight3Status3.setFrom(startTime + TRAFFICLIGHT3_STATUS3_FROM);
 
-        trafficLight3Status4.setTrafficLightDTO(trafficLight3);
+        trafficLight3Status4.setTrafficLightId(trafficLight3.getId());
         trafficLight3Status4.setLight(TRAFFICLIGHT3_STATUS4_LIGHT);
         trafficLight3Status4.setFrom(startTime + TRAFFICLIGHT3_STATUS4_FROM);
 
-        trafficLight3Status5.setTrafficLightDTO(trafficLight3);
+        trafficLight3Status5.setTrafficLightId(trafficLight3.getId());
         trafficLight3Status5.setLight(TRAFFICLIGHT3_STATUS5_LIGHT);
         trafficLight3Status5.setFrom(startTime + TRAFFICLIGHT3_STATUS5_FROM);
 

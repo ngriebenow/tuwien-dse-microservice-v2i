@@ -28,23 +28,22 @@ public class PlanService implements IPlanService {
     private ITimeService timeService;
 
     @Override
-    public void planVehicle(List<TrafficLightStatusDTO> trafficLightStatusDTOList, // all future stati from one trafficlight
-                            List<VehicleStatusDTO> vehicleStatusDTOList) // all scanned vehicles from that trafficlight
+    public void planVehicle(ScanDTO scanDTO) // all scanned vehicles from that trafficlight
     {
         List<VehicleControlDTO> vehicleControlDTOList = new ArrayList<>();
 
         // iterate through list and plan every vehicle
-        for (VehicleStatusDTO vehicle : vehicleStatusDTOList) {
-            double newSpeed = calculateSpeed(vehicle, trafficLightStatusDTOList);
+        for (VehicleStatusDTO vehicle : scanDTO.getVehicleStati()) {
+            double newSpeed = calculateSpeed(vehicle, scanDTO.getTrafficLightStati(), scanDTO.getTrafficLight());
             vehicleControlDTOList.add(new VehicleControlDTO(vehicle.getVin(), newSpeed));
         }
 
         controlService.controlVehicles(vehicleControlDTOList);
     }
 
-    public double calculateSpeed(VehicleStatusDTO vehicleStatusDTO, List<TrafficLightStatusDTO> trafficLightStatusDTOList) {
+    public double calculateSpeed(VehicleStatusDTO vehicleStatusDTO, List<TrafficLightStatusDTO> trafficLightStatusDTOList, TrafficLightDTO trafficLightDTO) {
         // extract positions
-        GeoDTO trafficLightPos = trafficLightStatusDTOList.get(0).getTrafficLightDTO().getLocation();
+        GeoDTO trafficLightPos = trafficLightDTO.getLocation();
         GeoDTO vehiclePos = vehicleStatusDTO.getLocation();
 
         // calculate distance

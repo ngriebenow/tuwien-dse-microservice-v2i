@@ -43,7 +43,7 @@ public class VehiclePlanTests {
         trafficLightStatusDTOList.add(testData.trafficLight1Status4);
         trafficLightStatusDTOList.add(testData.trafficLight1Status5);
 
-        double newSpeed = planService.calculateSpeed(testData.vehicle1Status, trafficLightStatusDTOList);
+        double newSpeed = planService.calculateSpeed(testData.vehicle1Status, trafficLightStatusDTOList, testData.trafficLight1);
 
         assertTrue(testData.vehicleSpeedAfterTrafficLight1-1 < newSpeed && newSpeed < testData.vehicleSpeedAfterTrafficLight1+1);
     }
@@ -59,7 +59,7 @@ public class VehiclePlanTests {
         trafficLightStatusDTOList.add(testData.trafficLight2Status4);
         trafficLightStatusDTOList.add(testData.trafficLight2Status5);
 
-        double newSpeed = planService.calculateSpeed(testData.vehicle2Status, trafficLightStatusDTOList);
+        double newSpeed = planService.calculateSpeed(testData.vehicle2Status, trafficLightStatusDTOList, testData.trafficLight2);
 
         assertTrue(testData.vehicleSpeedAfterTrafficLight2-1 < newSpeed && newSpeed < testData.vehicleSpeedAfterTrafficLight2+1);
     }
@@ -73,7 +73,7 @@ public class VehiclePlanTests {
         trafficLightStatusDTOList1.add(testData.trafficLight1Status4);
         trafficLightStatusDTOList1.add(testData.trafficLight1Status5);
 
-        double newSpeed1 = planService.calculateSpeed(testData.vehicle1Status, trafficLightStatusDTOList1);
+        double newSpeed1 = planService.calculateSpeed(testData.vehicle1Status, trafficLightStatusDTOList1, testData.trafficLight1);
 
         assertTrue(testData.vehicleSpeedAfterTrafficLight1-1 < newSpeed1 && newSpeed1 < testData.vehicleSpeedAfterTrafficLight1+1);
 
@@ -86,7 +86,7 @@ public class VehiclePlanTests {
         trafficLightStatusDTOList2.add(testData.trafficLight2Status4);
         trafficLightStatusDTOList2.add(testData.trafficLight2Status5);
 
-        double newSpeed2 = planService.calculateSpeed(testData.vehicle2Status, trafficLightStatusDTOList2);
+        double newSpeed2 = planService.calculateSpeed(testData.vehicle2Status, trafficLightStatusDTOList2, testData.trafficLight2);
 
         assertTrue(testData.vehicleSpeedAfterTrafficLight2-1 < newSpeed2 && newSpeed2 < testData.vehicleSpeedAfterTrafficLight2+1);
     }

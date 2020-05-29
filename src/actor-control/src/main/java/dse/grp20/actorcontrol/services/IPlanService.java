@@ -1,18 +1,15 @@
 package dse.grp20.actorcontrol.services;
 
 
-import dse.grp20.common.dto.TrafficLightPlanDTO;
-import dse.grp20.common.dto.TrafficLightStatusDTO;
-import dse.grp20.common.dto.VehicleStatusDTO;
+import dse.grp20.common.dto.*;
 
 import java.util.List;
 
 public interface IPlanService {
 
-    void planVehicle(List<TrafficLightStatusDTO> trafficLightStatusDTOList,
-                     List<VehicleStatusDTO> vehicleStatusDTOList);
+    void planVehicle(ScanDTO scanDTO);
 
-    double calculateSpeed(VehicleStatusDTO vehicleStatusDTO, List<TrafficLightStatusDTO> trafficLightStatusDTOList);
+    double calculateSpeed(VehicleStatusDTO vehicleStatusDTO, List<TrafficLightStatusDTO> trafficLightStatusDTOList, TrafficLightDTO trafficLightDTO);
 
     void planTrafficLight(TrafficLightPlanDTO trafficLightPlanDTO);
 

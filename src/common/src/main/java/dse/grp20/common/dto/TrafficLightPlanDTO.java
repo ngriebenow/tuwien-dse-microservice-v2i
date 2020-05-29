@@ -10,6 +10,9 @@ public class TrafficLightPlanDTO {
     private double speed;
     private GeoDTO vehicleLocation;
 
+    public TrafficLightPlanDTO() {
+    }
+
     public long getTrafficLightId() {
         return trafficLightId;
     }
