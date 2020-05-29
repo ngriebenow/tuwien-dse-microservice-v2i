@@ -9,7 +9,7 @@ public class TrafficLightStatusDTO implements Serializable {
     private long from;
     private boolean valid;
 
-    private TrafficLightDTO trafficLightDTO;
+    private long trafficLightId;
 
     public LightDTO getLight() {
         return this.light;
@@ -27,12 +27,12 @@ public class TrafficLightStatusDTO implements Serializable {
         this.from = from;
     }
 
-    public TrafficLightDTO getTrafficLightDTO() {
-        return trafficLightDTO;
+    public long getTrafficLightId() {
+        return trafficLightId;
     }
 
-    public void setTrafficLightDTO(TrafficLightDTO trafficLightDTO) {
-        this.trafficLightDTO = trafficLightDTO;
+    public void setTrafficLightId(long trafficLightId) {
+        this.trafficLightId = trafficLightId;
     }
 
     public boolean isValid() {
@@ -49,7 +49,7 @@ public class TrafficLightStatusDTO implements Serializable {
                 "light=" + light +
                 ", from=" + from +
                 ", valid=" + valid +
-                ", trafficLightId=" + trafficLightDTO.getId() +
+                ", trafficLightId=" + trafficLightId +
                 '}';
     }
 }
